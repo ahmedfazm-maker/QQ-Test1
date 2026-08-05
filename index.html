@@ -2,335 +2,451 @@
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Venture Assessment · Meshwar</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0F0F1E;--n800:#1D1D3B;--n600:#2C2C5A;--purple:#6A00FF;
---lav:#C77DFF;--slate:#8A8AA8;--up:#00E5A0;--down:#FF4D6D;--hold:#FFB020;
---r:14px;--ease:cubic-bezier(.2,0,0,1)}
+:root{--navy:#0F0F1E;--n800:#1D1D3B;--n600:#2C2C5A;--purple:#6A00FF;--lav:#C77DFF;
+--slate:#8A8AA8;--up:#00E5A0;--down:#FF4D6D;--hold:#FFB020;--r:14px}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--navy);color:#fff;font-family:Inter,sans-serif;font-size:13.5px;
-line-height:1.6;-webkit-font-smoothing:antialiased}
+body{background:var(--navy);color:#fff;font-family:Inter,sans-serif;font-size:13.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
 .mono{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
-.wrap{max-width:940px;margin:0 auto;padding:44px 32px 80px}
-h1{font-family:Sora;font-weight:400;font-size:30px;letter-spacing:-.015em;line-height:1.15}
-h2{font-family:Sora;font-weight:400;font-size:19px;margin-bottom:3px;letter-spacing:-.01em}
-.eyebrow{color:var(--lav);font-size:10px;letter-spacing:.2em;text-transform:uppercase;
-font-weight:600;margin-bottom:9px}
-.sec{margin-top:38px}
-.sec-h{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;
-padding-bottom:11px;border-bottom:1px solid var(--n600)}
-.sec-n{font-family:'JetBrains Mono';color:var(--slate);font-size:12px}
-.sub{color:var(--slate);font-size:12.5px}
+.wrap{max-width:960px;margin:0 auto;padding:44px 32px 80px}
+h1{font-family:Sora;font-weight:400;font-size:31px;letter-spacing:-.015em;line-height:1.15}
+h2{font-family:Sora;font-weight:400;font-size:19px;letter-spacing:-.01em}
+.eyebrow{color:var(--lav);font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;margin-bottom:9px}
+.sec{margin-top:42px}
+.sec-h{display:flex;align-items:baseline;gap:13px;padding-bottom:10px;border-bottom:1px solid var(--n600)}
+.sec-n{font-family:'JetBrains Mono';color:var(--slate);font-size:12px;min-width:22px}
+.intro{color:#b8b8d0;font-size:12.5px;margin:11px 0 15px;max-width:78ch;font-style:italic}
 .panel{background:var(--n800);border-radius:var(--r);padding:18px 20px;margin-top:11px}
 .muted{color:var(--slate)}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 8px;
-border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 8px;border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap}
 .chip .d{width:6px;height:6px;border-radius:50%}
-.up{background:rgba(0,229,160,.11);color:var(--up)} .up .d{background:var(--up)}
-.dn{background:rgba(255,77,109,.11);color:var(--down)} .dn .d{background:var(--down)}
-.hd{background:rgba(255,176,32,.11);color:var(--hold)} .hd .d{background:var(--hold)}
-.nt{background:#262650;color:var(--slate)} .nt .d{background:var(--slate)}
+.up{background:rgba(0,229,160,.11);color:var(--up)}.up .d{background:var(--up)}
+.dn{background:rgba(255,77,109,.11);color:var(--down)}.dn .d{background:var(--down)}
+.hd{background:rgba(255,176,32,.11);color:var(--hold)}.hd .d{background:var(--hold)}
+.nt{background:#262650;color:var(--slate)}.nt .d{background:var(--slate)}
+.pu{background:rgba(106,0,255,.18);color:var(--lav)}.pu .d{background:var(--lav)}
 table{width:100%;border-collapse:collapse;margin-top:4px}
-th{color:var(--slate);font-size:10px;letter-spacing:.15em;text-transform:uppercase;
-text-align:left;font-weight:500;padding-bottom:9px}
+th{color:var(--slate);font-size:10px;letter-spacing:.15em;text-transform:uppercase;text-align:left;font-weight:500;padding-bottom:9px}
 th.r,td.r{text-align:right}
 td{padding:9px 0;border-top:1px solid #262650;font-size:12.5px;vertical-align:top}
+tr.tot td{border-top:1.5px solid var(--n600);font-weight:600}
 .num{font-family:'JetBrains Mono';font-variant-numeric:tabular-nums;text-align:right}
-.hero{background:linear-gradient(135deg,#1a1235,#16162e);border-radius:var(--r);
-padding:26px 28px;margin-top:22px;border:1px solid #2a2a54}
-.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:20px}
+.hero{background:linear-gradient(135deg,#1a1235,#16162e);border-radius:var(--r);padding:26px 28px;margin-top:20px;border:1px solid #2a2a54}
+.hero-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:20px}
 .big{font-family:'JetBrains Mono';font-size:34px;font-weight:500;letter-spacing:-.02em;line-height:1}
 .lbl{color:var(--slate);font-size:10px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:7px}
-.bars{margin-top:22px}
-.bar-row{display:grid;grid-template-columns:118px 1fr 42px;gap:13px;align-items:center;
-padding:6px 0;font-size:12.5px}
+.bar-row{display:grid;grid-template-columns:150px 1fr 46px;gap:13px;align-items:center;padding:5px 0;font-size:12.5px}
 .track{height:6px;background:#262650;border-radius:3px;overflow:hidden}
 .fill{height:100%;border-radius:3px}
 .kv{display:grid;grid-template-columns:1fr auto;gap:16px;padding:8px 0;border-top:1px solid #262650;font-size:12.5px}
 .kv:first-child{border-top:none}
-.find{border-left:2px solid var(--n600);padding:2px 0 2px 15px;margin:15px 0}
-.find.crit{border-color:var(--down)} .find.warn{border-color:var(--hold)} .find.ok{border-color:var(--up)}
+.find{border-left:2px solid var(--n600);padding:2px 0 2px 15px;margin:14px 0}
+.find.crit{border-color:var(--down)}.find.warn{border-color:var(--hold)}.find.ok{border-color:var(--up)}
 .find-t{font-weight:600;font-size:13px;margin-bottom:5px}
 .find-b{color:#c4c4d8;font-size:12.5px}
 .q{background:#191934;border-radius:10px;padding:14px 16px;margin-top:9px}
-.q-t{font-size:12.5px;margin-bottom:7px}
 .why{color:var(--lav);font-size:11.5px}
-.lever{display:grid;grid-template-columns:22px 1fr 76px;gap:11px;padding:10px 0;
-border-top:1px solid #262650;font-size:12.5px;align-items:start}
+.lever{display:grid;grid-template-columns:22px 1fr 80px;gap:11px;padding:10px 0;border-top:1px solid #262650;font-size:12.5px;align-items:start}
 .lever:first-of-type{border-top:none}
-.lever .r{font-family:'JetBrains Mono';color:var(--slate);font-size:11px;padding-top:2px}
+.lever .rk{font-family:'JetBrains Mono';color:var(--slate);font-size:11px;padding-top:2px}
 .lever .imp{font-family:'JetBrains Mono';font-size:11.5px;color:var(--up);text-align:right;padding-top:2px}
-.locked{background:#161630;border:1px dashed #33336a;border-radius:var(--r);
-padding:22px;margin-top:12px;text-align:center}
-.foot{margin-top:52px;padding-top:22px;border-top:1px solid var(--n600);
-color:var(--slate);font-size:11.5px;display:flex;justify-content:space-between}
-@media(max-width:700px){.hero-grid{grid-template-columns:1fr;gap:18px}
-.bar-row{grid-template-columns:96px 1fr 38px}}
+.locked{background:#161630;border:1px dashed #33336a;border-radius:var(--r);padding:20px;margin-top:12px;text-align:center}
+.pkg{background:linear-gradient(135deg,#1f1240,#181832);border:1px solid #3a2a6e;border-radius:var(--r);padding:24px 26px;margin-top:12px}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:7px 22px;margin-top:14px}
+.feat div{font-size:12.5px;color:#c4c4d8;display:flex;gap:8px}
+.feat span{color:var(--lav)}
+.foot{margin-top:54px;padding-top:22px;border-top:1px solid var(--n600);color:var(--slate);font-size:11.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:700px){.hero-grid,.feat{grid-template-columns:1fr}.bar-row{grid-template-columns:112px 1fr 40px}}
 </style></head><body><div class="wrap">
 
-<div class="eyebrow">Venture Assessment · Stage 2</div>
+<div class="eyebrow">Venture Assessment</div>
 <h1>Meshwar</h1>
-<div class="sub" style="margin-top:6px">Fleet &amp; delivery management for FMCG distributors · Cairo, Egypt<br>
-Assessed 12 Aug 2026 · 14 documents · Assessment Agent v2.0</div>
+<div class="muted" style="margin-top:6px;font-size:12.5px">
+Fleet &amp; delivery management for FMCG distributors · Cairo, Egypt<br>
+12 August 2026 · 14 documents · 6 questions · onboarding profile</div>
 
-<!-- ═══ 1 EXEC ═══ -->
-<div class="hero">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px">
-    <div>
-      <div class="lbl">Stage</div>
-      <div style="font-family:Sora;font-size:23px;font-weight:400">6 · Revenue Generation</div>
-      <div class="muted" style="font-size:12px;margin-top:5px">
-        Claimed: 7 · Profitability &nbsp;<span class="chip hd"><span class="d"></span>Reclassified</span></div>
-    </div>
-    <div style="text-align:right">
-      <div class="lbl">Readiness</div>
-      <div class="big">48<span style="font-size:17px;color:var(--slate)">/100</span></div>
-      <div class="mono muted" style="font-size:11.5px;margin-top:5px">confidence 0.71</div>
-    </div>
-  </div>
-
-  <div class="hero-grid">
-    <div><div class="lbl">Band</div><span class="chip dn"><span class="d"></span>Weak — 40–54</span>
-      <div class="muted" style="font-size:11.5px;margin-top:7px">Significant structural issues</div></div>
-    <div><div class="lbl">Stage 6 artifacts</div><span class="chip dn"><span class="d"></span>Blocked</span>
-      <div class="muted" style="font-size:11.5px;margin-top:7px">Requires ≥55 composite</div></div>
-    <div><div class="lbl">Critical blockers</div><span class="chip hd"><span class="d"></span>3 open</span>
-      <div class="muted" style="font-size:11.5px;margin-top:7px">Viability below floor</div></div>
-  </div>
-
-  <div class="bars">
-    <div class="bar-row"><span>Desirability</span>
-      <div class="track"><div class="fill" style="width:61%;background:var(--lav)"></div></div>
-      <span class="num">61</span></div>
-    <div class="bar-row"><span>Viability</span>
-      <div class="track"><div class="fill" style="width:38%;background:var(--down)"></div></div>
-      <span class="num">38</span></div>
-    <div class="bar-row"><span>Feasibility</span>
-      <div class="track"><div class="fill" style="width:55%;background:var(--lav)"></div></div>
-      <span class="num">55</span></div>
-    <div class="bar-row"><span>Impact (ESG)</span>
-      <div class="track"><div class="fill" style="width:42%;background:var(--slate)"></div></div>
-      <span class="num">42</span></div>
-  </div>
-
-  <div style="margin-top:22px;padding-top:17px;border-top:1px solid #2a2a54">
-    <div class="lbl">The three things that matter</div>
-    <div class="find crit"><div class="find-t">Runway is 7 months, not 18</div>
-      <div class="find-b">Computed from trailing 3-month net burn against the cash position in the
-      last verified bank statement. The 18-month figure assumes a burn reduction that has not occurred.</div></div>
-    <div class="find crit"><div class="find-t">Gross margin is 52%, not 68%</div>
-      <div class="find-b">Delivery labour and payment processing were excluded from COGS. Recomputed
-      from the management accounts. This is what moves Viability below the floor.</div></div>
-    <div class="find warn"><div class="find-t">One customer is 41% of revenue</div>
-      <div class="find-b">Cairo Foods Group. Contract renews in 4 months with a 60-day termination right.</div></div>
-  </div>
-</div>
-
-<!-- ═══ 2 PROFILE ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">02</span>
-  <div><h2>Business profile</h2><div class="sub">Reconstructed from evidence, not from the deck</div></div></div>
+<!-- 00 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">00</span><h2>Introduction</h2></div>
+<div class="intro">What this report is, how we produced it, and how to use it.</div>
 <div class="panel">
-Meshwar sells a fleet dispatch and proof-of-delivery platform to FMCG distributors in Greater Cairo
-and Alexandria. Revenue is a per-vehicle monthly subscription (EGP 340–520) plus a one-off onboarding
-fee, billed quarterly in advance.
-<div style="margin-top:12px">
-Nineteen paying distributors across 1,140 tracked vehicles. Recognised revenue of
-<span class="mono">EGP 5.9M</span> in FY24, growing <span class="mono">31%</span> year on year.
-Eleven staff on payroll; two further contributors invoice as contractors. Incorporated in Egypt
-as a single LLC, no holding structure.
+This is an independent assessment of Meshwar, produced from the 14 documents in your data room,
+your answers to six follow-up questions, and the profile you completed at onboarding.
+<div style="margin-top:12px">We did three things, in order. First we <b>read and analysed</b> everything —
+extracting facts, recomputing your key metrics from source data rather than accepting stated figures,
+and checking your documents against each other. Then we <b>asked</b> about what the documents could not
+resolve on their own. Finally we <b>scored</b> the venture against a 96-metric rubric.</div>
+<div style="margin-top:12px">Two things worth knowing before you read on. Where we had no data we recorded a
+<b>gap</b> rather than an estimate — nothing here is invented to fill a hole. And where your documents
+disagreed with each other we say so plainly; in almost every case that turns out to be a definition
+difference rather than an error, and we've said which we think it is.</div>
+<div style="margin-top:12px" class="muted">Sections 03–09 are the analysis. Sections 10–12 are the assessment.
+Sections 13–15 are what to do next. If you read only two things, read the executive summary and section 14.</div>
+</div></div>
+
+<!-- 01 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">01</span><h2>Executive summary</h2></div>
+<div class="intro">The answer, in about thirty seconds.</div>
+<div class="hero">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px">
+<div><div class="lbl">Stage</div>
+  <div style="font-family:Sora;font-size:23px">6 · Revenue Generation</div>
+  <div class="muted" style="font-size:12px;margin-top:5px">You told us 7 · Profitability
+    &nbsp;<span class="chip hd"><span class="d"></span>Reclassified</span></div></div>
+<div style="text-align:right"><div class="lbl">Readiness score</div>
+  <div class="big">48<span style="font-size:17px;color:var(--slate)">/100</span></div>
+  <div class="mono muted" style="font-size:11.5px;margin-top:5px">confidence 0.71</div></div>
 </div>
-<div style="margin-top:12px" class="muted">
-Positioning in the deck emphasises AI route optimisation. The product analytics show route
-optimisation used by 3 of 19 accounts; proof-of-delivery is used daily by all 19. The business
-being bought is not the business being pitched.
+<div class="hero-grid">
+<div><div class="lbl">Band</div><span class="chip dn"><span class="d"></span>Weak · 40–54</span>
+  <div class="muted" style="font-size:11.5px;margin-top:7px">Structural issues to resolve</div></div>
+<div><div class="lbl">Investor materials</div><span class="chip dn"><span class="d"></span>Not yet</span>
+  <div class="muted" style="font-size:11.5px;margin-top:7px">Needs ≥55 composite</div></div>
+<div><div class="lbl">Critical blockers</div><span class="chip hd"><span class="d"></span>3 open</span>
+  <div class="muted" style="font-size:11.5px;margin-top:7px">Viability below floor</div></div>
+</div>
+<div style="margin-top:22px;padding-top:17px;border-top:1px solid #2a2a54">
+<div class="lbl">The three that matter most</div>
+<div class="find crit"><div class="find-t">Your runway is 7 months, not 18</div>
+  <div class="find-b">Computed from your trailing three-month net burn against the cash position in your
+  last verified bank statement. The 18-month figure assumes a burn reduction that hasn't happened yet.</div></div>
+<div class="find crit"><div class="find-t">Your gross margin is 52%, not 68%</div>
+  <div class="find-b">Delivery labour and payment processing weren't in COGS. Recomputed from your management
+  accounts. This is the single largest driver of your Viability score.</div></div>
+<div class="find warn"><div class="find-t">One customer is 41% of your revenue</div>
+  <div class="find-b">Cairo Foods Group — renews in four months with a 60-day termination right.</div></div>
 </div></div></div>
 
-<!-- ═══ 3 EVIDENCE ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">03</span>
-  <div><h2>Evidence inventory</h2><div class="sub">14 documents · reliability caps the confidence of anything drawn from them</div></div></div>
-<table><thead><tr><th>Document</th><th>Type</th><th>Covers</th><th class="r">Reliability</th></tr></thead><tbody>
-<tr><td>Management accounts FY23–FY24</td><td class="muted">Financial</td><td class="muted">24 months P&amp;L</td><td class="r"><span class="chip nt"><span class="d"></span>Supported</span></td></tr>
-<tr><td>Bank statements</td><td class="muted">Financial</td><td class="muted">Jan–Sep 2024 only</td><td class="r"><span class="chip up"><span class="d"></span>Verified</span></td></tr>
-<tr><td>Cap table</td><td class="muted">Legal</td><td class="muted">Countersigned</td><td class="r"><span class="chip up"><span class="d"></span>Verified</span></td></tr>
-<tr><td>Customer contracts ×6</td><td class="muted">Commercial</td><td class="muted">6 of 19 accounts</td><td class="r"><span class="chip up"><span class="d"></span>Verified</span></td></tr>
-<tr><td>Product analytics export</td><td class="muted">Product</td><td class="muted">18 months usage</td><td class="r"><span class="chip up"><span class="d"></span>Verified</span></td></tr>
-<tr><td>Payroll register</td><td class="muted">Team</td><td class="muted">Aug 2026</td><td class="r"><span class="chip up"><span class="d"></span>Verified</span></td></tr>
-<tr><td>Pitch deck</td><td class="muted">Narrative</td><td class="muted">Claims only</td><td class="r"><span class="chip nt"><span class="d"></span>Claimed</span></td></tr>
-</tbody></table></div>
-
-<!-- ═══ 4 ABSENT ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">04</span>
-  <div><h2>What's missing</h2><div class="sub">Documents a Stage 6 venture would normally have</div></div></div>
-<table><thead><tr><th>Expected</th><th>Why it matters</th><th class="r">Severity</th></tr></thead><tbody>
-<tr><td>Bank statements Oct–Dec 2024</td><td class="muted">The pre-raise quarter is unverified. All Q4 figures remain management-asserted.</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td></tr>
-<tr><td>Cohort retention export</td><td class="muted">Blocks 4 metrics. 20 months of operation with no churn data is itself a signal.</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td></tr>
-<tr><td>IP assignment agreements</td><td class="muted">Two contractors appear in payroll. The company may not own what they built.</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td></tr>
-<tr><td>Contracts for 13 of 19 accounts</td><td class="muted">Contracted ARR cannot be fully verified. Concentration confirmed from billing instead.</td><td class="r"><span class="chip hd"><span class="d"></span>Medium</span></td></tr>
-</tbody></table></div>
-
-<!-- ═══ 5 DERIVED ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">05</span>
-  <div><h2>Derived metrics</h2><div class="sub">Computed from source data, shown against what was claimed</div></div></div>
-<table><thead><tr><th>Metric</th><th class="r">Computed</th><th class="r">Claimed</th><th class="r">Variance</th><th>Why they differ</th></tr></thead><tbody>
-<tr><td>Revenue FY24 (recognised)</td><td class="num">EGP 5.9M</td><td class="num muted">EGP 8.4M</td><td class="num" style="color:var(--down)">−30%</td><td class="muted">Deck figure is bookings, incl. Q1-25 prepayments</td></tr>
-<tr><td>Gross margin</td><td class="num">52%</td><td class="num muted">68%</td><td class="num" style="color:var(--down)">−16pp</td><td class="muted">Delivery labour + payment fees excluded from COGS</td></tr>
-<tr><td>Net burn (monthly)</td><td class="num">EGP 610K</td><td class="num muted">EGP 390K</td><td class="num" style="color:var(--down)">+56%</td><td class="muted">Excludes deferred founder comp and capex</td></tr>
-<tr><td>Runway</td><td class="num">7.2 mo</td><td class="num muted">18 mo</td><td class="num" style="color:var(--down)">−60%</td><td class="muted">Claim uses planned burn, not trailing actual</td></tr>
-<tr><td>Paying customers</td><td class="num">19</td><td class="num muted">34</td><td class="num" style="color:var(--down)">−44%</td><td class="muted">15 are unbilled pilots</td></tr>
-<tr><td>CAC</td><td class="num">EGP 31.4K</td><td class="num muted">EGP 12.0K</td><td class="num" style="color:var(--down)">+162%</td><td class="muted">Claim excludes the two-person sales salary</td></tr>
-<tr><td>Revenue growth YoY</td><td class="num">31%</td><td class="num muted">31%</td><td class="num" style="color:var(--up)">match</td><td class="muted">—</td></tr>
-<tr><td>Top-customer concentration</td><td class="num">41%</td><td class="num muted">—</td><td class="num muted">n/d</td><td class="muted">Not disclosed in any document</td></tr>
-</tbody></table></div>
-
-<!-- ═══ 6 RECONCILIATION ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">06</span>
-  <div><h2>Reconciliation</h2><div class="sub">Where documents disagree · 4 checks failed of 12 run</div></div></div>
-
-<div class="panel"><div class="find crit"><div class="find-t">Revenue · deck vs management accounts
-  &nbsp;<span class="chip up"><span class="d"></span>Resolved</span></div>
-  <div class="find-b">Deck <span class="mono">EGP 8.4M</span> vs accounts <span class="mono">EGP 5.9M</span>, same period.
-  Classified as a definition mismatch. Founder confirmed the deck figure is bookings including
-  Q1-25 prepayments. Recognised revenue used throughout.</div></div>
-
-<div class="find crit"><div class="find-t">Customer count · deck vs billing
-  &nbsp;<span class="chip up"><span class="d"></span>Resolved</span></div>
-  <div class="find-b">34 claimed, 19 billed. Founder confirmed 15 are unbilled pilots, 4 of which
-  are in a paid conversion discussion. Paying count used for all scoring.</div></div>
-
-<div class="find crit"><div class="find-t">Runway · deck vs cash and burn
-  &nbsp;<span class="chip dn"><span class="d"></span>Unresolved</span></div>
-  <div class="find-b">18 months claimed; <span class="mono">7.2</span> computed from trailing burn.
-  Founder states a planned headcount freeze brings burn to <span class="mono">EGP 390K</span>. The freeze
-  has not occurred in any observed period. Recorded as unverified — <span class="mono">7.2</span> used.</div></div>
-
-<div class="find warn"><div class="find-t">Q4 revenue · accounts vs bank
-  &nbsp;<span class="chip hd"><span class="d"></span>Cannot verify</span></div>
-  <div class="find-b">Bank statements end September. Q4 revenue of <span class="mono">EGP 1.7M</span>
-  cannot be traced to cash. Founder could not supply the missing statements. Q4 figures held at
-  management-asserted reliability.</div></div></div></div>
-
-<!-- ═══ 7 ANOMALIES ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">07</span>
-  <div><h2>Anomalies</h2><div class="sub">Patterns warranting explanation · not conclusions</div></div></div>
-<table><thead><tr><th>Flag</th><th>Detail</th><th class="r">Severity</th><th class="r">Status</th></tr></thead><tbody>
-<tr><td>Revenue concentration</td><td class="muted">Cairo Foods Group 41% of FY24 revenue; renews in 4 months, 60-day termination</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td><td class="r"><span class="chip hd"><span class="d"></span>Acknowledged</span></td></tr>
-<tr><td>Missing periods</td><td class="muted">Bank statements absent for the pre-raise quarter</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td><td class="r"><span class="chip dn"><span class="d"></span>Open</span></td></tr>
-<tr><td>Contractor-built IP</td><td class="muted">Two contributors in payroll, no assignment agreements in the room</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td><td class="r"><span class="chip dn"><span class="d"></span>Open</span></td></tr>
-<tr><td>Churn silence</td><td class="muted">20 months operating, no cohort or churn data supplied</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td><td class="r"><span class="chip dn"><span class="d"></span>Open</span></td></tr>
-<tr><td>Deferred comp</td><td class="muted">Both founders below market since Mar 2024 — understates true burn</td><td class="r"><span class="chip hd"><span class="d"></span>Medium</span></td><td class="r"><span class="chip up"><span class="d"></span>Explained</span></td></tr>
-</tbody></table></div>
-
-<!-- ═══ 8 QUESTIONS ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">08</span>
-  <div><h2>Questions &amp; answers</h2><div class="sub">6 asked · 3 answered · 1 document supplied · 2 unresolved</div></div></div>
-
-<div class="q"><div class="q-t"><span class="mono muted">q_01</span> &nbsp;Your deck shows EGP 8.4M for FY24;
-  the accounts show EGP 5.9M. Is the deck figure bookings rather than recognised revenue?</div>
-  <div class="why">→ Resolves revenue growth, gross margin, and the stage test</div>
-  <div style="margin-top:9px;font-size:12.5px;color:#c4c4d8">
-    <span class="chip up"><span class="d"></span>Answered</span> &nbsp;Bookings, including Q1-25 prepaid contracts.</div></div>
-
-<div class="q"><div class="q-t"><span class="mono muted">q_02</span> &nbsp;There's no cohort retention export
-  in the room. Can you produce one from the product database?</div>
-  <div class="why">→ Blocks 4 metrics under Desirability and Sustainability</div>
-  <div style="margin-top:9px;font-size:12.5px;color:#c4c4d8">
-    <span class="chip dn"><span class="d"></span>Cannot answer</span> &nbsp;Not currently instrumented.
-    Recorded as a permanent gap. <span class="muted">Assessment proceeded.</span></div></div>
-
-<div class="q"><div class="q-t"><span class="mono muted">q_04</span> &nbsp;Two contractors appear in payroll.
-  Are their IP assignments signed?</div>
-  <div class="why">→ Not a Stage 2 blocker, but it stalls diligence later</div>
-  <div style="margin-top:9px;font-size:12.5px;color:#c4c4d8">
-    <span class="chip hd"><span class="d"></span>No response</span> &nbsp;Round closed on timeout.
-    Carried to the risk register.</div></div>
-</div>
-
-<!-- ═══ 9 STAGE ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">09</span>
-  <div><h2>Stage classification</h2></div></div>
+<!-- 02 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">02</span><h2>How your score works</h2></div>
+<div class="intro">Worth two minutes before the numbers — the rubric changes depending on your stage, and the
+score means different things at different confidence levels.</div>
 <div class="panel">
-<div class="kv"><span>Claimed by founder</span><span class="mono">7 · Profitability</span></div>
-<div class="kv"><span>Assessed</span><span class="mono" style="color:var(--lav)">6 · Revenue Generation</span></div>
-<div class="kv"><span>Confidence</span><span class="mono">Validated</span></div>
-<div style="margin-top:15px;padding-top:14px;border-top:1px solid #262650">
-<div class="lbl">Failed test</div>
-<div style="font-size:12.5px;color:#c4c4d8">Stage 7 requires positive EBITDA sustained across
-<b>two consecutive quarters</b>. The management accounts show two profitable <i>months</i>
-(Jun, Jul 2024) inside an otherwise loss-making year. Q3 and Q4 both show negative EBITDA.
-Stage 6 tests pass in full: recognised revenue is present and bank-verified through September.</div></div>
+<b>The rubric is dynamic.</b> A venture is only measured on what's measurable at its stage. At Stage 1 we don't
+ask about churn; at Stage 6 we do. Of 96 metrics in the full rubric, <span class="mono">54</span> apply to a
+Stage 6 business — the other 42 were excluded as not applicable, <i>not</i> counted as zero.
+<div style="margin-top:14px"><b>The weights shift too.</b> Early on, the team and the market matter most —
+there's little else to measure. As revenue arrives, Viability dominates, because the question changes from
+"could this work" to "does this work."</div>
+<table style="margin-top:14px"><thead><tr><th>Pillar</th><th class="r">Stage 1–2</th><th class="r">Stage 3–4</th>
+<th class="r">Stage 5</th><th class="r">Stage 6–7</th><th class="r">Stage 8</th></tr></thead><tbody>
+<tr><td>Desirability</td><td class="num muted">35%</td><td class="num muted">30%</td><td class="num muted">30%</td><td class="num" style="color:var(--lav)">25%</td><td class="num muted">20%</td></tr>
+<tr><td>Viability</td><td class="num muted">20%</td><td class="num muted">25%</td><td class="num muted">30%</td><td class="num" style="color:var(--lav)">40%</td><td class="num muted">40%</td></tr>
+<tr><td>Feasibility</td><td class="num muted">35%</td><td class="num muted">35%</td><td class="num muted">30%</td><td class="num" style="color:var(--lav)">25%</td><td class="num muted">25%</td></tr>
+<tr><td>Impact (ESG)</td><td class="num muted">10%</td><td class="num muted">10%</td><td class="num muted">10%</td><td class="num" style="color:var(--lav)">10%</td><td class="num muted">15%</td></tr>
+</tbody></table>
+<div class="muted" style="font-size:11.5px;margin-top:8px">Highlighted column is the one applied to you.</div>
+
+<div style="margin-top:20px;padding-top:16px;border-top:1px solid #262650">
+<b>Score and confidence are two different things.</b> The score says how you're performing. The confidence
+factor says how much data stood behind that judgement — and it combines two things:</div>
+<div class="kv" style="margin-top:10px"><span>Coverage — how much of the applicable rubric we could populate</span><span class="mono">38 of 54 metrics · 0.70</span></div>
+<div class="kv"><span>Quality — how reliable the sources behind those metrics were</span><span class="mono">weighted 0.81</span></div>
+<div class="kv"><span><b>Confidence factor</b></span><span class="mono" style="color:var(--lav)"><b>0.71</b></span></div>
+<div class="muted" style="font-size:12px;margin-top:12px">
+A bank statement carries more weight than a management spreadsheet, which carries more than a deck figure,
+which carries more than something said in conversation. Your 0.81 quality score is relatively strong — most of
+what you gave us is verifiable. Coverage is what's holding the number down.
+<b style="color:#fff">Gaps cost you certainty, not score.</b></div>
 </div></div>
 
-<!-- ═══ 10 SCORES ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">10</span>
-  <div><h2>Scores</h2><div class="sub">Stage 6 weights · 71% of applicable metrics populated · every rationale cites a finding</div></div></div>
-<table><thead><tr><th>Pillar / sub-pillar</th><th class="r">Score</th><th>Rationale</th></tr></thead><tbody>
-<tr><td><b>Desirability</b></td><td class="num"><b>61</b></td><td class="muted">—</td></tr>
-<tr><td class="muted" style="padding-left:14px">Attractiveness</td><td class="num">66</td><td class="muted">19 paying accounts, 31% growth verified. NPS absent.</td></tr>
-<tr><td class="muted" style="padding-left:14px">Competitiveness</td><td class="num">54</td><td class="muted">Proof-of-delivery used daily by all 19; route optimisation by 3 — differentiation claim unsupported (§02).</td></tr>
-<tr><td><b>Viability</b></td><td class="num" style="color:var(--down)"><b>38</b></td><td class="muted">—</td></tr>
-<tr><td class="muted" style="padding-left:14px">Profitability</td><td class="num">32</td><td class="muted">Recomputed margin 52% vs 68% claimed (§05). Negative EBITDA in 3 of 4 quarters.</td></tr>
-<tr><td class="muted" style="padding-left:14px">Scalability</td><td class="num">48</td><td class="muted">CAC EGP 31.4K against ARPU EGP 310K/yr — workable, but 2.6× the claimed figure.</td></tr>
-<tr><td class="muted" style="padding-left:14px">Sustainability</td><td class="num">29</td><td class="muted">Runway 7.2 months (§05). Churn unmeasurable — cohort data absent (§04).</td></tr>
-<tr><td class="muted" style="padding-left:14px">Defensibility</td><td class="num">41</td><td class="muted">IP ownership unconfirmed for two contributors (§07).</td></tr>
-<tr><td><b>Feasibility</b></td><td class="num"><b>55</b></td><td class="muted">—</td></tr>
-<tr><td class="muted" style="padding-left:14px">People</td><td class="num">64</td><td class="muted">Founder-market fit strong — 9 years in FMCG distribution ops.</td></tr>
-<tr><td class="muted" style="padding-left:14px">Finance</td><td class="num">38</td><td class="muted">Burn 56% above stated. Q4 unverified (§06).</td></tr>
-<tr><td class="muted" style="padding-left:14px">Technology</td><td class="num">61</td><td class="muted">Platform live and used daily. No instrumentation for retention.</td></tr>
-<tr><td><b>Impact (ESG)</b></td><td class="num"><b>42</b></td><td class="muted">Not yet formally addressed. Normal at this stage.</td></tr>
+<!-- 03 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">03</span><h2>Business profile</h2></div>
+<div class="intro">What we understood your business to be — reconstructed from your documents rather than your
+deck. Worth checking we got it right.</div>
+<div class="panel">
+Meshwar sells a fleet dispatch and proof-of-delivery platform to FMCG distributors in Greater Cairo and
+Alexandria. Revenue is a per-vehicle monthly subscription (EGP 340–520) plus a one-off onboarding fee,
+billed quarterly in advance.
+<div style="margin-top:12px">Nineteen paying distributors across 1,140 tracked vehicles. Recognised revenue of
+<span class="mono">EGP 5.9M</span> in FY24, growing <span class="mono">31%</span> year on year. Eleven staff on
+payroll, two further contributors invoicing as contractors. Incorporated in Egypt as a single LLC.</div>
+<div class="find warn" style="margin-top:16px"><div class="find-t">One thing worth flagging</div>
+<div class="find-b">Your deck leads on AI route optimisation. Your analytics show route optimisation used by
+<b>3 of 19</b> accounts. Proof-of-delivery is used daily by <b>all 19</b> and is barely mentioned in your
+materials. The business you're selling and the business you're pitching aren't the same one — and the one
+you're selling looks like the stronger story.</div></div>
+</div></div>
+
+<!-- 04 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">04</span><h2>Evidence inventory</h2></div>
+<div class="intro">Everything we read, and how much weight each source carries. Your own answers count as
+evidence too — weighted below anything a third party issued.</div>
+<table><thead><tr><th>Source</th><th>Type</th><th>Covers</th><th class="r">Reliability</th><th class="r">Weight</th></tr></thead><tbody>
+<tr><td>Bank statements</td><td class="muted">Document · financial</td><td class="muted">Jan–Sep 2024</td><td class="r"><span class="chip up"><span class="d"></span>Verified</span></td><td class="num">1.00</td></tr>
+<tr><td>Cap table</td><td class="muted">Document · legal</td><td class="muted">Countersigned</td><td class="r"><span class="chip up"><span class="d"></span>Verified</span></td><td class="num">1.00</td></tr>
+<tr><td>Customer contracts ×6</td><td class="muted">Document · commercial</td><td class="muted">6 of 19 accounts</td><td class="r"><span class="chip up"><span class="d"></span>Verified</span></td><td class="num">1.00</td></tr>
+<tr><td>Payroll register</td><td class="muted">Document · team</td><td class="muted">Aug 2026</td><td class="r"><span class="chip up"><span class="d"></span>Verified</span></td><td class="num">1.00</td></tr>
+<tr><td>Product analytics export</td><td class="muted">Document · product</td><td class="muted">18 months usage</td><td class="r"><span class="chip nt"><span class="d"></span>Supported</span></td><td class="num">0.85</td></tr>
+<tr><td>Management accounts FY23–24</td><td class="muted">Document · financial</td><td class="muted">24 months P&amp;L</td><td class="r"><span class="chip nt"><span class="d"></span>Supported</span></td><td class="num">0.85</td></tr>
+<tr><td>Internal pricing sheet</td><td class="muted">Document · commercial</td><td class="muted">Current rate card</td><td class="r"><span class="chip nt"><span class="d"></span>Asserted</span></td><td class="num">0.65</td></tr>
+<tr><td><b>Your onboarding profile</b></td><td class="muted">Founder · Stage 1</td><td class="muted">Expertise, commitment, thesis, constraints</td><td class="r"><span class="chip pu"><span class="d"></span>Founder-stated</span></td><td class="num">0.50</td></tr>
+<tr><td><b>Your answers to our questions</b></td><td class="muted">Founder · 4 of 6 answered</td><td class="muted">Revenue definition, customer count, pricing change</td><td class="r"><span class="chip pu"><span class="d"></span>Founder-stated</span></td><td class="num">0.50</td></tr>
+<tr><td>Pitch deck</td><td class="muted">Document · narrative</td><td class="muted">Claims — verified against others, not used as source</td><td class="r"><span class="chip nt"><span class="d"></span>Claimed</span></td><td class="num">0.30</td></tr>
+</tbody></table>
+<div class="panel" style="margin-top:14px"><span class="lbl">From your onboarding — feeding Feasibility &gt; People</span>
+<div class="kv"><span>Domain experience</span><span class="mono">9 years · FMCG distribution operations</span></div>
+<div class="kv"><span>Prior venture</span><span class="mono">Yes — shipped, no revenue</span></div>
+<div class="kv"><span>Commitment</span><span class="mono">Full-time · 11 months personal runway</span></div>
+<div class="kv"><span>Founder assessment</span><span class="mono">Founder-market fit 5/5 · Execution 3/5 · Capability coverage 3/5</span></div>
+</div></div>
+
+<!-- 05 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">05</span><h2>What's missing</h2></div>
+<div class="intro">Documents a Stage 6 venture usually has, that we didn't find. Absence is information —
+sometimes the most useful kind.</div>
+<table><thead><tr><th>Expected</th><th>Why it matters</th><th class="r">Severity</th></tr></thead><tbody>
+<tr><td>Bank statements Oct–Dec 2024</td><td class="muted">Your pre-raise quarter is unverified. All Q4 figures stay management-asserted.</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td></tr>
+<tr><td>Cohort retention export</td><td class="muted">Blocks 4 metrics. Twenty months of operation with no churn data is itself a signal.</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td></tr>
+<tr><td>IP assignment agreements</td><td class="muted">Two contractors in payroll. The company may not own what they built.</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td></tr>
+<tr><td>Contracts for 13 of 19 accounts</td><td class="muted">Contracted ARR only partly verifiable. Concentration confirmed from billing instead.</td><td class="r"><span class="chip hd"><span class="d"></span>Medium</span></td></tr>
+<tr><td>Financial model</td><td class="muted">No forward projection with drivers. Blocks valuation and the ask.</td><td class="r"><span class="chip hd"><span class="d"></span>Medium</span></td></tr>
 </tbody></table></div>
 
-<!-- ═══ 11 BLOCKERS ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">11</span>
-  <div><h2>Critical blockers</h2><div class="sub">Each with a resolution path</div></div></div>
+<!-- 06 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">06</span><h2>Your numbers, recalculated</h2></div>
+<div class="intro">We recomputed your key metrics from source data rather than taking the stated figures. Where
+they differ, the reason is in the last column — mostly definitional.</div>
+<table><thead><tr><th>Metric</th><th class="r">Computed</th><th class="r">You stated</th><th class="r">Variance</th><th>Why</th></tr></thead><tbody>
+<tr><td>Revenue FY24 (recognised)</td><td class="num">EGP 5.9M</td><td class="num muted">EGP 8.4M</td><td class="num" style="color:var(--down)">−30%</td><td class="muted">Deck figure is bookings incl. Q1-25 prepayments</td></tr>
+<tr><td>Gross margin</td><td class="num">52%</td><td class="num muted">68%</td><td class="num" style="color:var(--down)">−16pp</td><td class="muted">Delivery labour + payment fees not in COGS</td></tr>
+<tr><td>Net burn (monthly)</td><td class="num">EGP 610K</td><td class="num muted">EGP 390K</td><td class="num" style="color:var(--down)">+56%</td><td class="muted">Excludes deferred founder comp and capex</td></tr>
+<tr><td>Runway</td><td class="num">7.2 mo</td><td class="num muted">18 mo</td><td class="num" style="color:var(--down)">−60%</td><td class="muted">Uses planned burn, not trailing actual</td></tr>
+<tr><td>Paying customers</td><td class="num">19</td><td class="num muted">34</td><td class="num" style="color:var(--down)">−44%</td><td class="muted">15 are unbilled pilots</td></tr>
+<tr><td>CAC</td><td class="num">EGP 31.4K</td><td class="num muted">EGP 12.0K</td><td class="num" style="color:var(--down)">+162%</td><td class="muted">Excludes the two-person sales salary</td></tr>
+<tr><td>Revenue growth YoY</td><td class="num">31%</td><td class="num muted">31%</td><td class="num" style="color:var(--up)">match</td><td class="muted">—</td></tr>
+<tr><td>Top-customer concentration</td><td class="num">41%</td><td class="num muted">—</td><td class="num muted">n/d</td><td class="muted">Not stated in any document</td></tr>
+</tbody></table></div>
+
+<!-- 07 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">07</span><h2>Where documents disagree</h2></div>
+<div class="intro">Four of twelve reconciliation checks failed. Most turn out to be definition differences —
+but an investor will find these too, so it's better to have the answer ready.</div>
+<div class="panel">
+<div class="find crit"><div class="find-t">Revenue · deck vs accounts &nbsp;<span class="chip up"><span class="d"></span>Resolved</span></div>
+<div class="find-b">Deck <span class="mono">EGP 8.4M</span>, accounts <span class="mono">EGP 5.9M</span>, same period.
+You confirmed the deck figure is bookings including Q1-25 prepaid contracts. Recognised revenue used throughout.</div></div>
+<div class="find crit"><div class="find-t">Customer count · deck vs billing &nbsp;<span class="chip up"><span class="d"></span>Resolved</span></div>
+<div class="find-b">34 claimed, 19 billed. You confirmed 15 are unbilled pilots, 4 in paid conversion discussions.</div></div>
+<div class="find crit"><div class="find-t">Runway · claimed vs computed &nbsp;<span class="chip dn"><span class="d"></span>Unresolved</span></div>
+<div class="find-b">18 months claimed, <span class="mono">7.2</span> computed. You cited a planned headcount freeze
+bringing burn to <span class="mono">EGP 390K</span>. The freeze hasn't appeared in any observed period, so we've
+recorded it as unverified and used 7.2.</div></div>
+<div class="find warn"><div class="find-t">Q4 revenue · accounts vs bank &nbsp;<span class="chip hd"><span class="d"></span>Cannot verify</span></div>
+<div class="find-b">Bank statements end September. Q4 revenue of <span class="mono">EGP 1.7M</span> can't be traced
+to cash. You couldn't supply the missing statements, so Q4 stays at management-asserted reliability.</div></div>
+</div></div>
+
+<!-- 08 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">08</span><h2>Things worth explaining</h2></div>
+<div class="intro">Patterns that aren't errors, but that an investor will ask about. Each has a reasonable
+explanation — the point is having it ready.</div>
+<table><thead><tr><th>Flag</th><th>Detail</th><th class="r">Severity</th><th class="r">Status</th></tr></thead><tbody>
+<tr><td>Revenue concentration</td><td class="muted">Cairo Foods Group 41% of FY24; renews in 4 months, 60-day termination</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td><td class="r"><span class="chip hd"><span class="d"></span>Acknowledged</span></td></tr>
+<tr><td>Missing periods</td><td class="muted">Bank records absent for the pre-raise quarter</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td><td class="r"><span class="chip dn"><span class="d"></span>Open</span></td></tr>
+<tr><td>Contractor-built IP</td><td class="muted">Two contributors in payroll, no assignments in the room</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td><td class="r"><span class="chip dn"><span class="d"></span>Open</span></td></tr>
+<tr><td>Churn silence</td><td class="muted">Twenty months operating, no cohort or churn data</td><td class="r"><span class="chip dn"><span class="d"></span>High</span></td><td class="r"><span class="chip dn"><span class="d"></span>Open</span></td></tr>
+<tr><td>Deferred compensation</td><td class="muted">Both founders below market since Mar 2024 — understates true burn</td><td class="r"><span class="chip hd"><span class="d"></span>Medium</span></td><td class="r"><span class="chip up"><span class="d"></span>Explained</span></td></tr>
+</tbody></table></div>
+
+<!-- 09 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">09</span><h2>What we asked you</h2></div>
+<div class="intro">Six questions, generated from what the documents couldn't resolve. Where you didn't have an
+answer we recorded a gap and carried on — the assessment doesn't wait.</div>
+<div class="q"><div style="font-size:12.5px;margin-bottom:7px"><span class="mono muted">q_01</span> &nbsp;Your deck shows
+EGP 8.4M for FY24; the accounts show EGP 5.9M. Is the deck figure bookings rather than recognised revenue?</div>
+<div class="why">→ Resolves revenue growth, gross margin, and the stage test</div>
+<div style="margin-top:9px;font-size:12.5px;color:#c4c4d8"><span class="chip up"><span class="d"></span>Answered</span>
+&nbsp;Bookings, including Q1-25 prepaid contracts.</div></div>
+<div class="q"><div style="font-size:12.5px;margin-bottom:7px"><span class="mono muted">q_02</span> &nbsp;There's no cohort
+retention export. Can you produce one from the product database?</div>
+<div class="why">→ Blocks 4 metrics under Desirability and Sustainability</div>
+<div style="margin-top:9px;font-size:12.5px;color:#c4c4d8"><span class="chip dn"><span class="d"></span>Not available</span>
+&nbsp;Not currently instrumented. Recorded as a permanent gap. <span class="muted">Assessment proceeded.</span></div></div>
+<div class="q"><div style="font-size:12.5px;margin-bottom:7px"><span class="mono muted">q_05</span> &nbsp;Two contractors appear
+in payroll. Are their IP assignments signed?</div>
+<div class="why">→ Not a blocker today, but it stalls diligence later</div>
+<div style="margin-top:9px;font-size:12.5px;color:#c4c4d8"><span class="chip hd"><span class="d"></span>No response</span>
+&nbsp;Round closed. Carried to the risk register.</div></div>
+<div class="muted" style="font-size:12px;margin-top:11px">Also asked: Q4 bank statements (not available) ·
+customer count (answered) · Q3 pricing change (document supplied and analysed).</div></div>
+
+<!-- 10 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">10</span><h2>Your stage</h2></div>
+<div class="intro">Where the evidence places you. We classify from documents rather than from the stated stage —
+which occasionally means moving someone down, as here.</div>
+<div class="panel">
+<div class="kv"><span>You told us</span><span class="mono">7 · Profitability</span></div>
+<div class="kv"><span>Evidence places you at</span><span class="mono" style="color:var(--lav)">6 · Revenue Generation</span></div>
+<div class="kv"><span>Confidence in this classification</span><span class="mono">Validated</span></div>
+<div style="margin-top:15px;padding-top:14px;border-top:1px solid #262650">
+<div class="lbl">The test that didn't pass</div>
+<div style="font-size:12.5px;color:#c4c4d8">Stage 7 requires positive EBITDA sustained across
+<b>two consecutive quarters</b>. Your accounts show two profitable <i>months</i> — June and July 2024 —
+inside an otherwise loss-making year. Q3 and Q4 are both negative.</div>
+<div style="font-size:12.5px;color:#c4c4d8;margin-top:10px">Every Stage 6 test passes in full: recognised revenue
+is present and bank-verified through September. This isn't a marginal call, and it changes which metrics apply
+to you — Stage 7 would have scored you on ROI and cash conversion, which you can't yet evidence.</div>
+</div></div></div>
+
+<!-- 11 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">11</span><h2>Score breakdown</h2></div>
+<div class="intro">Exactly where 48 came from. Each metric was scored 1–5 against a stage-appropriate benchmark,
+averaged into sub-pillars, then weighted twice — once within the pillar, once by your stage.</div>
+
+<div class="panel"><span class="lbl">Viability · 38 — your weakest pillar, shown in full</span>
+<table style="margin-top:8px"><thead><tr><th>Sub-pillar</th><th>Metrics scored (1–5)</th><th class="r">Score</th><th class="r">Weight</th><th class="r">Contribution</th></tr></thead><tbody>
+<tr><td>Profitability</td><td class="muted">gross margin <b>2</b> · EBITDA actual <b>1</b> · unit economics <b>3</b> · breakeven <b>2</b></td><td class="num">32</td><td class="num muted">35%</td><td class="num">11.2</td></tr>
+<tr><td>Scalability</td><td class="muted">SOM <b>3</b> · acquisition rate <b>3</b> · stage duration <b>2</b> · <span style="color:var(--hold)">3 gaps</span></td><td class="num">48</td><td class="num muted">25%</td><td class="num">12.0</td></tr>
+<tr><td>Sustainability</td><td class="muted">operational efficiency <b>2</b> · CLTV <b>2</b> · <span style="color:var(--hold)">churn, retention = gap</span></td><td class="num">29</td><td class="num muted">20%</td><td class="num">5.8</td></tr>
+<tr><td>Defensibility</td><td class="muted">barriers <b>3</b> · AI defensibility <b>2</b> · IP ownership <b>1</b></td><td class="num">41</td><td class="num muted">20%</td><td class="num">8.2</td></tr>
+<tr class="tot"><td>Viability</td><td class="muted">mean × 20, then weighted</td><td class="num">37.2</td><td class="num muted">100%</td><td class="num">38</td></tr>
+</tbody></table>
+<div class="muted" style="font-size:11.5px;margin-top:10px">Gap metrics are excluded from the average — never
+counted as zero. They reduce your confidence factor instead.</div></div>
+
+<div class="panel"><span class="lbl">Composite · Stage 6 weights applied</span>
+<table style="margin-top:8px"><thead><tr><th>Pillar</th><th>Driven by</th><th class="r">Score</th><th class="r">Stage weight</th><th class="r">Contribution</th></tr></thead><tbody>
+<tr><td>Desirability</td><td class="muted">19 paying accounts, 31% growth verified; differentiation claim unsupported</td><td class="num">61</td><td class="num muted">25%</td><td class="num">15.25</td></tr>
+<tr><td>Viability</td><td class="muted">Recomputed margin, 7.2-month runway, churn unmeasurable</td><td class="num" style="color:var(--down)">38</td><td class="num muted">40%</td><td class="num">15.20</td></tr>
+<tr><td>Feasibility</td><td class="muted">Strong founder-market fit; burn 56% above stated; Q4 unverified</td><td class="num">55</td><td class="num muted">25%</td><td class="num">13.75</td></tr>
+<tr><td>Impact (ESG)</td><td class="muted">Not yet formally addressed — normal at this stage</td><td class="num">42</td><td class="num muted">10%</td><td class="num">4.20</td></tr>
+<tr class="tot"><td>Composite</td><td class="muted">sum of contributions</td><td class="num">—</td><td class="num muted">100%</td><td class="num" style="color:var(--lav)">48.4 → 48</td></tr>
+</tbody></table></div>
+
+<div class="muted" style="font-size:12px;margin-top:12px">Viability carries 40% of your composite at Stage 6.
+Moving it from 38 to 55 — which the levers in section 13 target — would take the composite to roughly
+<span class="mono">55</span>, the threshold for investor materials.</div></div>
+
+<!-- 12 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">12</span><h2>Critical blockers</h2></div>
+<div class="intro">Three things that have to change before anything else moves. Each with what resolves it.</div>
 <div class="panel">
 <div class="find crit"><div class="find-t">1 · Viability at 38 — below the 40 floor</div>
-  <div class="find-b">Driven by recomputed margin and 7.2-month runway. <b>Resolves when:</b>
-  COGS is restructured or pricing moves, and burn reduction is evidenced across one full quarter.</div></div>
-<div class="find crit"><div class="find-t">2 · Retention unmeasurable</div>
-  <div class="find-b">No cohort instrumentation after 20 months of operation. <b>Resolves when:</b>
-  cohort tracking ships and produces one quarter of data. Unlocks 4 currently-gapped metrics.</div></div>
+<div class="find-b">Driven by recomputed margin and a 7.2-month runway. <b>Resolves when:</b> COGS is restructured
+or pricing moves, <i>and</i> burn reduction is evidenced across one full quarter rather than planned.</div></div>
+<div class="find crit"><div class="find-t">2 · Retention is unmeasurable</div>
+<div class="find-b">No cohort instrumentation after twenty months. <b>Resolves when:</b> cohort tracking ships and
+produces one quarter of data. Unlocks 4 currently-gapped metrics and lifts confidence toward 0.85.</div></div>
 <div class="find crit"><div class="find-t">3 · IP ownership unconfirmed</div>
-  <div class="find-b">Two contributors, no assignments in the room. <b>Resolves when:</b>
-  signed assignments are executed and supplied. Cheap now; a deal-stopper at Stage 6.</div></div>
+<div class="find-b">Two contributors, no assignments. <b>Resolves when:</b> signed assignments are executed and
+supplied. Cheap now; a deal-stopper in diligence.</div></div>
 </div></div>
 
-<!-- ═══ 12 LEVERS ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">12</span>
-  <div><h2>Improvement levers</h2><div class="sub">Ranked by score impact</div></div></div>
+<!-- 13 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">13</span><h2>Improvement levers</h2></div>
+<div class="intro">The specific actions that move each score, ranked by impact.</div>
 <div class="panel">
-<div class="lever"><span class="r">1</span>
-  <span>Move delivery labour out of COGS by routing the last-mile step through distributor-owned
-  fleets — the model already supports it for 6 of 19 accounts.</span><span class="imp">+9 to +14</span></div>
-<div class="lever"><span class="r">2</span>
-  <span>Ship cohort instrumentation. Unlocks 4 gapped metrics and raises the confidence factor
-  from 0.71 toward 0.85.</span><span class="imp">+5 to +8</span></div>
-<div class="lever"><span class="r">3</span>
-  <span>Convert 4 of the 15 pilots at contracted rates before the Cairo Foods renewal window,
-  reducing concentration below the 30% flag.</span><span class="imp">+4 to +7</span></div>
+<div class="lever"><span class="rk">1</span><span>Move delivery labour out of COGS by routing the last-mile step
+through distributor-owned fleets — your model already supports this for 6 of 19 accounts.</span><span class="imp">+9 to +14</span></div>
+<div class="lever"><span class="rk">2</span><span>Ship cohort instrumentation. Unlocks 4 gapped metrics and raises
+confidence from 0.71 toward 0.85.</span><span class="imp">+5 to +8</span></div>
+<div class="lever"><span class="rk">3</span><span>Convert 4 of the 15 pilots at contracted rates before the Cairo Foods
+renewal window, dropping concentration below the 30% flag.</span><span class="imp">+4 to +7</span></div>
 </div>
-<div class="locked">
-  <span class="chip nt"><span class="d"></span>11 further levers across Viability, Feasibility and Impact</span>
-  <div class="muted" style="margin-top:9px;font-size:12px">Full lever set available with any package.</div>
-</div></div>
+<div class="locked"><span class="chip nt"><span class="d"></span>11 further levers across Viability, Feasibility and Impact</span>
+<div class="muted" style="margin-top:9px;font-size:12px">Full lever set included with any package.</div></div></div>
 
-<!-- ═══ APPENDIX ═══ -->
-<div class="sec"><div class="sec-h"><span class="sec-n">A</span>
-  <div><h2>Diligence question list</h2><div class="sub">What an investor will ask · prepare answers before the meeting</div></div></div>
+<!-- 14 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">14</span><h2>Development readiness</h2></div>
+<div class="intro">How complete each area of your business is — separate from how well it's performing. A complete
+area can still score badly; an incomplete one can't score at all. Ranked by what's blocking most.</div>
 <div class="panel">
-<div class="kv"><span>Can you evidence the Q4 revenue with bank records?</span><span class="mono muted">§06</span></div>
-<div class="kv"><span>What is your actual gross margin after delivery cost?</span><span class="mono muted">§05</span></div>
-<div class="kv"><span>What happens to the model if Cairo Foods does not renew?</span><span class="mono muted">§07</span></div>
-<div class="kv"><span>How many of the 34 "customers" pay you today?</span><span class="mono muted">§05</span></div>
-<div class="kv"><span>What is your net revenue retention?</span><span class="mono muted">§04</span></div>
-<div class="kv"><span>Does the company own the code the contractors wrote?</span><span class="mono muted">§07</span></div>
-<div class="kv"><span>The deck leads on AI routing — why do only 3 accounts use it?</span><span class="mono muted">§02</span></div>
-<div class="kv"><span>What has actually changed to get burn from 610K to 390K?</span><span class="mono muted">§06</span></div>
+<div class="bar-row"><span>Business intelligence</span><div class="track"><div class="fill" style="width:15%;background:var(--down)"></div></div><span class="num">15%</span></div>
+<div class="bar-row"><span>Investment readiness</span><div class="track"><div class="fill" style="width:20%;background:var(--down)"></div></div><span class="num">20%</span></div>
+<div class="bar-row"><span>Customer validation</span><div class="track"><div class="fill" style="width:25%;background:var(--down)"></div></div><span class="num">25%</span></div>
+<div class="bar-row"><span>Strategy &amp; phasing</span><div class="track"><div class="fill" style="width:30%;background:var(--down)"></div></div><span class="num">30%</span></div>
+<div class="bar-row"><span>Growth &amp; marketing</span><div class="track"><div class="fill" style="width:35%;background:var(--hold)"></div></div><span class="num">35%</span></div>
+<div class="bar-row"><span>Legal &amp; structure</span><div class="track"><div class="fill" style="width:38%;background:var(--hold)"></div></div><span class="num">38%</span></div>
+<div class="bar-row"><span>Brand</span><div class="track"><div class="fill" style="width:40%;background:var(--hold)"></div></div><span class="num">40%</span></div>
+<div class="bar-row"><span>Financial</span><div class="track"><div class="fill" style="width:42%;background:var(--hold)"></div></div><span class="num">42%</span></div>
+<div class="bar-row"><span>Market understanding</span><div class="track"><div class="fill" style="width:45%;background:var(--hold)"></div></div><span class="num">45%</span></div>
+<div class="bar-row"><span>Org &amp; team</span><div class="track"><div class="fill" style="width:50%;background:var(--lav)"></div></div><span class="num">50%</span></div>
+<div class="bar-row"><span>Commercial</span><div class="track"><div class="fill" style="width:52%;background:var(--lav)"></div></div><span class="num">52%</span></div>
+<div class="bar-row"><span>Operations</span><div class="track"><div class="fill" style="width:55%;background:var(--lav)"></div></div><span class="num">55%</span></div>
+<div class="bar-row"><span>Business model</span><div class="track"><div class="fill" style="width:60%;background:var(--lav)"></div></div><span class="num">60%</span></div>
+<div class="bar-row"><span>Product</span><div class="track"><div class="fill" style="width:68%;background:var(--up)"></div></div><span class="num">68%</span></div>
+<div class="bar-row"><span>Problem &amp; solution</span><div class="track"><div class="fill" style="width:70%;background:var(--up)"></div></div><span class="num">70%</span></div>
+<div style="margin-top:18px;padding-top:15px;border-top:1px solid #262650">
+<div class="lbl">Where to start</div>
+<div style="font-size:12.5px;color:#c4c4d8">Your product and your understanding of the problem are the strongest
+parts of this business — that's unusual, and worth protecting. What's holding you back is everything that turns a
+working product into a legible company: you can't measure retention, you can't show a forward model, and you have
+no strategy document phasing the next 18 months against your runway.
+<div style="margin-top:10px"><b style="color:#fff">Business intelligence at 15% is the one to fix first.</b>
+Not because it's the lowest, but because it unblocks the most — four gapped metrics, your confidence factor, and
+the churn question every investor will open with.</div></div>
+</div></div></div>
+
+<!-- 15 -->
+<div class="sec"><div class="sec-h"><span class="sec-n">15</span><h2>What we'd suggest</h2></div>
+<div class="intro">A recommendation based on everything above — not on what's largest. If the honest answer were
+"you don't need us yet," this section would say so.</div>
+<div class="pkg">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px">
+<div><div class="lbl">Recommended</div>
+<div style="font-family:Sora;font-size:24px">Venture</div>
+<div class="muted" style="font-size:12px;margin-top:4px">Stages 1–5 · full business build</div></div>
+<div style="text-align:right"><div class="lbl">Priority modules</div>
+<span class="chip pu"><span class="d"></span>4 identified</span></div></div>
+
+<div style="margin-top:18px;font-size:12.5px;color:#c4c4d8">
+You're at Stage 6 with real revenue, so the obvious recommendation would be <b>Capital</b> — our
+investment-readiness tier. We're not recommending it, because at a composite of 48 your investor materials are
+blocked anyway. You'd be paying for a deck, a valuation and a data room you can't use for at least a quarter.</div>
+
+<div style="margin-top:14px;font-size:12.5px;color:#c4c4d8">
+<b style="color:#fff">Why Venture:</b> it covers the four areas actually holding you back — business intelligence
+at 15%, strategy at 30%, financial at 42%, and the validation work that closes your churn gap. Those are what take
+Viability from 38 into the mid-50s, and that's what unblocks a raise.</div>
+
+<div style="margin-top:14px;font-size:12.5px;color:#c4c4d8">
+<b style="color:#fff">Why not Foundation:</b> it stops at Stage 4 macro and wouldn't cover the BI or product work
+you need. You'd close two of your four gaps.</div>
+
+<div style="margin-top:18px;padding-top:16px;border-top:1px solid #3a2a6e">
+<div class="lbl">What's included</div>
+<div class="feat">
+<div><span>·</span>Everything in Foundation</div>
+<div><span>·</span>All 8 tactical domains</div>
+<div><span>·</span>Full improvement lever set</div>
+<div><span>·</span>Brand identity and asset system</div>
+<div><span>·</span>Business intelligence and KPI instrumentation</div>
+<div><span>·</span>Product design through to MVP scope</div>
+<div><span>·</span>Strategy with phasing against runway</div>
+<div><span>·</span>Full financial model with sensitivity</div>
 </div></div>
 
-<div class="foot">
-  <span>Assessment Agent v2.0 · rubric F_02 · snapshot as_2026_08_12_a</span>
-  <span class="mono">48/100 · confidence 0.71</span>
+<div style="margin-top:18px;padding-top:16px;border-top:1px solid #3a2a6e">
+<div class="lbl">Where we'd start, in order</div>
+<div class="kv"><span>1 · Business intelligence — cohort instrumentation, KPI tree</span><span class="mono muted">closes 4 gaps</span></div>
+<div class="kv"><span>2 · Financial — forward model with drivers and scenarios</span><span class="mono muted">unblocks the ask</span></div>
+<div class="kv"><span>3 · Commercial — COGS restructure and pricing review</span><span class="mono muted">Viability +9–14</span></div>
+<div class="kv"><span>4 · Strategy — phasing against a 7-month runway</span><span class="mono muted">resolves blocker 1</span></div>
 </div>
+
+<div style="margin-top:16px;font-size:12px" class="muted">
+<b>Alternatives.</b> <b style="color:#c4c4d8">Modules</b> — buy business intelligence and financial on their own if
+you'd rather move on two fronts only. <b style="color:#c4c4d8">Capital</b> — worth revisiting once your composite
+clears 55, which the work above should achieve in roughly a quarter.</div>
+</div></div>
+
+<!-- APPENDIX -->
+<div class="sec"><div class="sec-h"><span class="sec-n">A</span><h2>Diligence questions</h2></div>
+<div class="intro">What an investor will ask, drawn from the open items above. Worth having answers before you're
+in the room.</div>
+<div class="panel">
+<div class="kv"><span>Can you evidence Q4 revenue with bank records?</span><span class="mono muted">§07</span></div>
+<div class="kv"><span>What's your actual gross margin after delivery cost?</span><span class="mono muted">§06</span></div>
+<div class="kv"><span>What happens to the model if Cairo Foods doesn't renew?</span><span class="mono muted">§08</span></div>
+<div class="kv"><span>How many of the 34 "customers" pay you today?</span><span class="mono muted">§06</span></div>
+<div class="kv"><span>What's your net revenue retention?</span><span class="mono muted">§05</span></div>
+<div class="kv"><span>Does the company own the code the contractors wrote?</span><span class="mono muted">§08</span></div>
+<div class="kv"><span>Your deck leads on AI routing — why do only 3 accounts use it?</span><span class="mono muted">§03</span></div>
+<div class="kv"><span>What's actually changed to take burn from 610K to 390K?</span><span class="mono muted">§07</span></div>
+</div></div>
+
+<div class="foot"><span>Assessment Agent v2.0 · sections 00–14 · section 15 by Advisor Agent · snapshot as_2026_08_12_a</span>
+<span class="mono">48/100 · confidence 0.71</span></div>
 </div></body></html>
