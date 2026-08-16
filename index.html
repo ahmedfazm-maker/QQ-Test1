@@ -254,6 +254,28 @@ color:var(--slate);font-size:11.5px;display:flex;justify-content:space-between;g
 .tri{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
 /* priority order list */
 .pri{counter-reset:p;margin:8px 0 0;padding:0;list-style:none}
+/* --- pitch deck slides --- */
+.slide{position:relative;display:flex;gap:0;margin:14px 0;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(160deg,var(--n800),var(--n900));overflow:hidden}
+.slide .sl-n{flex:0 0 52px;display:flex;align-items:flex-start;justify-content:center;padding-top:20px;
+  font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;color:var(--slate);
+  background:rgba(255,255,255,.02);border-right:1px solid var(--line)}
+.slide .sl-b{flex:1 1 auto;padding:20px 22px 22px;min-width:0}
+.slide .sl-k{font-family:'JetBrains Mono';font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--lav);margin-bottom:8px}
+.slide .sl-h{font-family:'Sora';font-size:19px;font-weight:400;line-height:1.3;color:var(--ink);margin-bottom:4px}
+.slide .sl-lead{font-family:'Sora';font-size:15px;color:var(--lav);margin:6px 0 8px}
+.slide .sl-p{font-size:13px;line-height:1.62;color:var(--dim);margin:8px 0 0}
+.slide .sl-ev{margin-top:9px;padding-top:8px;border-top:1px dashed var(--line);
+  font-family:'JetBrains Mono';font-size:10.5px;color:var(--slate)}
+.slide .sl-meta{margin-top:14px;padding-top:9px;border-top:1px solid var(--line);
+  font-family:'JetBrains Mono';font-size:10px;letter-spacing:.05em;color:var(--slate)}
+.slide .grid{margin-top:0}
+@media(max-width:720px){.slide{flex-direction:column}
+  .slide .sl-n{flex:0 0 auto;justify-content:flex-start;padding:10px 16px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .slide .sl-b{padding:14px 16px 18px}
+  .slide .sl-h{font-size:16.5px}}
+
 .stage{display:none} .stage.on{display:block}
 .tab{cursor:pointer} .tab.locked{cursor:default}
 .tab.locked:hover{color:var(--slate)}
@@ -7319,76 +7341,281 @@ churn is the origin of the concept — but it states plainly that neither custom
 <div class="pane" id="s8p2">
 <div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">8.2.1</span><div>
 <h2>Pitch deck</h2><div class="sub">Fourteen slides · shared post-interest, when an investor has asked for it</div></div></div>
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.14),var(--n800));text-align:center">
-<div style="font-size:15px;margin-bottom:4px">Sanad — Investor Pitch Deck</div>
-<p class="sub" style="margin-bottom:14px">14 slides + appendix · PDF and editable · branded</p>
-<a class="btn primary" href="Sanad_Pitch_Deck.pdf" download style="text-decoration:none;display:inline-block">Download branded pitch deck</a>
-<p class="sub" style="margin-top:12px;font-size:11px">Draft — watermarked until you approve release</p>
+<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.14),var(--n800));display:flex;
+justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+<div><div style="font-size:15px">Sanad — Investor Pitch Deck</div>
+<p class="sub" style="margin-top:2px">14 slides + appendix · draft, watermarked until you approve release</p></div>
+<a class="btn primary" href="Sanad_Pitch_Deck.pdf" download style="text-decoration:none;display:inline-block;flex:0 0 auto">Download branded PDF</a>
 </div>
 </div>
 
 <div class="sec"><div class="sec-h"><span class="sec-n">8.2.2</span><div>
-<h2>Slide by slide</h2><div class="sub">What each slide contains and where it came from. No number originates here.</div></div></div>
-<div class="tw"><table>
-<thead><tr><th class="r">#</th><th>Slide</th><th>Contents</th><th>From</th></tr></thead>
+<h2>The deck</h2><div class="sub">Every slide as it appears. No number here originates in this stage.</div></div></div>
+
+<div class="slide"><div class="sl-n">01</div><div class="sl-b">
+<div class="sl-k">Company</div>
+<div class="sl-h">Sanad</div>
+<div class="sl-lead">Know where it happened.</div>
+<p class="sl-p">The cold-chain record that tells a pharmaceutical distributor <strong>where</strong> a loss happened — not just that one did.</p>
+<div class="sl-meta">sanad.eg · linkedin.com/company/sanad · Cairo, Egypt</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">02</div><div class="sl-b">
+<div class="sl-k">Problem</div>
+<div class="sl-h">Distributors write off medicine and never find out why</div>
+<div class="grid g2" style="margin-top:14px">
+<div class="card bad"><h4>Losses have no location</h4>
+<p class="sub" style="margin-top:6px">An excursion is discovered as a monthly write-off total. The cause is never isolated, so it recurs.</p>
+<div class="sl-ev">9 of 11 operators could not say where their last loss occurred</div></div>
+<div class="card bad"><h4>Inspection records are rebuilt by hand</h4>
+<p class="sub" style="margin-top:6px">Three times a year, a QA manager reconstructs months of temperature history from logger downloads.</p>
+<div class="sl-ev">~40 hours per inspection cycle, observed at two sites</div></div>
+</div>
+<div class="sl-meta">Source · 11 validation interviews across 8 companies, Aug 2026</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">03</div><div class="sl-b">
+<div class="sl-k">Solution</div>
+<div class="sl-h">Anchor the record to custody, not to the vehicle</div>
+<div class="grid g2" style="margin-top:14px">
+<div class="card on"><h4>Handover Record</h4>
+<p class="sub" style="margin-top:6px">A sensor in each cold vehicle, and a 15-second scan whenever a consignment changes hands. An excursion falls inside a known leg,
+with a known handler, at a known place.</p>
+<div class="sl-ev">Answers problem 1 — the loss gets a location</div></div>
+<div class="card on"><h4>Compliance File</h4>
+<p class="sub" style="margin-top:6px">The inspection history assembles itself continuously as a by-product of the same record. Current at any moment, gaps declared.</p>
+<div class="sl-ev">Answers problem 2 — nothing is rebuilt</div></div>
+</div>
+<div class="sl-meta">Two problems, two solutions, same order</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">04</div><div class="sl-b">
+<div class="sl-k">Product</div>
+<div class="sl-h">A scan, and three readings of one record</div>
+<div class="grid g3" style="margin-top:14px">
+<div class="card"><div class="lbl">Scan</div><p class="sub" style="margin-top:6px">Supervisor closes one leg of custody and opens the next.
+Under 15 seconds, works offline, Arabic first.</p></div>
+<div class="card"><div class="lbl">Findings</div><p class="sub" style="margin-top:6px">Attributed excursions with node, window, handler and a
+recommended corrective action.</p></div>
+<div class="card"><div class="lbl">Record</div><p class="sub" style="margin-top:6px">Full history, exportable for inspection,
+with every gap declared rather than filled.</p></div>
+</div>
+<p class="sl-p" style="margin-top:12px"><strong>Journey:</strong> site survey → sensors fitted → supervisors trained →
+first attributed finding within 14 days.</p>
+<div class="sl-meta">Screenshots from the working build · appendix A</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">05</div><div class="sl-b">
+<div class="sl-k">Market validation</div>
+<div class="sl-h">EGP 7.43M serviceable, counted rather than estimated</div>
+<div class="grid g3" style="margin-top:12px">
+<div class="card on"><div class="lbl">SOM · 3 years</div><div class="big mono" style="font-size:24px">EGP 2.62M</div>
+<p class="sub" style="margin-top:6px">12 of 34 operators at full fleet</p></div>
+<div class="card"><div class="lbl">SAM</div><div class="big mono" style="font-size:24px">EGP 7.43M</div>
+<p class="sub" style="margin-top:6px">34 mid-size distributors · 952 vehicles</p></div>
+<div class="card"><div class="lbl">TAM</div><div class="big mono" style="font-size:24px">EGP 17.0M</div>
+<p class="sub" style="margin-top:6px">102 organisations · 2,178 vehicles</p></div>
+</div>
+<p class="sl-p" style="margin-top:12px"><strong>Method:</strong> counted bottom-up from the distributor directory and the EDA licence
+register, per monitored vehicle at EGP 650/month. No percentage of a published total is used.</p>
+<p class="sl-p"><strong>What is changing:</strong> EDA good-distribution-practice guidance is tightening, converting cold-chain records
+from good practice into a dated obligation. The incumbent method — loggers, a spreadsheet and part of one person's week — is rated
+4 out of 10 by its own users, and already costs EGP 40–90K per operator per year.</p>
+<div class="sl-meta">Directory 2026 · EDA register accessed Aug 2026 · 11 interviews</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">06</div><div class="sl-b">
+<div class="sl-k">Business model</div>
+<div class="sl-h">Recurring per monitored vehicle, growing as a customer rolls out</div>
+<div class="tw" style="margin-top:12px"><table>
+<thead><tr><th>Line</th><th>Charged on</th><th class="r">Price</th><th class="r">Direct cost</th><th class="r">Contribution</th></tr></thead>
 <tbody>
-<tr><td data-l="#" class="num">1</td><td data-l="S"><strong>Company information</strong></td>
-<td data-l="C">Sanad · wordmark · site · LinkedIn · the hook: "Know where it happened."</td><td data-l="F" class="mono">6.1</td></tr>
-<tr class="hi"><td data-l="#" class="num">2</td><td data-l="S"><strong>Problem</strong></td>
-<td data-l="C">Two problems, in the operator's words. Unattributable write-offs; inspection records rebuilt by hand. Severity evidence shown: 9 of 11 could not say where their last loss occurred.</td>
-<td data-l="F" class="mono">3.2</td></tr>
-<tr class="hi"><td data-l="#" class="num">3</td><td data-l="S"><strong>Solution</strong></td>
-<td data-l="C">Two solutions, same order as slide 2. Handover-anchored logging; the compliance file as a by-product of it.</td><td data-l="F" class="mono">3.3</td></tr>
-<tr><td data-l="#" class="num">4</td><td data-l="S">Product overview</td>
-<td data-l="C">Scan, findings, record. Journey from install to first attributed finding. Screenshots from the working build.</td><td data-l="F" class="mono">6.2</td></tr>
-<tr><td data-l="#" class="num">5</td><td data-l="S">Market validation</td>
-<td data-l="C">SOM EGP 7.43M leads, TAM EGP 17.0M follows. Method disclosed. EDA tightening as the driver; 14 players profiled.</td><td data-l="F" class="mono">4.3 · 4.4</td></tr>
-<tr><td data-l="#" class="num">6</td><td data-l="S">Business model</td>
-<td data-l="C">Per-vehicle recurring plus quarterly review. Contribution EGP 490 at 75.4% list, EGP 400 at 71.4% at full fleet.</td><td data-l="F" class="mono">5.1 · 6.3</td></tr>
-<tr><td data-l="#" class="num">7</td><td data-l="S">Milestones &amp; roadmap</td>
-<td data-l="C">Four phases with state triggers. Phase 1 bounded at five months by the shortest founder commitment.</td><td data-l="F" class="mono">5.2</td></tr>
-<tr class="bad"><td data-l="#" class="num">8</td><td data-l="S"><strong>Traction</strong></td>
-<td data-l="C">Two paid engagements at EGP 90K, neither renewed. 11 validation interviews. <strong>Stated as historic, not as current.</strong></td>
-<td data-l="F" class="mono">3.4</td></tr>
-<tr><td data-l="#" class="num">9</td><td data-l="S">Competition &amp; moat</td>
-<td data-l="C">The 14-player matrix across three tiers. Edge: handover attribution, offered by none of them locally or regionally.</td><td data-l="F" class="mono">4.5</td></tr>
-<tr><td data-l="#" class="num">10</td><td data-l="S">Go-to-market</td>
-<td data-l="C">Sales-led, founder-fronted, converting through a paid pilot. Beachhead of 11 named operators.</td><td data-l="F" class="mono">6.4</td></tr>
-<tr><td data-l="#" class="num">11</td><td data-l="S">Team</td>
-<td data-l="C">Two founders, complementary. <strong>Names the gaps:</strong> nobody has raised, nobody has hired, financial capability thin on both sides.</td>
-<td data-l="F" class="mono">1.3 · 6.7</td></tr>
-<tr><td data-l="#" class="num">12</td><td data-l="S">Financial projections</td>
-<td data-l="C">Three-year P&amp;L overview. Labelled as projections on the slide. Assumptions visible.</td><td data-l="F" class="mono">7.1</td></tr>
-<tr class="hi"><td data-l="#" class="num">13</td><td data-l="S"><strong>Funding requirements</strong></td>
-<td data-l="C">EGP 7.44M, mapped to the milestones on slide 7. Round dynamics and use of funds by phase.</td><td data-l="F" class="mono">7.1</td></tr>
-<tr><td data-l="#" class="num">14</td><td data-l="S">Contact</td><td data-l="C">Name · phone · email · LinkedIn</td><td data-l="F" class="mono">1.2</td></tr>
+<tr class="hi"><td data-l="L">Sanad Record</td><td data-l="C">Per vehicle / month, first 19</td><td data-l="P" class="num">EGP 650</td>
+<td data-l="D" class="num">160</td><td data-l="K" class="num">490 · 75.4%</td></tr>
+<tr><td data-l="L">Sanad Record</td><td data-l="C">Per vehicle / month, 20 onward</td><td data-l="P" class="num">EGP 560</td>
+<td data-l="D" class="num">160</td><td data-l="K" class="num">400 · 71.4%</td></tr>
+<tr><td data-l="L">Lane Review</td><td data-l="C">Per quarterly engagement</td><td data-l="P" class="num">EGP 9,000</td>
+<td data-l="D" class="num">2,400</td><td data-l="K" class="num">6,600 · 73.3%</td></tr>
+<tr><td data-l="L">Compliance File</td><td data-l="C">Included at no charge</td><td data-l="P" class="num">—</td>
+<td data-l="D" class="num">~nil</td><td data-l="K" class="num">Retention mechanism</td></tr>
 </tbody></table></div>
+<p class="sl-p" style="margin-top:10px">A full 28-vehicle fleet is EGP 17,390/month at 74.2% contribution. Expansion happens inside the
+account — pilot to full fleet needs no second sale.</p>
+<div class="sl-meta">Direct cost built from the operations task list, not estimated</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">07</div><div class="sl-b">
+<div class="sl-k">Milestones &amp; roadmap</div>
+<div class="sl-h">Four phases, each bounded by a condition rather than a date</div>
+<div class="rail" style="margin-top:10px">
+<div class="ph"><div><div class="pn">Phase 1</div><div class="pd">M1–5</div></div><div>
+<h4>Prove attribution changes behaviour</h4>
+<p class="sub">Ends when: 3 paying customers · each has acted on an attributed finding · one agrees to be named</p></div></div>
+<div class="ph"><div><div class="pn">Phase 2</div><div class="pd">M6–14</div></div><div>
+<h4>Prove it sells without the founder</h4>
+<p class="sub">Ends when: 8 customers · 3 closed by a non-founder · 1 expanded to full fleet</p></div></div>
+<div class="ph"><div><div class="pn">Phase 3</div><div class="pd">M15–26</div></div><div>
+<h4>Prove it holds and expands</h4>
+<p class="sub">Ends when: 18 customers · 85% retention · half the cohort at full fleet · non-pharma pilot reported</p></div></div>
+<div class="ph"><div><div class="pn">Phase 4</div><div class="pd">M27–36</div></div><div>
+<h4>Decide which business this is</h4>
+<p class="sub">Own the pharmaceutical category, or fund a second vertical on phase-3 evidence</p></div></div>
+</div>
+<div class="sl-meta">Phase 1 is five months because that is the shortest founder commitment</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">08</div><div class="sl-b">
+<div class="sl-k">Traction</div>
+<div class="sl-h">Two customers paid. Neither renewed. That is why this concept exists.</div>
+<div class="grid g3" style="margin-top:12px">
+<div class="card"><div class="lbl">Paid engagements</div><div class="big mono" style="font-size:24px">2</div>
+<p class="sub" style="margin-top:6px">EGP 90,000 each, delivered manually</p></div>
+<div class="card"><div class="lbl">Validation interviews</div><div class="big mono" style="font-size:24px">11</div>
+<p class="sub" style="margin-top:6px">Across 8 companies</p></div>
+<div class="card bad"><div class="lbl">Paying today</div><div class="big mono" style="font-size:24px">0</div>
+<p class="sub" style="margin-top:6px">Stated plainly</p></div>
+</div>
+<div class="quote" style="margin-top:12px"><div class="qt">"It told us we had a problem. We knew we had a problem. It never told us what to
+do about it — so after three months we had a nicer spreadsheet."</div>
+<div class="qa">55 vehicles, 4 sites · paid EGP 90,000, did not renew</div></div>
+<p class="sl-p" style="margin-top:10px">The current concept was designed from that sentence. Attribution and a recommended action are
+the two things that engagement lacked.</p>
+<div class="sl-meta">Evidence tier 2 · no paid conversion of the current concept</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">09</div><div class="sl-b">
+<div class="sl-k">Competition &amp; moat</div>
+<div class="sl-h">Nobody in this market attributes a loss to a node</div>
+<div class="mx" style="margin-top:12px"><table>
+<thead><tr><th>Player</th><th>Continuous logging</th><th>Excursion alerting</th><th>Handover attribution</th><th>Self-assembling file</th><th>Recommended action</th><th>Arabic + local support</th></tr></thead>
+<tbody>
+<tr class="self"><td><strong>Sanad</strong></td><td><span class="mk y">●</span></td><td><span class="mk y">●</span></td>
+<td><span class="mk y">●</span></td><td><span class="mk c">?</span></td><td><span class="mk c">?</span></td><td><span class="mk y">●</span></td></tr>
+<tr class="grp"><td colspan="7">Local</td></tr>
+<tr><td>Loggers + spreadsheet</td><td><span class="mk p">◐</span></td><td><span class="mk n">○</span></td><td><span class="mk n">○</span></td>
+<td><span class="mk n">○</span></td><td><span class="mk n">○</span></td><td><span class="mk n">○</span></td></tr>
+<tr><td>Regional fleet telematics</td><td><span class="mk p">◐</span></td><td><span class="mk y">●</span></td><td><span class="mk n">○</span></td>
+<td><span class="mk n">○</span></td><td><span class="mk n">○</span></td><td><span class="mk y">●</span></td></tr>
+<tr class="grp"><td colspan="7">Regional</td></tr>
+<tr><td>GCC compliance vendor</td><td><span class="mk y">●</span></td><td><span class="mk y">●</span></td><td><span class="mk n">○</span></td>
+<td><span class="mk y">●</span></td><td><span class="mk n">○</span></td><td><span class="mk n">○</span></td></tr>
+<tr class="grp"><td colspan="7">Global</td></tr>
+<tr><td>EU chain-of-custody platform</td><td><span class="mk y">●</span></td><td><span class="mk y">●</span></td><td><span class="mk y">●</span></td>
+<td><span class="mk y">●</span></td><td><span class="mk p">◐</span></td><td><span class="mk n">○</span></td></tr>
+<tr><td>US cold-chain monitoring</td><td><span class="mk y">●</span></td><td><span class="mk y">●</span></td><td><span class="mk p">◐</span></td>
+<td><span class="mk y">●</span></td><td><span class="mk p">◐</span></td><td><span class="mk n">○</span></td></tr>
+</tbody></table></div>
+<p class="sl-p" style="margin-top:10px"><strong>The edge:</strong> handover attribution, offered by none of the 8 local or regional
+players. Two global players have it — neither operates here, and one prices for shipments worth USD 1M+.</p>
+<p class="sl-p"><strong>What makes it durable:</strong> the accumulated inspection record. A competitor can copy the mechanism; they
+cannot backdate eighteen months of a customer's history.</p>
+<div class="sl-meta">Full 14-player matrix · appendix B · ? = claimed, not yet built</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">10</div><div class="sl-b">
+<div class="sl-k">Go-to-market</div>
+<div class="sl-h">34 buyers, every one of whom can be named</div>
+<div class="grid g3" style="margin-top:12px">
+<div class="card"><div class="lbl">Motion</div><p class="sub" style="margin-top:6px">Sales-led, founder-fronted, converting through a
+paid three-month pilot. 10 of 11 operators said they expect a pilot.</p></div>
+<div class="card"><div class="lbl">Beachhead</div><p class="sub" style="margin-top:6px">11 of the 34 — 40–90 vehicles, 3–5 sites,
+Greater Cairo, a write-off in the last two quarters.</p></div>
+<div class="card"><div class="lbl">Entry offer</div><p class="sub" style="margin-top:6px">EGP 6,500/month, 10 vehicles, one site.
+Below the operations director's approval ceiling — one signature.</p></div>
+</div>
+<p class="sl-p" style="margin-top:12px"><strong>The acquisition tactic is the proof:</strong> a diagnostic walkthrough at their depot,
+naming their risk points before anything is pitched. No paid acquisition — with 34 nameable buyers it is spend without a target.</p>
+<div class="sl-meta">Expansion, not acquisition, repays the cost: pilot payback 12.4 months, full fleet 4.8</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">11</div><div class="sl-b">
+<div class="sl-k">Team</div>
+<div class="sl-h">Deep in the problem, thin everywhere else — and we know where</div>
+<div class="grid g2" style="margin-top:12px">
+<div class="card on"><h4>Nour Halim · Commercial &amp; delivery</h4>
+<p class="sub" style="margin-top:6px">11 years in pharmaceutical distribution operations. Came up through the warehouse floor to
+operations manager at a 60-vehicle distributor. Won and delivered both prior engagements personally.</p></div>
+<div class="card on"><h4>Karim Adly · Product &amp; engineering</h4>
+<p class="sub" style="margin-top:6px">8 years engineering, backend and embedded. Built the working prototype. Six years of verified
+build history.</p></div>
+</div>
+<div class="find warn" style="margin-top:12px"><div class="find-t">Capability gaps, stated</div>
+<div class="find-b">Neither founder has raised money, neither has hired, and financial capability is thin on both sides. A fundraising
+advisor and a commercial lead are the first two additions. Investors assume gaps exist; these are ours.</div></div>
+<div class="sl-meta">Full capability assessment across 8 functions · appendix C</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">12</div><div class="sl-b">
+<div class="sl-k">Financial projections</div>
+<div class="sl-h">Three-year P&amp;L <span class="chip hd" style="vertical-align:middle"><span class="d"></span>Projection, not actuals</span></div>
+<div class="tw" style="margin-top:12px"><table>
+<thead><tr><th>EGP</th><th class="r">Year 1</th><th class="r">Year 2</th><th class="r">Year 3</th></tr></thead>
+<tbody>
+<tr><td data-l="L">Customers at year end</td><td data-l="A" class="num">6</td><td data-l="B" class="num">16</td><td data-l="C" class="num">24</td></tr>
+<tr class="hi"><td data-l="L">Revenue</td><td data-l="A" class="num">493,709</td><td data-l="B" class="num">2,034,342</td><td data-l="C" class="num">3,946,867</td></tr>
+<tr><td data-l="L">Gross profit</td><td data-l="A" class="num">392,675</td><td data-l="B" class="num">1,054,112</td><td data-l="C" class="num">2,327,750</td></tr>
+<tr><td data-l="L">Gross margin</td><td data-l="A" class="num">79.5%</td><td data-l="B" class="num">51.8%</td><td data-l="C" class="num">59.0%</td></tr>
+<tr class="bad"><td data-l="L">EBITDA</td><td data-l="A" class="num">(1,524,292)</td><td data-l="B" class="num">(2,395,792)</td><td data-l="C" class="num">(2,000,459)</td></tr>
+</tbody></table></div>
+<p class="sl-p" style="margin-top:10px"><strong>Key assumptions:</strong> 4 diagnostic walkthroughs/month from phase 2 · 33%
+walkthrough-to-pilot · 70% pilot-to-annual · 50% of customers reach full fleet · EGP 650 per vehicle.
+The model is live — every assumption is editable and the whole thing recalculates.</p>
+<div class="sl-meta">Full model with 56 assumptions and 8 scenarios · available in the data room</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">13</div><div class="sl-b">
+<div class="sl-k">Funding requirements</div>
+<div class="sl-h">EGP 3.2M staged, of EGP 7.44M total</div>
+<div class="tw" style="margin-top:12px"><table>
+<thead><tr><th>Use of funds</th><th>Unlocks</th><th class="r">Amount</th></tr></thead>
+<tbody>
+<tr><td data-l="U">Commercial lead to month 14</td><td data-l="M">Phase 2 — sells without the founder</td><td data-l="A" class="num">560,000</td></tr>
+<tr><td data-l="U">Engineer to month 14</td><td data-l="M">Automated attribution, removes 45 min/customer/day</td><td data-l="A" class="num">525,000</td></tr>
+<tr><td data-l="U">Founder salaries from month 6</td><td data-l="M">Full-time commitment past the 6-month horizon</td><td data-l="A" class="num">760,000</td></tr>
+<tr><td data-l="U">Sensors and install for 8 customers</td><td data-l="M">Phase 2 customer count</td><td data-l="A" class="num">470,000</td></tr>
+<tr><td data-l="U">Legal, entity, IP assignment</td><td data-l="M">Everything. It is currently blocking.</td><td data-l="A" class="num">180,000</td></tr>
+<tr><td data-l="U">Operating and buffer</td><td data-l="M">3 months of runway above the trough</td><td data-l="A" class="num">705,000</td></tr>
+<tr class="hi"><td data-l="U"><strong>Total</strong></td><td data-l="M">Through the phase 2 gate at month 14</td><td data-l="A" class="num">3,200,000</td></tr>
+</tbody></table></div>
+<p class="sl-p" style="margin-top:10px"><strong>Round dynamics:</strong> EGP 3.2M at a EGP 9.0M pre-money is 26.2% post-round.
+The remaining EGP 4.24M is raised at phase 3, once retention and expansion can be evidenced — which is when the valuation should be
+materially higher.</p>
+<div class="sl-meta">Sized from the cash trough in the model, plus a 3-month buffer</div>
+</div></div>
+
+<div class="slide"><div class="sl-n">14</div><div class="sl-b">
+<div class="sl-k">Contact</div>
+<div class="sl-h">Nour Halim</div>
+<p class="sl-p">Founder · Cairo, Egypt</p>
+<div class="sl-meta">nour@sanad.eg · +20 · linkedin.com/in/nourhalim</div>
+</div></div>
+
+<p class="sub" style="margin-top:16px">Appendices — A: product screenshots · B: full 14-player competitive matrix ·
+C: capability assessment across eight functions · D: financial model assumptions and scenarios</p>
 </div>
 
 <div class="sec"><div class="sec-h"><span class="sec-n">8.2.3</span><div>
-<h2>Structural checks</h2><div class="sub">The four errors that most often appear in a deck</div></div></div>
+<h2>Structural checks</h2><div class="sub">The errors that most often appear in a deck</div></div></div>
 <div class="grid g2">
 <div class="card"><div class="card-h"><h4>Slides 2 and 3 are 1:1, in order</h4><span class="chip up"><span class="d"></span>Pass</span></div>
-<p class="sub">Two problems, two solutions, same sequence. The most common structural error in decks and the easiest to check.</p></div>
-<div class="card warn"><div class="card-h"><h4>Traction is stated, not padded</h4><span class="chip hd"><span class="d"></span>Qualified</span></div>
-<p class="sub">The framework permits omitting the slide entirely. It is kept because the churn explains the concept — but it says
-neither customer renewed and nobody is paying today.</p></div>
+<p class="sub">Two problems, two solutions, same sequence. The most common structural error in decks.</p></div>
+<div class="card warn"><div class="card-h"><h4>Traction stated, not padded</h4><span class="chip hd"><span class="d"></span>Qualified</span></div>
+<p class="sub">The slide could have been omitted under the rules. It is kept because the churn explains the concept — and it says
+zero are paying today.</p></div>
 <div class="card"><div class="card-h"><h4>Team slide names the gaps</h4><span class="chip up"><span class="d"></span>Pass</span></div>
-<p class="sub">Fundraising, hiring and financial capability are all declared. Investors assume gaps exist; hiding them costs more than having them.</p></div>
+<p class="sub">Fundraising, hiring and financial capability all declared on the slide itself.</p></div>
 <div class="card"><div class="card-h"><h4>Use of funds maps to milestones</h4><span class="chip up"><span class="d"></span>Pass</span></div>
-<p class="sub">Each line on slide 13 ties to a phase on slide 7. "Product and marketing" is not a use of funds.</p></div>
+<p class="sub">Every line on slide 13 names what it unlocks on slide 7.</p></div>
 </div>
-
 <div class="find warn"><div class="find-t">One slide is deliberately absent</div>
-<div class="find-b">There is no exit slide. The framework requires named acquirers rather than categories, and no credible named acquirer
-has been identified for a business of this size in this market. An exit slide saying "strategic players in logistics" says nothing and
-signals no exit thinking has happened — so the slide is omitted and the question is answered in conversation instead.</div></div>
-
-<div class="find crit"><div class="find-t">What the deck cannot resolve, and does not try to</div>
-<div class="find-b">Slide 5 shows a serviceable market of EGP 7.43M. Slide 13 asks for EGP 7.44M. An investor will notice that the ask is
-roughly the entire annual serviceable market, and no arrangement of slides makes that go away.<br><br>
-It is addressed directly rather than buried: the ask funds a three-year path to roughly a third of that market, and the case for a
-venture-scale outcome rests on whether the mechanism travels to a second vertical — which is tested in phase 3 and is stated as untested.</div></div>
+<div class="find-b">There is no exit slide. The rule requires named acquirers rather than categories, and none has been identified for a
+business of this size in this market. "Strategic players in logistics" says nothing and signals no exit thinking has happened — so the
+question is answered in conversation instead.</div></div>
+<div class="find crit"><div class="find-t">What the deck cannot hide</div>
+<div class="find-b">Slide 5 shows a EGP 7.43M serviceable market. Slide 13 asks for EGP 3.2M now and EGP 7.44M in total.
+An investor will notice the total ask approaches the entire annual serviceable market, and no arrangement of slides changes that.
+It is addressed directly: the case for a venture-scale outcome rests on the mechanism travelling to a second vertical, which slide 7
+puts in phase 3 and states as untested.</div></div>
 </div>
 
 <div class="next-step">
@@ -7461,47 +7688,546 @@ expect to find them and will not.</div></div>
 </div>
 </div>
 <div class="pane" id="s8p4">
-<div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">8.4.1</span><div>
-<h2>Assessed from scratch</h2><div class="sub">Not an update to the Stage 2 assessment</div></div></div>
+
+<div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">01</span><div>
+<h2>Introduction</h2><div class="sub">What this report is, how we produced it, and how to use it</div></div></div>
 <div class="panel">
-<p>This is a fresh assessment on the same rubric, run against everything built since — ideation, market context, strategy, all eight
-tactical frameworks and the financial model. <strong>The initial score was not consulted until after this one was complete.</strong></p>
-<p>That matters: updating a score anchors every judgement on the first number, and each becomes a defence of, or an argument with, an
-earlier one. The delta is computed afterwards and reported as a narrative of progress. It never steered the result.</p>
+<p>This is an independent assessment of Sanad, produced from every framework output completed since the initial assessment — ideation,
+market context, strategy, eight tactical frameworks and the financial model — together with 11 validation interviews and the founder record.</p>
+<p>We did three things, in order. First we read and analysed everything, recalculating key numbers from source data rather than accepting
+stated figures, and checking outputs against each other. Then we asked about what the work couldn't resolve on its own. Finally we assessed
+the business.</p>
+<p><strong>This is not an update to the initial assessment.</strong> It is a fresh assessment on the same rubric, and the earlier score was
+not consulted until it was complete. Updating a score anchors every judgement on the first number, and each becomes a defence of, or an
+argument with, an earlier one. The comparison is section 19, computed afterwards.</p>
+<p>The same two rules apply. Where we had no data we recorded a gap rather than an estimate. And where outputs disagreed we say so plainly.</p>
+<p>Sections 04–10 are what we found. Sections 11–14 are what we concluded. Sections 15–18 are what to do next.
+<strong>If you read only two things, read the executive summary and section 18.</strong></p>
 </div>
-<div class="hero" style="margin-top:14px">
-<div class="stats">
-<div class="stat"><div class="lbl">Composite</div><div class="big">60<s>/100</s></div><div class="sub">Assessed independently</div></div>
-<div class="stat"><div class="lbl">Confidence</div><div class="big">0.71</div><div class="sub">Nearly double the baseline</div></div>
-<div class="stat"><div class="lbl">Stage on the path</div><div class="big" style="font-size:19px;line-height:1.3">Solution Development</div><div class="sub">Reassessed, not carried forward</div></div>
-<div class="stat"><div class="lbl">Evidence tier</div><div class="big">2<s>/3</s></div><div class="sub">Caps what can be produced</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">02</span><div>
+<h2>Executive summary</h2><div class="sub">The answer, in about thirty seconds</div></div></div>
+<div class="grid g4">
+<div class="card"><div class="lbl">You told us</div><h4 style="margin-bottom:4px">Revenue Generation</h4>
+<p class="sub">Ready to raise and sell</p></div>
+<div class="card warn"><div class="lbl">Where you are</div><h4 style="margin-bottom:4px">Solution Development</h4>
+<p class="sub">Built toward a first sale. Nobody is paying yet.</p></div>
+<div class="card"><div class="lbl">Readiness score</div><div class="big mono" style="font-size:28px">60<s style="font-size:15px;color:var(--slate)">/100</s></div>
+<p class="sub" style="margin-top:4px">confidence <span class="mono">0.71</span></p></div>
+<div class="card"><div class="lbl">Investor materials</div><h4 style="margin-bottom:4px">Ready</h4>
+<p class="sub">Teaser and deck both clear the gate</p></div>
+</div>
+<div class="grid g2" style="margin-top:12px">
+<div class="card"><div class="lbl">Overall</div><h4 style="margin-bottom:6px">A well-built plan around an untested claim</h4>
+<p class="sub">Everything that can be established without a customer has been. The one thing that cannot be is the one everything rests on.</p></div>
+<div class="card"><div class="lbl">Must fix first</div><h4 style="margin-bottom:6px">3 things</h4>
+<p class="sub">Two are administrative and cost almost nothing. They have been open since day one.</p></div>
+</div>
+<h3>The three that matter most</h3>
+<div class="grid g3">
+<div class="card bad"><div class="lbl">01</div><h4 style="margin-bottom:7px">Your funding requirement is EGP 7.44M, not 4.55M</h4>
+<p class="sub">The strategy carries EGP 4.55M. The model — 4,278 live formulas against the tactical plan as written — produces EGP 7.44M
+at a cash trough of −2.08M in month 36. Every dilution and valuation conversation is built on the wrong number.</p></div>
+<div class="card bad"><div class="lbl">02</div><h4 style="margin-bottom:7px">Year 3 revenue is 158% of your own market ceiling</h4>
+<p class="sub">The model reaches EGP 3.95M against a serviceable market of EGP 2.50M over the same horizon. Either the acquisition
+assumptions are too fast or the 35% share assumption was too conservative. Both cannot be true.</p></div>
+<div class="card warn"><div class="lbl">03</div><h4 style="margin-bottom:7px">Three measures are still unscoreable</h4>
+<p class="sub">Demand durability, gross margin actuals and retention all survived the entire build programme still excluded. Every one
+needs a paying customer on the current concept.</p></div>
+</div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">03</span><div>
+<h2>How we score</h2><div class="sub">The same rubric as the initial assessment. Nothing has been reweighted.</div></div></div>
+<div class="grid g4" style="margin-top:12px">
+<div class="card"><div class="lbl">Desirability</div><p class="sub" style="margin:6px 0 8px">Do people want this, and can you win them?</p>
+<div class="big mono" style="font-size:24px">64</div></div>
+<div class="card"><div class="lbl">Viability</div><p class="sub" style="margin:6px 0 8px">Does the money work, and does it keep working as you grow?</p>
+<div class="big mono" style="font-size:24px">52</div></div>
+<div class="card"><div class="lbl">Feasibility</div><p class="sub" style="margin:6px 0 8px">Can you actually build and run this?</p>
+<div class="big mono" style="font-size:24px">63</div></div>
+<div class="card"><div class="lbl">Impact</div><p class="sub" style="margin:6px 0 8px">What does the business do beyond making money?</p>
+<div class="big mono" style="font-size:24px">57</div></div>
+</div>
+<h3>Three things affect where you land</h3>
+<div class="dl" style="margin-top:6px">
+<div><dt>How you're performing</dt><dd>Judged against what's normal for a business like yours at your point of growth, not against an
+absolute standard.</dd></div>
+<div><dt>Where you are on the path</dt><dd>What we measure changes as a business matures, and so does the weight per dimension.
+You have moved one step since the initial assessment, so you are measured on more than you were.</dd></div>
+<div><dt>How much evidence stood behind it</dt><dd>The confidence number. It should rise materially by this stage, and it has.</dd></div>
+</div>
+<div class="find ok"><div class="find-t">Your confidence: 0.71</div>
+<div class="find-b">Up from 0.38. The evidence base is now 11 real interviews, a counted market with the method disclosed, a live
+financial model, and a specified product and organisation. Six measures that could not be scored at all in the initial assessment can now
+be scored.<br><br>
+<strong>What still limits it:</strong> no paying customer on the current concept, and no incorporated entity — so nothing is verifiable
+against a third-party record. That is what separates 0.71 from the 0.85 the materials would ideally carry.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">04</span><div>
+<h2>Business profile</h2><div class="sub">Reconstructed from the framework outputs. Worth checking we got it right.</div></div></div>
+<div class="panel">
+<p>Sanad sells cold-chain custody records to mid-size pharmaceutical distributors in Greater Cairo. A sensor is fitted to each cold
+vehicle and a supervisor scans at every custody handover, so a temperature excursion falls inside a known leg with a known handler at a
+known place — which is what turns a monthly write-off total into a fixable event.</p>
+<p>Revenue is EGP 650 per monitored vehicle per month, dropping to EGP 560 above 19 vehicles, plus a quarterly Lane Review engagement at
+EGP 9,000. The compliance file is included at no charge as a retention mechanism. Beachhead is 11 named operators of the 34 in the
+serviceable market. Three founders, no incorporated entity, equity agreed verbally at 50/35/15.</p>
+</div>
+<div class="find"><div class="find-t">One thing worth flagging</div>
+<div class="find-b">The initial assessment found the deck leading on real-time monitoring — which every competitor offers and which both
+prior customers cancelled. That has been fixed. The materials now lead on attribution, which the 14-player matrix confirms no local or
+regional player offers. <strong>This was the cheapest fix identified in the initial assessment and it was done.</strong></div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">05</span><div>
+<h2>Evidence inventory</h2><div class="sub">Everything we read, and how much weight each source carries</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Source</th><th>Type</th><th>Covers</th><th>Weight</th></tr></thead>
+<tbody>
+<tr><td data-l="S">EDA licence register extract</td><td data-l="T">Document · market</td><td data-l="C">Public register, Aug 2026</td>
+<td data-l="W"><span class="chip up"><span class="d"></span>Verified</span></td></tr>
+<tr><td data-l="S">Customer invoices ×2</td><td data-l="T">Document · commercial</td><td data-l="C">Both prior engagements</td>
+<td data-l="W"><span class="chip up"><span class="d"></span>Verified</span></td></tr>
+<tr><td data-l="S">Sensor supplier quotes ×2</td><td data-l="T">Document · operational</td><td data-l="C">Landed cost incl. duty</td>
+<td data-l="W"><span class="chip up"><span class="d"></span>Verified</span></td></tr>
+<tr><td data-l="S">Validation interviews ×11</td><td data-l="T">Primary research</td><td data-l="C">8 companies, recorded, Aug 2026</td>
+<td data-l="W"><span class="chip hd"><span class="d"></span>Supported</span></td></tr>
+<tr><td data-l="S">Competitive landscape ×14</td><td data-l="T">Document · market</td><td data-l="C">Funding, valuation, stage per player</td>
+<td data-l="W"><span class="chip hd"><span class="d"></span>Supported</span></td></tr>
+<tr><td data-l="S">Financial model</td><td data-l="T">Model · financial</td><td data-l="C">36 months, 56 assumptions, 4,278 formulas</td>
+<td data-l="W"><span class="chip hd"><span class="d"></span>Supported</span></td></tr>
+<tr><td data-l="S">Tactical frameworks ×8</td><td data-l="T">Internal · planning</td><td data-l="C">Brand to business intelligence</td>
+<td data-l="W"><span class="chip nt"><span class="d"></span>Asserted</span></td></tr>
+<tr><td data-l="S">Founder record</td><td data-l="T">You · onboarding</td><td data-l="C">2 of 3 founders captured directly</td>
+<td data-l="W"><span class="chip nt"><span class="d"></span>You told us</span></td></tr>
+</tbody></table></div>
+<div class="find warn"><div class="find-t">The evidence base changed shape, not just size</div>
+<div class="find-b">The initial assessment rested on 6 documents, of which 3 were third-party. This one rests on 11 recorded interviews, a
+counted market and a built model. <strong>But there is still no entity, no bank record, no signed contract and no paying customer</strong> —
+so nothing has moved from Supported to Verified. That is the ceiling on confidence at tier 2.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">06</span><div>
+<h2>What's missing</h2><div class="sub">What a business at this point usually has, that we didn't find</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Expected</th><th>Why it matters</th><th>Severity</th><th>Since</th></tr></thead>
+<tbody>
+<tr class="bad"><td data-l="E">Certificate of incorporation</td>
+<td data-l="W">There is still no company. Blocks the raise, IP ownership and customer contracts entirely.</td>
+<td data-l="S"><span class="chip dn"><span class="d"></span>High</span></td><td data-l="D">Initial assessment</td></tr>
+<tr class="bad"><td data-l="E">Founders' agreement</td>
+<td data-l="W">Blocked by an outcome disagreement the founders have not had. Named at onboarding.</td>
+<td data-l="S"><span class="chip dn"><span class="d"></span>High</span></td><td data-l="D">Onboarding</td></tr>
+<tr class="bad"><td data-l="E">IP assignment</td>
+<td data-l="W">Prototype built before any entity existed. Nothing assigns it.</td>
+<td data-l="S"><span class="chip dn"><span class="d"></span>High</span></td><td data-l="D">Initial assessment</td></tr>
+<tr class="bad"><td data-l="E">A signed pilot agreement</td>
+<td data-l="W">The concept has been specified, priced and validated in conversation. Nobody has signed.</td>
+<td data-l="S"><span class="chip dn"><span class="d"></span>High</span></td><td data-l="D">New</td></tr>
+<tr><td data-l="E">EDA regulatory confirmation</td>
+<td data-l="W">The compliance value rests on the regulator accepting a system-generated record. Still unasked.</td>
+<td data-l="S"><span class="chip hd"><span class="d"></span>Medium</span></td><td data-l="D">Initial assessment</td></tr>
+<tr><td data-l="E">Third founder's record</td>
+<td data-l="W">35% holder, proxy-captured, assigned the regulatory role with no verified background.</td>
+<td data-l="S"><span class="chip hd"><span class="d"></span>Medium</span></td><td data-l="D">Onboarding</td></tr>
+<tr><td data-l="E">Second qualified sensor supplier</td>
+<td data-l="W">Single imported source, FX-priced. Identified in operations, not yet actioned.</td>
+<td data-l="S"><span class="chip hd"><span class="d"></span>Medium</span></td><td data-l="D">New</td></tr>
+</tbody></table></div>
+<div class="find crit"><div class="find-t">Four of seven were already missing at the initial assessment</div>
+<div class="find-b">Incorporation, the founders' agreement, IP assignment and the EDA question were all named months ago. None costs
+meaningful capital. <strong>A build programme has been completed around them rather than through them</strong> — which is itself the most
+telling finding in this section.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">07</span><div>
+<h2>Your numbers, recalculated</h2><div class="sub">Recalculated from source rather than taken as stated. Where they differ, the reason is in the last column.</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Figure</th><th class="r">Calculated</th><th class="r">You stated</th><th class="r">Difference</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="bad"><td data-l="F">Peak funding required</td><td data-l="C" class="num">EGP 7.44M</td><td data-l="S" class="num">EGP 4.55M</td>
+<td data-l="D" class="num">+64%</td>
+<td data-l="W">Strategy figure predates the model. Model output is the trough plus capital already assumed plus a 3-month buffer.</td></tr>
+<tr class="bad"><td data-l="F">Sustained EBITDA breakeven</td><td data-l="C" class="num">Not in 36 mo</td><td data-l="S" class="num">Month 3</td>
+<td data-l="D" class="num">—</td>
+<td data-l="W">Month 3 is positive only because founders are unpaid until month 6. Sustained breakeven means positive and staying positive.</td></tr>
+<tr class="bad"><td data-l="F">Y3 revenue vs obtainable market</td><td data-l="C" class="num">158%</td><td data-l="S" class="num">n/d</td>
+<td data-l="D" class="num">—</td>
+<td data-l="W">Model reaches EGP 3.95M against a 3-year SOM of EGP 2.50M. Never stated in any output.</td></tr>
+<tr><td data-l="F">Operations machine share</td><td data-l="C" class="num">31%</td><td data-l="S" class="num">48%</td>
+<td data-l="D" class="num">−17pp</td>
+<td data-l="W">48% counts tasks; 31% weights by hours. The human-heavy tasks are the long ones.</td></tr>
+<tr><td data-l="F">Direct cost per vehicle/month</td><td data-l="C" class="num">EGP 160</td><td data-l="S" class="num">EGP 160</td>
+<td data-l="D" class="num">match</td><td data-l="W">Built from the operations task list. Consistent across commercial and financial frameworks.</td></tr>
+<tr><td data-l="F">Serviceable market</td><td data-l="C" class="num">EGP 7.43M</td><td data-l="S" class="num">EGP 7.43M</td>
+<td data-l="D" class="num">match</td><td data-l="W">Counted bottom-up. The 31× discrepancy from the initial assessment is resolved.</td></tr>
+<tr><td data-l="F">Contribution per vehicle</td><td data-l="C" class="num">EGP 490</td><td data-l="S" class="num">EGP 490</td>
+<td data-l="D" class="num">match</td><td data-l="W">Verified independently in the commercial framework and the model.</td></tr>
+</tbody></table></div>
+<span class="src" style="margin-top:8px">The recalculated figures are used throughout this report.</span>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">08</span><div>
+<h2>Where outputs disagree</h2><div class="sub">Where the venture's own frameworks tell different stories</div></div></div>
+<div class="grid g3">
+<div class="card warn"><div class="card-h"><h4>Funding · strategy vs model</h4><span class="chip hd"><span class="d"></span>Unresolved</span></div>
+<p class="sub">Strategy says EGP 4.55M; the model says 7.44M. The strategy figure was set before the model existed and has not been
+corrected at source. The model figure is used throughout — but the strategy document still carries the old one.</p></div>
+<div class="card bad"><div class="card-h"><h4>Revenue vs market ceiling</h4><span class="chip dn"><span class="d"></span>Unresolved</span></div>
+<p class="sub">The model's year 3 revenue is 158% of the market framework's own 3-year SOM. The model flags it rather than capping
+revenue, because which of the two is wrong changes different things downstream. It remains a genuine contradiction.</p></div>
+<div class="card"><div class="card-h"><h4>Automation · operations vs BI</h4><span class="chip up"><span class="d"></span>Resolved</span></div>
+<p class="sub">48% of tasks are machine-executable; 31% of the hours are. Both are correct and they measure different things.
+The load-weighted figure is used for capacity planning.</p></div>
+</div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">09</span><div>
+<h2>Things worth explaining</h2><div class="sub">Patterns that aren't errors, but that an investor will ask about</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Flag</th><th>Detail</th><th>Severity</th><th>Status</th></tr></thead>
+<tbody>
+<tr class="bad"><td data-l="F">No entity, months after it was flagged</td>
+<td data-l="D">Named as blocking in the initial assessment. Nothing has changed.</td>
+<td data-l="S"><span class="chip dn"><span class="d"></span>High</span></td><td data-l="St">Open</td></tr>
+<tr class="bad"><td data-l="F">Founder outcome disagreement</td>
+<td data-l="D">Acquisition versus independent business. Surfaced at onboarding, still not discussed between them.</td>
+<td data-l="S"><span class="chip dn"><span class="d"></span>High</span></td><td data-l="St">Open</td></tr>
+<tr class="bad"><td data-l="F">Critical dependency never observed</td>
+<td data-l="D">Everything rests on a supervisor scanning at every handover at 6am. Never seen unsupervised.</td>
+<td data-l="S"><span class="chip dn"><span class="d"></span>High</span></td><td data-l="St">Acknowledged</td></tr>
+<tr><td data-l="F">Phase 1 at 113% of capacity</td>
+<td data-l="D">The org framework's own figure. The plan requires more hours than the founders have.</td>
+<td data-l="S"><span class="chip hd"><span class="d"></span>Medium</span></td><td data-l="St">Acknowledged</td></tr>
+<tr><td data-l="F">Five KPIs have no data source</td>
+<td data-l="D">Declared in the BI framework rather than hidden. They cannot be reported until instrumented.</td>
+<td data-l="S"><span class="chip hd"><span class="d"></span>Medium</span></td><td data-l="St">Explained</td></tr>
+<tr><td data-l="F">Pilot fails its own payback tolerance</td>
+<td data-l="D">12.4 months against a 9-month rule. Sold on substitution rather than return, deliberately.</td>
+<td data-l="S"><span class="chip hd"><span class="d"></span>Medium</span></td><td data-l="St">Explained</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">10</span><div>
+<h2>What we asked you</h2><div class="sub">Four questions the frameworks couldn't settle on their own</div></div></div>
+<div class="grid g2">
+<div class="card"><div class="card-h"><h4 class="mono">q_01</h4><span class="chip up"><span class="d"></span>Answered</span></div>
+<p class="sub" style="margin:6px 0 8px"><em>The strategy carries EGP 4.55M and the model produces 7.44M. Which is the number you are
+raising against?</em></p>
+<div class="dl">
+<div><dt>Answer</dt><dd>"The model. We hadn't updated the strategy doc."</dd></div>
+<div><dt>Effect</dt><dd>7.44M used throughout. The strategy document still needs correcting at source.</dd></div>
+</div></div>
+<div class="card warn"><div class="card-h"><h4 class="mono">q_02</h4><span class="chip hd"><span class="d"></span>Not resolved</span></div>
+<p class="sub" style="margin:6px 0 8px"><em>Year 3 revenue is 158% of your own SOM. Is the acquisition rate too fast, or was the 35%
+share assumption too conservative?</em></p>
+<div class="dl">
+<div><dt>Answer</dt><dd>"Probably the share assumption — but I don't have a basis for saying that."</dd></div>
+<div><dt>Effect</dt><dd>Recorded as unresolved. It is a judgement that changes different things depending on which is wrong.</dd></div>
+</div></div>
+<div class="card warn"><div class="card-h"><h4 class="mono">q_03</h4><span class="chip dn"><span class="d"></span>No response</span></div>
+<p class="sub" style="margin:6px 0 8px"><em>Have the three of you had the conversation about what outcome you each want?</em></p>
+<div class="dl">
+<div><dt>Answer</dt><dd>Round closed with no response</dd></div>
+<div><dt>Effect</dt><dd>Carried to blocking items. It is the third assessment cycle in which it has appeared.</dd></div>
+</div></div>
+<div class="card"><div class="card-h"><h4 class="mono">q_04</h4><span class="chip up"><span class="d"></span>Answered</span></div>
+<p class="sub" style="margin:6px 0 8px"><em>Has anyone observed a supervisor completing a handover scan without being watched?</em></p>
+<div class="dl">
+<div><dt>Answer</dt><dd>"No. In both prior engagements I was on site."</dd></div>
+<div><dt>Effect</dt><dd>Recorded. It is the single most important untested assumption in the venture.</dd></div>
 </div></div>
 </div>
+</div>
 
-<div class="sec"><div class="sec-h"><span class="sec-n">8.4.2</span><div>
-<h2>Dimensions</h2><div class="sub">Conclusion first in each case</div></div></div>
+<div class="sec"><div class="sec-h"><span class="sec-n">11</span><div>
+<h2>Where you are</h2><div class="sub">Reassessed from current evidence, not carried forward</div></div></div>
 <div class="grid g2">
-<div class="card"><div class="card-h"><h4>Desirability</h4><span class="chip mono nt">64</span></div>
-<p class="sub"><strong>The problem is now evidenced rather than believed.</strong> Eleven interviews across eight companies, nine
-recognising the problem unprompted, ten confirming they already spend EGP 40–90K a year on a method they rate 4 out of 10. What is still
-missing is anyone paying for the current concept — the demand is proven, the product is not.</p></div>
-<div class="card"><div class="card-h"><h4>Viability</h4><span class="chip mono nt">52</span></div>
+<div class="card"><div class="lbl">You told us</div><h4 style="margin-top:6px">Revenue Generation</h4>
+<p class="sub" style="margin-top:6px">Customers are paying for the product.</p></div>
+<div class="card on"><div class="lbl">The evidence places you at</div><h4 style="margin-top:6px">Solution Development</h4>
+<p class="sub" style="margin-top:6px">Being built toward a first sale, with the problem evidenced and the solution specified.</p></div>
+</div>
+<div class="find"><div class="find-t">You moved one step, and it is a real move</div>
+<div class="find-b">The initial assessment placed you at Prototype: a working thing, real customer exposure, no commercial relationship.
+Solution Development requires the problem evidenced with real people and the solution specified to the point of being buildable —
+both are now true. Eleven interviews took problem evidence from asserted to evidenced, and the product framework specifies 24 features
+with build/buy decisions.<br><br>
+<strong>What you have not reached is Revenue Generation</strong>, which requires customers paying now. Zero are.<br><br>
+And this still works in your favour: at Revenue Generation we would measure you on retention, net revenue retention and gross margin
+actuals — the three things you cannot evidence. At Solution Development we measure problem evidence, solution fit, and readiness to sell,
+which is where the work has actually gone.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">12</span><div>
+<h2>Pillar analysis</h2><div class="sub">The conclusion comes first in each case; the score is at the end</div></div></div>
+<h3>Desirability — do people want this, and can you win them?</h3>
+<div class="grid g2">
+<div class="card"><div class="card-h"><h4>Attractiveness</h4><span class="chip mono nt">68</span></div>
+<p class="sub"><strong>The problem is now evidenced rather than believed, and that is the largest single change since the initial
+assessment.</strong> Nine of eleven operators recognised it unprompted; ten already spend EGP 40–90K a year on a method they rate 4 out of
+10. The demand is real and the substitution case is arithmetic rather than persuasion. What remains missing is anyone paying for the
+current concept — the problem is proven, the product is not.</p></div>
+<div class="card"><div class="card-h"><h4>Competitiveness</h4><span class="chip mono nt">60</span></div>
+<p class="sub"><strong>The unclaimed position from the initial assessment has been claimed.</strong> The materials now lead on attribution,
+verified against 14 players as offered by none locally or regionally. The durability argument — an accumulated record a competitor cannot
+backdate — is sound but takes eighteen months to become real, and nothing protects the first eighteen.</p></div>
+</div>
+<h3>Viability — does the money work, and does it keep working?</h3>
+<div class="grid g2">
+<div class="card"><div class="card-h"><h4>Profitability</h4><span class="chip mono nt">50</span></div>
 <p class="sub"><strong>The unit works and the business does not, yet.</strong> Contribution holds at EGP 475–537 per vehicle-month with
-cost built from the operations task list. But the financial model shows a EGP 2.08M deficit at month 36 on the raise assumed, and year 3
-revenue at 158% of the obtainable market. Sound economics inside a market too small to carry the team.</p></div>
-<div class="card"><div class="card-h"><h4>Feasibility</h4><span class="chip mono nt">63</span></div>
-<p class="sub"><strong>The strongest dimension, and the one that moved most.</strong> A specified product with build/buy decisions,
-23 operational tasks with load, an org plan derived from that load, and a documented legal path. What remains is that the critical
-dependency — a supervisor scanning at every handover — has never been observed without supervision.</p></div>
-<div class="card"><div class="card-h"><h4>Impact</h4><span class="chip mono nt">57</span></div>
-<p class="sub"><strong>Now stated and partly measurable.</strong> The contribution is specific — medicine that has failed reaching a
-patient who believes it has not — and the north star metric measures whether anything actually changes. Sustainability remains
-unquantified on both sides.</p></div>
+cost built from the operations task list rather than estimated, and gross margin settles at 59%. Above the gross line the arithmetic fails:
+HR is 92% of revenue in year three against a market of 34 buyers. That is structural, not executional.</p></div>
+<div class="card bad"><div class="card-h"><h4>Scalability</h4><span class="chip mono nt">54</span></div>
+<p class="sub"><strong>The ceiling is the constraint, and now it is quantified.</strong> Every scenario in the model runs into 34 buyers.
+The best case — six walkthroughs a month — still needs EGP 5.5M and still does not reach sustained breakeven inside 36 months. The only
+thing that changes the ceiling is a second vertical, which is untested and stated as untested.</p></div>
+</div>
+<h3>Feasibility — can you actually build and run this?</h3>
+<div class="grid g2">
+<div class="card"><div class="card-h"><h4>Capability</h4><span class="chip mono nt">64</span></div>
+<p class="sub"><strong>Strong on domain and technical, unchanged on everything else.</strong> Eleven years in the problem plus six years
+of verified build history remains a rare pairing. But fundraising is still absent, hiring is still untested, and financial capability is
+still thin — the same three gaps the initial assessment named, none of which a build programme addresses.</p></div>
+<div class="card"><div class="card-h"><h4>Operability</h4><span class="chip mono nt">62</span></div>
+<p class="sub"><strong>The largest improvement in the assessment, with one hole in the middle of it.</strong> Twenty-three operational
+tasks with load, ownership and automation level; an org plan derived from that load rather than from ambition; a gap-declaration rule that
+functions as an SLA. The hole is that the critical dependency — a supervisor scanning at 6am unsupervised — has never been observed.</p></div>
+</div>
+<h3>Impact — what does the business do beyond making money?</h3>
+<div class="grid g2">
+<div class="card"><div class="card-h"><h4>Contribution</h4><span class="chip mono nt">62</span></div>
+<p class="sub"><strong>Now stated and measurable.</strong> Medicine that has failed reaching a patient who believes it has not is a real
+health outcome, and the north star metric — attributions acted upon — measures whether anything actually changes rather than whether the
+product is used.</p></div>
+<div class="card"><div class="card-h"><h4>Sustainability</h4><span class="chip mono nt">48</span></div>
+<p class="sub"><strong>Improved but still unquantified on both sides.</strong> Reduced write-offs mean less pharmaceutical waste, which
+is defensible and now stated. Against it, a battery-powered device in every vehicle still has no stated end-of-life handling.</p></div>
 </div>
 </div>
 
-<div class="sec"><div class="sec-h"><span class="sec-n">8.4.3</span><div>
-<h2>Delta against the initial assessment</h2><div class="sub">Computed after the fresh assessment, never before it</div></div></div>
+<div class="sec"><div class="sec-h"><span class="sec-n">13</span><div>
+<h2>Score breakdown</h2><div class="sub">Every judgement, with the reason. Scored out of 5 against what's normal at this stage.</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>What we looked at</th><th class="r">Score</th><th class="r">Was</th><th>Why</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="4" style="background:var(--n700);font-family:'JetBrains Mono';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)">Desirability · 64</td></tr>
+<tr class="hi"><td data-l="M">Problem evidence</td><td data-l="S" class="num">5</td><td data-l="P" class="num">4</td>
+<td data-l="W">11 interviews, 9 recognising unprompted, incumbent method rated 4/10 by its own users.</td></tr>
+<tr class="bad"><td data-l="M">Demand durability</td><td data-l="S">excluded</td><td data-l="P">excluded</td>
+<td data-l="W">Still nobody paying for the current concept. Excluded a second time.</td></tr>
+<tr><td data-l="M">Market size</td><td data-l="S" class="num">2</td><td data-l="P" class="num">2</td>
+<td data-l="W">34 organisations in the target segment. Counted properly now, and still small.</td></tr>
+<tr class="hi"><td data-l="M">Differentiation</td><td data-l="S" class="num">4</td><td data-l="P" class="num">2</td>
+<td data-l="W">Repositioned onto attribution, verified against 14 players as offered by none locally.</td></tr>
+<tr><td data-l="M">Competitive intensity</td><td data-l="S" class="num">4</td><td data-l="P" class="num">4</td>
+<td data-l="W">No local player offers the capability. Unchanged.</td></tr>
+<tr class="hi"><td data-l="M">Buying process understood</td><td data-l="S" class="num">4</td><td data-l="P">excluded</td>
+<td data-l="W">Approval ceilings, timing and the pilot expectation all evidenced from interviews. Newly scoreable.</td></tr>
+<tr class="grp"><td colspan="4" style="background:var(--n700);font-family:'JetBrains Mono';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)">Viability · 52</td></tr>
+<tr class="bad"><td data-l="M">Revenue</td><td data-l="S" class="num">1</td><td data-l="P" class="num">1</td>
+<td data-l="W">Still zero recurring. Unchanged.</td></tr>
+<tr class="hi"><td data-l="M">Unit economics</td><td data-l="S" class="num">4</td><td data-l="P" class="num">3</td>
+<td data-l="W">EGP 490 contribution, cost built from the task list, verified independently twice.</td></tr>
+<tr class="hi"><td data-l="M">Pricing basis</td><td data-l="S" class="num">4</td><td data-l="P" class="num">1</td>
+<td data-l="W">Floor and ceiling derived from substitution cost and approval limits. The gap that went unanswered is closed.</td></tr>
+<tr><td data-l="M">Market headroom</td><td data-l="S" class="num">2</td><td data-l="P" class="num">2</td>
+<td data-l="W">EGP 7.43M serviceable. A quarter of work cannot make 34 buyers into more.</td></tr>
+<tr class="hi"><td data-l="M">Path to breakeven</td><td data-l="S" class="num">2</td><td data-l="P">excluded</td>
+<td data-l="W">Now modelled — and sustained breakeven is not reached in 36 months. Newly scoreable, and it scores badly.</td></tr>
+<tr class="hi"><td data-l="M">Capital efficiency</td><td data-l="S" class="num">2</td><td data-l="P">excluded</td>
+<td data-l="W">EGP 7.44M to reach EGP 3.95M of revenue. Newly scoreable.</td></tr>
+<tr class="bad"><td data-l="M">Gross margin actuals</td><td data-l="S">excluded</td><td data-l="P">excluded</td>
+<td data-l="W">Modelled, not realised. Still no trading entity.</td></tr>
+<tr class="grp"><td colspan="4" style="background:var(--n700);font-family:'JetBrains Mono';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)">Feasibility · 63</td></tr>
+<tr class="hi"><td data-l="M">Domain capability</td><td data-l="S" class="num">5</td><td data-l="P" class="num">5</td>
+<td data-l="W">Unchanged and still the strongest measure in the assessment.</td></tr>
+<tr><td data-l="M">Technical capability</td><td data-l="S" class="num">4</td><td data-l="P" class="num">4</td>
+<td data-l="W">Working prototype, build/buy decisions taken deliberately.</td></tr>
+<tr><td data-l="M">Capability coverage</td><td data-l="S" class="num">2</td><td data-l="P" class="num">2</td>
+<td data-l="W">Fundraising still absent, hiring still untested. Unchanged.</td></tr>
+<tr class="hi"><td data-l="M">Delivery repeatability</td><td data-l="S" class="num">3</td><td data-l="P" class="num">2</td>
+<td data-l="W">23 tasks specified with load and ownership. Still never run without a founder present.</td></tr>
+<tr class="bad"><td data-l="M">Structural readiness</td><td data-l="S" class="num">1</td><td data-l="P" class="num">1</td>
+<td data-l="W">No entity, no agreement, no IP assignment. <strong>Unchanged since the initial assessment.</strong></td></tr>
+<tr class="hi"><td data-l="M">Operating model</td><td data-l="S" class="num">4</td><td data-l="P">excluded</td>
+<td data-l="W">Org derived from task load, AI positions with named human owners. Newly scoreable.</td></tr>
+<tr><td data-l="M">Team commitment</td><td data-l="S" class="num">3</td><td data-l="P" class="num">3</td>
+<td data-l="W">One full-time, one at six months, one inactive holding 35%. Unchanged.</td></tr>
+<tr class="grp"><td colspan="4" style="background:var(--n700);font-family:'JetBrains Mono';font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)">Impact · 57</td></tr>
+<tr><td data-l="M">Problem significance</td><td data-l="S" class="num">4</td><td data-l="P" class="num">4</td>
+<td data-l="W">Unchanged. Real health outcome.</td></tr>
+<tr class="hi"><td data-l="M">Measurable outcome</td><td data-l="S" class="num">4</td><td data-l="P" class="num">2</td>
+<td data-l="W">North star measures attributions acted upon — behaviour change, not usage.</td></tr>
+<tr><td data-l="M">Environmental</td><td data-l="S">excluded</td><td data-l="P">excluded</td>
+<td data-l="W">Neither waste reduction nor device end-of-life is quantified.</td></tr>
+</tbody></table></div>
+<div class="find"><div class="find-t">Six measures unlocked, three still excluded</div>
+<div class="find-b">Buying process, path to breakeven, capital efficiency, operating model and two others can now be scored — two of them
+badly, which is the point of scoring them. The three that remain excluded are demand durability, gross margin actuals and retention.
+All three need one thing: a customer paying for the current concept.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">14</span><div>
+<h2>The investor lens</h2><div class="sub">The same business read the way a venture investor reads it</div></div></div>
+<div class="grid g2">
+<div class="card warn"><div class="lbl">Proof of potential</div><h4 style="margin-top:4px">Moderate</h4>
+<p class="sub" style="margin-top:6px">Evidenced demand, quantified ceiling</p></div>
+<div class="card warn"><div class="lbl">Mitigation of risk</div><h4 style="margin-top:4px">Partial</h4>
+<p class="sub" style="margin-top:6px">Six material risks, four unaddressed and cheap to address</p></div>
+</div>
+<div class="panel" style="margin-top:12px">
+<div class="lbl">How this reads</div>
+<p style="font-size:14px;margin-top:6px">A thoroughly worked plan for a business that may be too small to return a fund, run by a founder
+who genuinely knows the problem. The preparation is well above what we normally see at this cheque size — and the ceiling has not moved,
+the company still does not exist, and nobody has paid for the current product. <strong>This is a credible seed conversation and a difficult
+venture case, and those are different things.</strong></p>
+</div>
+<div class="tw" style="margin-top:14px"><table>
+<thead><tr><th>Evidence of</th><th>Rating</th><th>What we found</th></tr></thead>
+<tbody>
+<tr class="bad"><td data-l="E"><strong>Ceiling</strong></td><td data-l="R"><span class="chip dn"><span class="d"></span>Limiting</span></td>
+<td data-l="W">34 organisations at full penetration is roughly EGP 7.43M a year. Better evidenced than at the initial assessment, and
+the same size. <strong>Strong for an owner, small for a fund.</strong></td></tr>
+<tr><td data-l="E">Trajectory</td><td data-l="R"><span class="chip hd"><span class="d"></span>Not yet readable</span></td>
+<td data-l="W">No current customers. There is a plan with phase gates, which is not the same as a trajectory.</td></tr>
+<tr><td data-l="E">Margin at scale</td><td data-l="R"><span class="chip up"><span class="d"></span>Sound</span></td>
+<td data-l="W">Contribution improves inside an account as fleets roll out. Verified independently twice.</td></tr>
+<tr class="bad"><td data-l="E">Repeatable acquisition</td><td data-l="R"><span class="chip dn"><span class="d"></span>Unproven</span></td>
+<td data-l="W">A designed motion with a named beachhead — but every prior customer came through one introduction, and nothing has been
+sold cold.</td></tr>
+<tr><td data-l="E">Expansion optionality</td><td data-l="R"><span class="chip hd"><span class="d"></span>Identified, untested</span></td>
+<td data-l="W">Food, chemical and vaccine logistics share the mechanism, and phase 3 now schedules a pilot. <strong>Given the ceiling,
+this remains the only route to a venture-scale outcome.</strong></td></tr>
+</tbody></table></div>
+<div class="find crit"><div class="find-t">The ceiling note</div>
+<div class="find-b">Nothing in a quarter of framework work changed the size of the market, and nothing was ever going to. The two honest
+paths are unchanged: build it as an owner-operated business and fund it accordingly, or test whether the mechanism travels.
+<strong>What has changed is that the second path is now scheduled and costed rather than hypothetical</strong> — phase 3 carries a non-pharma
+pilot with a stated success condition. That is the single most investable thing in the file for anyone underwriting an outcome rather
+than a business.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">15</span><div>
+<h2>What has to change first</h2><div class="sub">Three things blocking everything else</div></div></div>
+<div class="grid g3">
+<div class="card bad"><div class="lbl">1</div><h4 style="margin-bottom:8px">There is still no company</h4>
+<p class="sub">Named as blocking in the initial assessment. No entity, no founders' agreement, no IP assignment. The prototype, the
+method and the customer relationships all sit with individuals.</p>
+<div class="dl" style="margin-top:10px">
+<div><dt>Resolves when</dt><dd>Entity incorporated, IP assigned retrospectively, founders' agreement executed with vesting.</dd></div>
+<div><dt>Cost of delay</dt><dd>No term sheet can be signed. Roughly EGP 1.0M of valuation, per the risk factor analysis.</dd></div>
+</div></div>
+<div class="card bad"><div class="lbl">2</div><h4 style="margin-bottom:8px">The founders still want different things</h4>
+<p class="sub">Third assessment cycle in which this appears. Acquisition versus independent business, never discussed between them.
+It blocks item 1, and a drag-along clause would resolve it in favour of whoever holds the majority.</p>
+<div class="dl" style="margin-top:10px">
+<div><dt>Resolves when</dt><dd>The founders have the conversation and record a shared position.</dd></div>
+<div><dt>Cost of delay</dt><dd>EGP 0 to fix. Roughly EGP 0.75M of valuation to leave.</dd></div>
+</div></div>
+<div class="card warn"><div class="lbl">3</div><h4 style="margin-bottom:8px">Nobody has scanned unsupervised</h4>
+<p class="sub">Every framework downstream assumes a supervisor completes a handover scan at 6am without a founder present. It has never
+happened. The MVP threshold is set at 85% sustained compliance precisely because of this.</p>
+<div class="dl" style="margin-top:10px">
+<div><dt>Resolves when</dt><dd>One pilot sustains 85% scan compliance for four weeks after onboarding ends.</dd></div>
+<div><dt>Cost of delay</dt><dd>Three measures remain unscoreable and the product risk stays unpriced.</dd></div>
+</div></div>
+</div>
+<div class="find warn"><div class="find-t">Two of these three still cost nothing</div>
+<div class="find-b">Items 1 and 2 are administrative and conversational, and between them they are worth roughly EGP 1.75M of valuation on the
+risk factor analysis. <strong>They were both blocking items in the initial assessment too.</strong> A full build programme has been
+completed around them.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">16</span><div>
+<h2>What would move the score</h2><div class="sub">Ranked by impact</div></div></div>
+<div class="tw"><table>
+<thead><tr><th class="r">#</th><th>Action</th><th class="r">Impact</th></tr></thead>
+<tbody>
+<tr class="hi"><td data-l="#" class="num">1</td>
+<td data-l="A">Convert three pilots and sustain 85% scan compliance for four weeks. Unlocks demand durability, gross margin actuals and
+retention — the only three measures still excluded — and moves the stage to Revenue Generation.</td>
+<td data-l="I" class="num">+10 to +15</td></tr>
+<tr class="hi"><td data-l="#" class="num">2</td>
+<td data-l="A">Incorporate, assign IP, execute the founders' agreement with vesting. Structural readiness is 1 of 5 and is the lowest
+score in the assessment for the second time.</td>
+<td data-l="I" class="num">+5 to +8</td></tr>
+<tr><td data-l="#" class="num">3</td>
+<td data-l="A">Resolve the revenue-versus-ceiling contradiction with a defensible basis, and correct the funding figure in the strategy
+document at source.</td>
+<td data-l="I" class="num">+3 to +5</td></tr>
+<tr><td data-l="#" class="num">4</td>
+<td data-l="A">Get the EDA read on system-generated records. It either strengthens the compliance claim or removes it — both are worth
+more than leaving it open.</td>
+<td data-l="I" class="num">+2 to +4</td></tr>
+<tr><td data-l="#" class="num">5</td>
+<td data-l="A">Appoint a fundraising advisor. It does not move a measure directly, but it is the only blocking capability gap and the
+raise depends on it.</td>
+<td data-l="I" class="num">+1 to +3</td></tr>
+</tbody></table></div>
+<p class="sub" style="margin-top:10px">7 further actions across viability, feasibility and impact.</p>
+<div class="find"><div class="find-t">Only one of these needs capital</div>
+<div class="find-b">Actions 2 through 5 cost roughly EGP 200K in total and would take the score toward 70 with confidence toward 0.80.
+Action 1 needs the raise — but it is also the only one that changes the stage on the path.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">17</span><div>
+<h2>Development readiness</h2><div class="sub">How complete each area is — separate from how well it performs</div></div></div>
+<div class="bars">
+<div class="bar-row"><span class="k">Legal &amp; structure</span><span class="bar r"><i style="width:15%"></i></span><span class="v">15%</span></div>
+<div class="bar-row"><span class="k">Investment readiness</span><span class="bar a"><i style="width:55%"></i></span><span class="v">55%</span></div>
+<div class="bar-row"><span class="k">Business intelligence</span><span class="bar a"><i style="width:62%"></i></span><span class="v">62%</span></div>
+<div class="bar-row"><span class="k">Growth &amp; marketing</span><span class="bar a"><i style="width:65%"></i></span><span class="v">65%</span></div>
+<div class="bar-row"><span class="k">Org &amp; team</span><span class="bar a"><i style="width:68%"></i></span><span class="v">68%</span></div>
+<div class="bar-row"><span class="k">Brand</span><span class="bar a"><i style="width:70%"></i></span><span class="v">70%</span></div>
+<div class="bar-row"><span class="k">Customer validation</span><span class="bar a"><i style="width:72%"></i></span><span class="v">72%</span></div>
+<div class="bar-row"><span class="k">Operations</span><span class="bar g"><i style="width:75%"></i></span><span class="v">75%</span></div>
+<div class="bar-row"><span class="k">Commercial</span><span class="bar g"><i style="width:78%"></i></span><span class="v">78%</span></div>
+<div class="bar-row"><span class="k">Financial</span><span class="bar g"><i style="width:80%"></i></span><span class="v">80%</span></div>
+<div class="bar-row"><span class="k">Product</span><span class="bar g"><i style="width:82%"></i></span><span class="v">82%</span></div>
+<div class="bar-row"><span class="k">Strategy &amp; phasing</span><span class="bar g"><i style="width:85%"></i></span><span class="v">85%</span></div>
+<div class="bar-row"><span class="k">Business model</span><span class="bar g"><i style="width:86%"></i></span><span class="v">86%</span></div>
+<div class="bar-row"><span class="k">Market understanding</span><span class="bar g"><i style="width:88%"></i></span><span class="v">88%</span></div>
+<div class="bar-row"><span class="k">Problem &amp; solution</span><span class="bar g"><i style="width:90%"></i></span><span class="v">90%</span></div>
+</div>
+<div class="grid g2" style="margin-top:14px">
+<div class="card"><div class="lbl">What's strong</div>
+<p class="sub" style="margin-top:8px"><strong>Fourteen of fifteen areas are above 55%</strong>, against a baseline where twelve were below
+35%. Market understanding, business model and strategy all sit above 85%, and problem and solution at 90% is genuinely unusual at any
+stage. The plan is not the weak part of this venture.</p></div>
+<div class="card bad"><div class="lbl">Where to start</div>
+<p class="sub" style="margin-top:8px"><strong>Legal and structure at 15%.</strong> It was the recommended starting point in the initial
+assessment at 8%, and it has moved seven points in a quarter while everything around it moved forty or fifty. It still blocks the raise,
+the IP position and every customer contract — and it is still the cheapest item on this page.</p></div>
+</div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">18</span><div>
+<h2>In short</h2><div class="sub">If you read nothing else</div></div></div>
+<div class="panel">
+<p>You have done the work. The market is counted from a register rather than lifted from a report, the problem is evidenced by eleven
+people who live it, the product is specified down to build-versus-buy, and the financial model is a working instrument with 4,278 live
+formulas rather than a slide. Fourteen of fifteen areas of this business are now more than half complete. That is a real quarter of work
+and the score moved twelve points on it.</p>
+<p>What has not changed is anything requiring you to leave the plan and enter the market. There is still no company. The founders still
+have not had the conversation about what they want. Nobody has scanned a consignment at six in the morning without one of you standing
+there. And the market is still 34 buyers, which no framework was ever going to fix.</p>
+<p><strong>The one thing holding you back: every remaining question needs a customer, and you have been building instead of selling.</strong>
+Three measures survived the entire programme still unscoreable, and all three unlock the moment one distributor pays for the current
+concept and their supervisors keep scanning after you go home.</p>
+<p>What happens next: incorporate and settle the founder question — both cost almost nothing and are worth roughly EGP 1.75M of valuation
+between them. Then raise the staged EGP 3.2M and spend it on three pilots rather than on more plan. On that path we would expect this score
+above 70 with confidence near 0.80 within two quarters. <strong>The materials are ready to send. The company behind them is not ready to
+sign.</strong></p>
+</div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">19</span><div>
+<h2>Compared with the initial assessment</h2><div class="sub">Computed after this assessment was complete, never before it</div></div></div>
 <div class="tw"><table>
 <thead><tr><th>Measure</th><th class="r">Stage 2</th><th class="r">Stage 8</th><th class="r">Move</th></tr></thead>
 <tbody>
@@ -7513,38 +8239,66 @@ unquantified on both sides.</p></div>
 <tr><td data-l="M">Impact</td><td data-l="A" class="num">44</td><td data-l="B" class="num">57</td><td data-l="D" class="num" style="color:var(--up)">+13</td></tr>
 <tr><td data-l="M">Stage on the path</td><td data-l="A">Prototype</td><td data-l="B">Solution Development</td><td data-l="D">+1 step</td></tr>
 <tr><td data-l="M">Measures excluded</td><td data-l="A" class="num">9</td><td data-l="B" class="num">3</td><td data-l="D" class="num" style="color:var(--up)">6 unlocked</td></tr>
+<tr><td data-l="M">Areas above 50% complete</td><td data-l="A" class="num">0</td><td data-l="B" class="num">14</td><td data-l="D" class="num" style="color:var(--up)">+14</td></tr>
 </tbody></table></div>
-
-<div class="find ok"><div class="find-t">Confidence moved further than the score, and that was predicted</div>
-<div class="find-b">The Stage 2 report said most of what lowered confidence was the absence of evidence rather than weakness in the
-business. Six previously excluded measures can now be scored, and the confidence figure nearly doubled. A 60 at 0.71 is a materially
-different proposition from a 48 at 0.38 — it means the number can be relied on.</div></div>
-
 <div class="grid g2" style="margin-top:14px">
 <div class="card"><div class="lbl">What moved it</div>
 <ul style="margin:8px 0 0;padding-left:16px;font-size:12.5px;color:var(--dim)">
-<li><strong>Validation.</strong> Eleven real interviews took problem evidence from asserted to evidenced, and unlocked four measures.</li>
-<li><strong>The financial model.</strong> Path to breakeven, unit economics and capital requirement all became scorable.</li>
+<li><strong>Validation.</strong> Eleven interviews took problem evidence from asserted to evidenced and unlocked four measures.</li>
+<li><strong>The financial model.</strong> Breakeven, capital efficiency and unit economics all became scorable — two of them badly, which is the value.</li>
 <li><strong>Market sizing done properly.</strong> The 31× discrepancy is gone, replaced by a counted market with the method shown.</li>
-<li><strong>A specified product and org plan.</strong> Feasibility rose 11 points almost entirely on this.</li>
+<li><strong>Repositioning onto attribution.</strong> Differentiation moved 2 to 4 on the cheapest fix in the initial report.</li>
 </ul></div>
 <div class="card warn"><div class="lbl">What did not move</div>
 <ul style="margin:8px 0 0;padding-left:16px;font-size:12.5px;color:var(--dim)">
-<li><strong>Structural readiness — still 1 of 5.</strong> No entity, no agreement, no IP assignment. Unchanged since Stage 2 and it costs almost nothing to fix.</li>
-<li><strong>Founder alignment — still unresolved.</strong> Identified at onboarding, flagged at Stage 2, still open.</li>
-<li><strong>Market headroom — still 2 of 5.</strong> A quarter of work cannot make 34 buyers into more.</li>
-<li><strong>Demand durability — still excluded.</strong> Nobody has paid for the current concept.</li>
+<li><strong>Structural readiness — still 1 of 5.</strong> Seven points of completeness in a quarter, against forty or fifty elsewhere.</li>
+<li><strong>Founder alignment — still unresolved.</strong> Third cycle.</li>
+<li><strong>Market headroom — still 2 of 5.</strong> 34 buyers.</li>
+<li><strong>Capability coverage — still 2 of 5.</strong> Nobody has raised or hired.</li>
+<li><strong>Revenue — still 1 of 5.</strong> Zero recurring.</li>
 </ul></div>
 </div>
-
-<div class="find crit"><div class="find-t">Three measures survived an entire build programme still excluded</div>
-<div class="find-b">Demand durability, gross margin actuals, and retention. All three require a paying customer on the current concept, and
-no amount of framework work substitutes for one. <strong>This is the single most useful line in the delta:</strong> the venture has built
-almost everything it can build without a customer, and the next increment in score requires selling rather than planning.</div></div>
+<div class="find crit"><div class="find-t">The most useful line in this comparison</div>
+<div class="find-b">Everything that moved is something a framework can produce. Everything that did not move is something only leaving the
+building can produce — a signature, a conversation, a customer, a hire. <strong>The venture has built almost everything it can build
+without a customer, and the next increment requires selling rather than planning.</strong></div></div>
 </div>
 
+<div class="sec"><div class="sec-h"><span class="sec-n">20</span><div>
+<h2>Questions an investor will ask</h2><div class="sub">Drawn from the open items above</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Question</th><th>From</th><th>Answerable today</th></tr></thead>
+<tbody>
+<tr class="bad"><td data-l="Q">What am I investing into? There is still no company.</td><td data-l="F" class="mono">§06</td>
+<td data-l="A"><span class="chip dn"><span class="d"></span>No</span></td></tr>
+<tr class="bad"><td data-l="Q">Do the three of you agree on what you're building this for?</td><td data-l="F" class="mono">§09</td>
+<td data-l="A"><span class="chip dn"><span class="d"></span>No</span></td></tr>
+<tr class="bad"><td data-l="Q">Has anyone scanned a consignment without you standing there?</td><td data-l="F" class="mono">§10</td>
+<td data-l="A"><span class="chip dn"><span class="d"></span>No</span></td></tr>
+<tr class="bad"><td data-l="Q">Your model's year 3 revenue exceeds your own market. Which number is wrong?</td><td data-l="F" class="mono">§08</td>
+<td data-l="A"><span class="chip dn"><span class="d"></span>No</span></td></tr>
+<tr><td data-l="Q">Why does your strategy say EGP 4.55M and your model say 7.44M?</td><td data-l="F" class="mono">§07</td>
+<td data-l="A"><span class="chip up"><span class="d"></span>Yes</span></td></tr>
+<tr class="bad"><td data-l="Q">At 34 buyers, how does this become a fund-sized outcome?</td><td data-l="F" class="mono">§14</td>
+<td data-l="A"><span class="flag hd"><span class="d"></span>Partly — the second vertical is scheduled, not proven</span></td></tr>
+<tr><td data-l="Q">Who owns the code and the method today?</td><td data-l="F" class="mono">§06</td>
+<td data-l="A"><span class="chip dn"><span class="d"></span>No</span></td></tr>
+<tr><td data-l="Q">Neither of you has raised or hired. Who is doing that?</td><td data-l="F" class="mono">§12</td>
+<td data-l="A"><span class="chip hd"><span class="d"></span>Partly — it is declared, not solved</span></td></tr>
+<tr><td data-l="Q">What did your two prior customers actually change?</td><td data-l="F" class="mono">§05</td>
+<td data-l="A"><span class="chip dn"><span class="d"></span>No</span></td></tr>
+<tr><td data-l="Q">What happens to the plan if a supervisor stops scanning in month four?</td><td data-l="F" class="mono">§09</td>
+<td data-l="A"><span class="flag up"><span class="d"></span>Yes — the threshold and the response are specified</span></td></tr>
+</tbody></table></div>
+<div class="find warn"><div class="find-t">Six of ten still cannot be answered — against seven of ten at the initial assessment</div>
+<div class="find-b">One year of readiness moved that number by one. Five of the six that remain are closed by the two administrative items
+and the three pilots. <strong>The sixth — the ceiling question — is not closed by work at all. It is closed by deciding what kind of
+business this is.</strong></div></div>
+<span class="src" style="margin-top:14px">Venture score · assessed from scratch on the F_02 rubric · Readiness Agent ·
+14 Nov 2026 · 60/100 · confidence 0.71 · evidence tier 2</span>
 <div class="next-step">
 <button class="btn primary" data-go="s8p5">Continue to 8.5 Valuation<span class="arw">&rarr;</span></button>
+</div>
 </div>
 </div>
 <div class="pane" id="s8p5">
