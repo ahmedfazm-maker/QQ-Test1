@@ -259,7 +259,7 @@ color:var(--slate);font-size:11.5px;display:flex;justify-content:space-between;g
 .tab.locked:hover{color:var(--slate)}
 </style></head><body>
 <div class="topnav"><div class="topnav-in">
-<div class="tab locked next" id="tab-s1"><span class="tn">01</span>Onboarding</div>
+<div class="tab" id="tab-s1" data-stage="s1"><span class="tn">01</span>Onboarding</div>
 <div class="tab locked next" id="tab-s2"><span class="tn">02</span>Assessment & Package</div>
 <div class="tab" id="tab-s3" data-stage="s3"><span class="tn">03</span>Ideation</div>
 <div class="tab" id="tab-s4" data-stage="s4"><span class="tn">04</span>Market Context</div>
@@ -269,6 +269,679 @@ color:var(--slate);font-size:11.5px;display:flex;justify-content:space-between;g
 <div class="tab locked next" id="tab-s8"><span class="tn">08</span>Investment Readiness</div>
 </div></div>
 <div class="wrap">
+<div class="stage" id="s1">
+<div class="eyebrow">Stage 1 · Identity</div>
+<h1>Founder Onboarding</h1>
+<p class="sub" style="margin-top:6px">Sanad · Cold-chain monitoring for pharmaceutical distributors · Cairo, Egypt<br>Completed 14 Aug 2026 · Identity Agent · 3 founders, 2 captured directly</p>
+<div class="subnav"><div class="subtab" data-p="s1p1"><span class="sn">1.1</span>Connected Channels</div><div class="subtab" data-p="s1p2"><span class="sn">1.2</span>Founder Profiles</div><div class="subtab" data-p="s1p3"><span class="sn">1.3</span>Skills &amp; Coverage</div><div class="subtab" data-p="s1p4"><span class="sn">1.4</span>Character &amp; Mindset</div><div class="subtab" data-p="s1p5"><span class="sn">1.5</span>Venture Direction</div><div class="subtab" data-p="s1p6"><span class="sn">1.6</span>Team &amp; Constraints</div></div>
+<div class="pane" id="s1p1">
+
+<div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">1.1.1</span><div>
+<h2>Connected channels</h2><div class="sub">Connected first, so most of the record is captured rather than self-reported</div></div></div>
+<div class="panel">
+<p>Every fact a channel supplies is a question the founder does not have to answer and an answer the agent does not have to take on
+trust. Where a captured record and a founder's own account differ, both are recorded and the difference is raised.</p>
+</div>
+
+<div class="grid g3" style="margin-top:14px">
+<div class="card on"><div class="card-h"><h4>Nour Halim</h4><span class="chip up"><span class="d"></span>4 of 7 connected</span></div>
+<div class="dl">
+<div><dt>LinkedIn</dt><dd><span class="chip up bare">Connected</span> 11 years pharmaceutical distribution, 3 roles, 218 sector connections</dd></div>
+<div><dt>Company registry</dt><dd><span class="chip up bare">Connected</span> 1 prior directorship, dissolved 2023</dd></div>
+<div><dt>Personal site</dt><dd><span class="chip up bare">Connected</span> Two published pieces on cold-chain handling</dd></div>
+<div><dt>X / Twitter</dt><dd><span class="chip up bare">Connected</span> Follows logistics and regulatory accounts, low posting volume</dd></div>
+<div><dt>GitHub</dt><dd><span class="chip nt bare">None</span> No technical claim made</dd></div>
+<div><dt>Captured</dt><dd>14 Aug 2026</dd></div>
+</div></div>
+
+<div class="card"><div class="card-h"><h4>Karim Adly</h4><span class="chip hd"><span class="d"></span>3 of 7 connected</span></div>
+<div class="dl">
+<div><dt>GitHub</dt><dd><span class="chip up bare">Connected</span> 6 years active, Python and embedded C, consistent weekend cadence</dd></div>
+<div><dt>LinkedIn</dt><dd><span class="chip up bare">Connected</span> 8 years, 2 roles, both in software</dd></div>
+<div><dt>CV upload</dt><dd><span class="chip hd bare">Fallback</span> Used to fill a 2021–2022 gap the profile omits</dd></div>
+<div><dt>Company registry</dt><dd><span class="chip nt bare">Declined</span> Recorded as a gap, not as an absence</dd></div>
+<div><dt>Captured</dt><dd>14 Aug 2026</dd></div>
+</div>
+<span class="why">A declined connection is a gap in evidence, not a mark against the founder. It is recorded so later diligence knows it was never checked.</span></div>
+
+<div class="card warn"><div class="card-h"><h4>Yasmine Fouad</h4><span class="chip dn"><span class="d"></span>0 of 7 connected</span></div>
+<div class="dl">
+<div><dt>All channels</dt><dd><span class="chip dn bare">Not connected</span></dd></div>
+<div><dt>Capture route</dt><dd><span class="flag dn"><span class="d"></span>Proxy — her profile was completed by another founder. Character and mindset were not captured and are not inferred.</span></dd></div>
+<div><dt>Equity held</dt><dd class="mono">35%</dd></div>
+</div></div>
+</div>
+
+<div class="find crit"><div class="find-t">One founder holding 35% has no record at all</div>
+<div class="find-b">Yasmine Fouad was recorded by proxy. There is no channel data, no character assessment and no separately-stated outcome
+for the person holding the second-largest equity position. This is an open item from the first day of the file — it resurfaces in the
+legal framework as a blocker on the founders' agreement, and it will surface again in investor diligence. It is cheapest to resolve now.</div></div>
+
+<div class="find warn"><div class="find-t">Two discrepancies were raised, and both were resolved in conversation</div>
+<div class="find-b">Karim's LinkedIn shows continuous employment through 2021–22; his CV shows a nine-month gap. Raised plainly — he had left
+to attempt a venture that did not launch, and had not updated the profile. Recorded in prior ventures rather than treated as a problem.<br><br>
+Nour's prior directorship is listed on the registry as dissolved; her account described it as "wound down after we sold the client
+book". Both are recorded. The distinction matters to a diligence reader and did not to her.</div></div>
+
+<span class="src" style="margin-top:14px">Consent · Each channel connected explicitly and separately. Only public and account-holder data read.
+Captured records shown back to each founder for correction before use. Nothing captured from third parties.</span>
+
+</div>
+
+<div class="next-step">
+<button class="btn primary" data-go="s1p2">Continue to 1.2 Founder Profiles<span class="arw">&rarr;</span></button>
+</div>
+</div>
+<div class="pane" id="s1p2">
+
+<div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">1.2.1</span><div>
+<h2>Profiles</h2><div class="sub">Who each founder is, factually</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Field</th><th>Nour Halim</th><th>Karim Adly</th><th>Yasmine Fouad</th></tr></thead>
+<tbody>
+<tr><td data-l="F">Role in venture</td><td data-l="N">Commercial &amp; delivery</td><td data-l="K">Product &amp; engineering</td><td data-l="Y">Undefined</td></tr>
+<tr><td data-l="F">Location</td><td data-l="N">Cairo</td><td data-l="K">Cairo</td><td data-l="Y">Cairo</td></tr>
+<tr><td data-l="F">Languages</td><td data-l="N">Arabic native, English fluent</td><td data-l="K">Arabic native, English fluent</td><td data-l="Y">Not captured</td></tr>
+<tr class="hi"><td data-l="F"><strong>Availability</strong></td><td data-l="N">Full-time · 45 h/wk</td><td data-l="K">Part-time to M6, then full-time · 20 h/wk rising to 45</td><td data-l="Y">Not captured</td></tr>
+<tr class="bad"><td data-l="F"><strong>Commitment horizon</strong></td><td data-l="N">Indefinite</td><td data-l="K"><strong>6 months, then reassess</strong></td><td data-l="Y">Not captured</td></tr>
+<tr><td data-l="F">Financial runway</td><td data-l="N">8 months without income</td><td data-l="K">Salaried elsewhere until M6</td><td data-l="Y">Not captured</td></tr>
+<tr class="hi"><td data-l="F">Equity held</td><td data-l="N" class="num">50%</td><td data-l="K" class="num">35%</td><td data-l="Y" class="num">15%</td></tr>
+<tr><td data-l="F">Documented?</td><td data-l="N">No — verbal only</td><td data-l="K">No</td><td data-l="Y">No</td></tr>
+<tr><td data-l="F">Other commitments</td><td data-l="N">None</td><td data-l="K">Employed full-time until M6</td><td data-l="Y">Not captured</td></tr>
+<tr class="bad"><td data-l="F"><strong>Capture route</strong></td><td data-l="N"><span class="chip up"><span class="d"></span>Direct</span></td>
+<td data-l="K"><span class="chip hd"><span class="d"></span>Document → confirmed direct</span></td>
+<td data-l="Y"><span class="chip dn"><span class="d"></span>Proxy</span></td></tr>
+</tbody></table></div>
+
+<div class="find crit"><div class="find-t">Karim's six-month commitment is the single most consequential figure in this file</div>
+<div class="find-b">A team is available for as long as its least-available member. Six months bounds phase 1 of any strategy, caps what can be
+attempted before a raise, and sets the deadline on every objective in the plan. Everything downstream is built against this number —
+it appears again as the binding constraint in 1.6.</div></div>
+
+<div class="find warn"><div class="find-t">Equity is verbal across all three founders</div>
+<div class="find-b">50 / 35 / 15 with nothing documented, no vesting, and no agreement. This is normal at this stage and it is not safe —
+it is the first item in the legal sequence, and it is blocked until the founders resolve a disagreement they have not yet had.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.2.2</span><div>
+<h2>Background</h2><div class="sub">What they have actually done</div></div></div>
+
+<div class="grid g2">
+<div class="card on"><div class="card-h"><h4>Nour Halim</h4><span class="chip up"><span class="d"></span>11 years in sector</span></div>
+<div class="dl">
+<div><dt>2019–2026</dt><dd><strong>Operations manager</strong>, mid-size pharmaceutical distributor · 60 vehicles, 4 sites.
+Responsible for handling, fleet and write-off reporting. <span class="chip up bare">Verified</span></dd></div>
+<div><dt>2015–2019</dt><dd><strong>Warehouse supervisor → depot manager</strong>, same sector.
+Came up through the floor. <span class="chip up bare">Verified</span></dd></div>
+<div><dt>2021–2023</dt><dd><strong>Founder</strong>, cold-chain consultancy. Two paying customers at EGP 90K each; neither renewed.
+Dissolved 2023. <span class="chip up bare">Registry-verified</span></dd></div>
+<div><dt>Relevance</dt><dd><span class="chip up"><span class="d"></span>Direct — the venture is her own operating problem</span></dd></div>
+</div>
+<div class="quote" style="margin-top:12px"><div class="qt">"It told them they had a problem they already knew about. I was selling a
+nicer spreadsheet and I didn't see it until the second one left."</div>
+<div class="qa">On the prior venture · what did not work</div></div>
+<span class="why">A prior failure she can articulate specifically is worth more than an unbroken record. The stated failure reason is
+the origin of the entire concept.</span></div>
+
+<div class="card"><div class="card-h"><h4>Karim Adly</h4><span class="chip hd"><span class="d"></span>0 years in sector</span></div>
+<div class="dl">
+<div><dt>2022–2026</dt><dd><strong>Senior engineer</strong>, regional fintech · backend and embedded integration.
+<span class="chip up bare">Verified</span></dd></div>
+<div><dt>2021–2022</dt><dd><strong>Attempted venture</strong>, never launched. Nine months. Not on his profile;
+surfaced from the CV discrepancy. <span class="chip hd bare">Self-reported</span></dd></div>
+<div><dt>2018–2021</dt><dd><strong>Engineer</strong>, logistics software vendor. Nearest thing to sector exposure.
+<span class="chip up bare">Verified</span></dd></div>
+<div><dt>Relevance</dt><dd><span class="chip hd"><span class="d"></span>Adjacent — logistics software, not cold chain</span></dd></div>
+</div>
+<span class="why">The unlaunched venture is the more useful entry. He described what stopped it — "we never talked to anyone who
+would have paid" — which is a specific, examined failure rather than a gap.</span></div>
+
+<div class="card warn"><div class="card-h"><h4>Yasmine Fouad</h4><span class="chip dn"><span class="d"></span>Not captured</span></div>
+<p class="sub" style="margin-top:8px">Described by proxy as "regulatory background, will help with EDA". No roles, no dates, no
+verification, and no direct confirmation. Recorded as stated, weighted as unverified.</p>
+<span class="why">The venture's largest open risk — the EDA position — is assigned to the founder about whom least is known.</span></div>
+</div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.2.3</span><div>
+<h2>Professional interests</h2><div class="sub">What holds their attention when nobody is paying them</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Founder</th><th>Interest</th><th>Evidence</th><th>Held for</th><th>Relation</th></tr></thead>
+<tbody>
+<tr class="hi"><td data-l="F">Nour</td><td data-l="I">Cold-chain handling and pharmaceutical logistics</td>
+<td data-l="E">Two published pieces, follows regulatory accounts, attends sector events unprompted</td>
+<td data-l="H">11 years</td><td data-l="R"><span class="chip up"><span class="d"></span>Core</span></td></tr>
+<tr><td data-l="F">Nour</td><td data-l="I">Operational forensics — why things fail</td>
+<td data-l="E">Both published pieces are failure analyses</td><td data-l="H">Sustained</td>
+<td data-l="R"><span class="chip up"><span class="d"></span>Core</span></td></tr>
+<tr><td data-l="F">Karim</td><td data-l="I">Embedded systems and hardware</td>
+<td data-l="E">Weekend GitHub cadence, personal projects unrelated to work</td><td data-l="H">6 years</td>
+<td data-l="R"><span class="chip hd"><span class="d"></span>Adjacent</span></td></tr>
+<tr class="bad"><td data-l="F">Karim</td><td data-l="I">Nothing sustained in the venture domain</td>
+<td data-l="E">No sector reading, following or writing in any connected channel</td><td data-l="H">—</td>
+<td data-l="R"><span class="chip dn"><span class="d"></span>Absent</span></td></tr>
+</tbody></table></div>
+<div class="find warn"><div class="find-t">Interest in the mechanism, not the market</div>
+<div class="find-b">Karim's sustained interest is embedded systems — which is genuinely useful here, since the product depends on sensor
+integration. But there is no evidence of interest in pharmaceutical distribution itself, and the venture needs years of domain depth.
+Combined with a six-month commitment horizon, it is a risk worth naming rather than one to discover in month five.</div></div>
+
+</div>
+
+<div class="next-step">
+<button class="btn primary" data-go="s1p3">Continue to 1.3 Skills &amp; Coverage<span class="arw">&rarr;</span></button>
+</div>
+</div>
+<div class="pane" id="s1p3">
+
+<div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">1.3.1</span><div>
+<h2>Skills</h2><div class="sub">What each founder can do without help, with the evidence behind it</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Skill</th><th>Founder</th><th>Level</th><th>Evidence</th><th>Last used</th></tr></thead>
+<tbody>
+<tr class="hi"><td data-l="S">Reading a depot and naming where a consignment is at risk</td><td data-l="F">Nour</td>
+<td data-l="L"><span class="chip up"><span class="d"></span>Can teach</span></td>
+<td data-l="E">11 years operating; trained supervisors in two organisations</td><td data-l="U">Current</td></tr>
+<tr class="hi"><td data-l="S">Selling to a mid-size distributor's operations director</td><td data-l="F">Nour</td>
+<td data-l="L"><span class="chip up"><span class="d"></span>Can do alone</span></td>
+<td data-l="E">Two paying customers won personally in the prior venture</td><td data-l="U">2023</td></tr>
+<tr><td data-l="S">Reading Egyptian pharmaceutical regulation directly</td><td data-l="F">Nour</td>
+<td data-l="L"><span class="chip hd"><span class="d"></span>Can do with help</span></td>
+<td data-l="E">Handled inspections as operations manager, never led the regulatory position</td><td data-l="U">Current</td></tr>
+<tr><td data-l="S">Manual attribution of a temperature excursion</td><td data-l="F">Nour</td>
+<td data-l="L"><span class="chip up"><span class="d"></span>Can do alone</span></td>
+<td data-l="E">Delivered manually to both prior customers</td><td data-l="U">2023</td></tr>
+<tr class="hi"><td data-l="S">Backend platform development</td><td data-l="F">Karim</td>
+<td data-l="L"><span class="chip up"><span class="d"></span>Can do alone</span></td>
+<td data-l="E">8 years, GitHub-verified cadence</td><td data-l="U">Current</td></tr>
+<tr><td data-l="S">Embedded and sensor integration</td><td data-l="F">Karim</td>
+<td data-l="L"><span class="chip hd"><span class="d"></span>Can do with help</span></td>
+<td data-l="E">Personal projects; never shipped commercially</td><td data-l="U">Current</td></tr>
+<tr><td data-l="S">Mobile interface build</td><td data-l="F">Karim</td>
+<td data-l="L"><span class="chip hd"><span class="d"></span>Can do with help</span></td>
+<td data-l="E">One work project, not lead</td><td data-l="U">2024</td></tr>
+<tr class="bad"><td data-l="S">Financial modelling and pricing</td><td data-l="F">Karim</td>
+<td data-l="L"><span class="chip hd"><span class="d"></span>Can learn</span></td>
+<td data-l="E">No evidence in any channel or role</td><td data-l="U">Never</td></tr>
+<tr class="bad"><td data-l="S">Hiring and managing people</td><td data-l="F">Both</td>
+<td data-l="L"><span class="chip hd"><span class="d"></span>Can learn</span></td>
+<td data-l="E">Nour managed supervisors, never hired. Karim has never managed.</td><td data-l="U">—</td></tr>
+<tr class="bad"><td data-l="S">Fundraising</td><td data-l="F">Neither</td>
+<td data-l="L"><span class="chip dn"><span class="d"></span>Cannot</span></td>
+<td data-l="E">No raise attempted by either founder</td><td data-l="U">Never</td></tr>
+</tbody></table></div>
+<span class="src" style="margin-top:8px">Levels · Can teach · Can do alone · Can do with help · Can learn · Cannot.
+A skill with no evidence is recorded as an interest, not a skill.</span>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.3.2</span><div>
+<h2>Function coverage</h2><div class="sub">The eight functions the venture needs, against what the founders can actually do</div></div></div>
+<div class="bars">
+<div class="bar-row"><span class="k">Domain</span><span class="bar g"><i style="width:95%"></i></span><span class="v">Strong</span></div>
+<div class="bar-row"><span class="k">Technical</span><span class="bar g"><i style="width:78%"></i></span><span class="v">Strong</span></div>
+<div class="bar-row"><span class="k">Operational</span><span class="bar g"><i style="width:82%"></i></span><span class="v">Strong</span></div>
+<div class="bar-row"><span class="k">Commercial</span><span class="bar a"><i style="width:58%"></i></span><span class="v">Adequate</span></div>
+<div class="bar-row"><span class="k">Product</span><span class="bar a"><i style="width:52%"></i></span><span class="v">Adequate</span></div>
+<div class="bar-row"><span class="k">Financial</span><span class="bar r"><i style="width:28%"></i></span><span class="v">Thin</span></div>
+<div class="bar-row"><span class="k">People</span><span class="bar r"><i style="width:22%"></i></span><span class="v">Thin</span></div>
+<div class="bar-row"><span class="k">Fundraising</span><span class="bar r"><i style="width:8%"></i></span><span class="v">Absent</span></div>
+</div>
+
+<h3>Gap list</h3>
+<div class="tw"><table>
+<thead><tr><th>Function</th><th>Best available</th><th>Severity</th><th>Resolution</th><th>Becomes binding</th></tr></thead>
+<tbody>
+<tr class="bad"><td data-l="F"><strong>Fundraising</strong></td><td data-l="B">Cannot</td>
+<td data-l="S"><span class="chip dn"><span class="d"></span>Blocking</span></td>
+<td data-l="R">Advisor or experienced operator. Not learnable in the timeframe.</td><td data-l="W">Month 4 — before the raise must close at M6</td></tr>
+<tr class="bad"><td data-l="F"><strong>Financial</strong></td><td data-l="B">Can learn</td>
+<td data-l="S"><span class="chip dn"><span class="d"></span>Material</span></td>
+<td data-l="R">Learn with support. The model itself is the vehicle for learning it.</td><td data-l="W">Immediately — pricing and runway decisions</td></tr>
+<tr><td data-l="F">People</td><td data-l="B">Can learn</td>
+<td data-l="S"><span class="chip hd"><span class="d"></span>Material</span></td>
+<td data-l="R">Learn. First hire is the commercial lead at M6.</td><td data-l="W">Month 6</td></tr>
+<tr><td data-l="F">Regulatory</td><td data-l="B">Can do with help</td>
+<td data-l="S"><span class="chip hd"><span class="d"></span>Material</span></td>
+<td data-l="R">Consultant, one engagement</td><td data-l="W">Blocks the compliance claim from day one</td></tr>
+<tr><td data-l="F">Embedded / hardware</td><td data-l="B">Can do with help</td>
+<td data-l="S"><span class="chip hd"><span class="d"></span>Manageable</span></td>
+<td data-l="R">Use the vendor stack unmodified in phase 1</td><td data-l="W">Phase 3, if the capture layer needs differentiating</td></tr>
+</tbody></table></div>
+
+<div class="find crit"><div class="find-t">Neither founder has raised money, and the plan depends on a raise closing by month 6</div>
+<div class="find-b">This is the only gap marked blocking. It is not learnable inside the timeframe, it becomes binding around month 4,
+and everything from phase 2 onward assumes it is solved. An advisor who has done it is the cheapest resolution and it is not in
+the plan today.</div></div>
+
+<div class="find"><div class="find-t">The pairing is genuinely complementary, which is rarer than it sounds</div>
+<div class="find-b">Domain and commercial sit with Nour; technical sits with Karim; almost no overlap. Two founders with the same
+skills would be one founder with a co-founder. The three thin functions are thin for both of them equally, which is the honest
+shape of a two-person team and not a failure of the pairing.</div></div>
+
+</div>
+
+<div class="next-step">
+<button class="btn primary" data-go="s1p4">Continue to 1.4 Character &amp; Mindset<span class="arw">&rarr;</span></button>
+</div>
+</div>
+<div class="pane" id="s1p4">
+
+<div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">1.4.1</span><div>
+<h2>How character is assessed</h2><div class="sub">Indirect questions about specific past situations, never self-description</div></div></div>
+<div class="panel">
+<p>"Are you resilient?" measures how someone would like to be seen. Nobody answers no. The same principle that governs customer
+interviews applies here: ask about a specific past situation and the behaviour reveals itself without the founder being asked to
+characterise themselves.</p>
+<p>The trait being assessed is never named in the question. What a founder chooses to describe, what they leave out, and where they
+place responsibility are all part of the answer.</p>
+</div>
+<div class="grid g2" style="margin-top:12px">
+<div class="card"><div class="lbl">What is done</div>
+<ul style="margin:8px 0 0;padding-left:16px;font-size:12.5px;color:var(--dim)">
+<li>Ask about the last time, not the general case</li>
+<li>Ask what they did, not what they believe</li>
+<li>Ask about a failure before asking about a success</li>
+<li>Follow up on what is left out — the omission is usually where the answer is</li>
+<li>Require two independent signals before recording a dimension</li>
+</ul></div>
+<div class="card"><div class="lbl">What is not done</div>
+<ul style="margin:8px 0 0;padding-left:16px;font-size:12.5px;color:var(--dim)">
+<li>No psychometric instrument. This is not a clinical assessment.</li>
+<li>No founder is scored or ranked as a person</li>
+<li>No trait asserted from a single answer</li>
+<li>No inference at all for a proxy-captured founder</li>
+<li>Nothing hidden — each founder sees what was recorded</li>
+</ul></div>
+</div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.4.2</span><div>
+<h2>Nour Halim</h2><div class="sub">Ten dimensions · direct capture · 14 Aug 2026</div></div></div>
+
+<div class="grid g2">
+<div class="card on"><div class="lbl">Response to being wrong</div>
+<p class="sub" style="margin-bottom:8px"><em>"Tell me about a decision you made that turned out badly. When did you realise, and what
+did you do next?"</em></p>
+<div class="quote"><div class="qt">"I sold the consultancy on measurement. The second customer told me on the renewal call that
+they already knew they had a problem. I'd heard the same thing from the first one nine months earlier and I'd decided it was just
+that customer."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>She names the delay explicitly and does not soften it. The failure is attributed to her own interpretation
+rather than to the customers.</dd></div>
+<div><dt>Implication</dt><dd><strong>Validation evidence will change her plan.</strong> The whole concept came from taking a negative
+result seriously — late, and she says so.</dd></div>
+<div><dt>Confidence</dt><dd><span class="chip up"><span class="d"></span>High — corroborated by the concept's own origin</span></dd></div>
+</div></div>
+
+<div class="card"><div class="lbl">Attribution</div>
+<p class="sub" style="margin-bottom:8px"><em>"Think of something that worked well. What part of it was luck?"</em></p>
+<div class="quote"><div class="qt">"Both customers came from one person I'd worked with. If he'd been somewhere else that year
+I'd have had nothing. I don't think I know how to find a customer who doesn't already know me."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Separates outcome from cause without prompting, and volunteers the limitation rather than the achievement.</dd></div>
+<div><dt>Implication</dt><dd>Her own read matches the file: the go-to-market rests on a network that has not been tested beyond one
+introducer. Worth planning around rather than assuming away.</dd></div>
+<div><dt>Confidence</dt><dd><span class="chip up"><span class="d"></span>High</span></dd></div>
+</div></div>
+
+<div class="card"><div class="lbl">Delegation</div>
+<p class="sub" style="margin-bottom:8px"><em>"What is the last thing you stopped doing yourself? How did the first month go?"</em></p>
+<div class="quote"><div class="qt">"Loading checks. I gave them to a supervisor and then went in every morning for three weeks to
+look at what he'd done. He noticed. It got worse before it got better."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Delegates, then supervises past the point of usefulness — and can see that she did it.</dd></div>
+<div><dt>Implication</dt><dd><span class="flag hd"><span class="d"></span>The strategy requires her to hand the sale to a commercial lead
+at month 6. On this evidence that handover will be slower than the plan assumes, and the objective should be watched rather than trusted.</span></dd></div>
+<div><dt>Confidence</dt><dd><span class="chip hd"><span class="d"></span>Medium — one instance</span></dd></div>
+</div></div>
+
+<div class="card"><div class="lbl">Persistence and its limits</div>
+<p class="sub" style="margin-bottom:8px"><em>"What is the longest you have kept working on something that was not working? What made you
+stop, or keep going?"</em></p>
+<div class="quote"><div class="qt">"Two years on the consultancy. I stopped when the money ran out, not when I understood why it
+wasn't working. Those were about nine months apart."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Persists past the evidence. Stopped on a hard constraint rather than on a judgement.</dd></div>
+<div><dt>Implication</dt><dd>Phase gates with written end triggers are the right mechanism for this founder. She is unlikely to
+stop on her own read, and more likely to honour a condition set before she was attached to the outcome.</dd></div>
+<div><dt>Confidence</dt><dd><span class="flag up"><span class="d"></span>High — consistent with the "response to being wrong" answer</span></dd></div>
+</div></div>
+
+<div class="card"><div class="lbl">Handling of conflict</div>
+<p class="sub" style="margin-bottom:8px"><em>"Describe the last serious disagreement you had with someone you work with. How did it end?"</em></p>
+<div class="quote"><div class="qt">"With a depot manager over who owned a write-off. I let it sit for a few weeks and then it went to
+the MD. I should have had it out with him in the first week."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Avoids conflict initially, escalates rather than resolves, and recognises the pattern retrospectively.</dd></div>
+<div><dt>Implication</dt><dd><span class="flag dn"><span class="d"></span>There is an unresolved outcome disagreement between founders,
+described in 1.5. On this evidence it will not be raised without external prompting — which is exactly what has happened.</span></dd></div>
+<div><dt>Confidence</dt><dd><span class="chip up"><span class="d"></span>High — corroborated by the alignment gap itself</span></dd></div>
+</div></div>
+
+<div class="card"><div class="lbl">Motivation</div>
+<p class="sub" style="margin-bottom:8px"><em>"If this succeeded exactly as you hope, what would you be doing day to day two years
+afterwards?"</em></p>
+<div class="quote"><div class="qt">"Probably not this. I'd want someone else running it and I'd want to have sold it. I've done the
+operating job for eleven years."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Outcome sought is an exit, stated without being asked about equity or exits.</dd></div>
+<div><dt>Implication</dt><dd><strong>This is where the founder misalignment first appears</strong> — and it emerged from a question about
+daily life, not from a question about outcomes. It is checked directly in 1.5.</dd></div>
+<div><dt>Confidence</dt><dd><span class="chip up"><span class="d"></span>High</span></dd></div>
+</div></div>
+</div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.4.3</span><div>
+<h2>Karim Adly</h2><div class="sub">Ten dimensions · document capture confirmed directly · 14 Aug 2026</div></div></div>
+
+<div class="grid g2">
+<div class="card"><div class="lbl">Relationship with evidence</div>
+<p class="sub" style="margin-bottom:8px"><em>"What is something you believed about this market a year ago that you no longer believe?"</em></p>
+<div class="quote"><div class="qt">"That the hard part was the hardware. It isn't. The hard part is getting someone to scan
+anything at six in the morning."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Changed a technical belief on operational evidence, which is the harder direction for an engineer.</dd></div>
+<div><dt>Implication</dt><dd>He is likely to accept an adoption result that contradicts a build preference — which matters, because the
+MVP threshold is a behavioural one.</dd></div>
+<div><dt>Confidence</dt><dd><span class="chip up"><span class="d"></span>High</span></dd></div>
+</div></div>
+
+<div class="card warn"><div class="lbl">Attitude to detail</div>
+<p class="sub" style="margin-bottom:8px"><em>"Walk me through the last thing you shipped, start to finish. What went wrong that nobody
+else noticed?"</em></p>
+<div class="quote"><div class="qt">"A retry loop that silently dropped messages when the queue was full. It was in production for
+about four months. Nobody noticed because the dashboard showed a count, not a completeness check."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Volunteers a silent failure unprompted and identifies the monitoring gap rather than the bug.</dd></div>
+<div><dt>Implication</dt><dd><span class="flag up"><span class="d"></span>Directly relevant. The single most dangerous failure in this
+product is a decaying scan rate that leaves the record looking populated. He has already met that class of problem and knows how it hides.</span></dd></div>
+<div><dt>Confidence</dt><dd><span class="chip up"><span class="d"></span>High</span></dd></div>
+</div></div>
+
+<div class="card bad"><div class="lbl">Persistence and its limits</div>
+<p class="sub" style="margin-bottom:8px"><em>"What is the longest you have kept working on something that was not working?"</em></p>
+<div class="quote"><div class="qt">"Nine months on the venture that never launched. We were building. We never talked to anyone
+who would have paid. I left when I got a job offer."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Left on an external event rather than on a judgement about the venture. The failure is examined; the exit was not decided.</dd></div>
+<div><dt>Implication</dt><dd><span class="flag dn"><span class="d"></span>He is currently salaried elsewhere and committed for six months.
+The prior pattern is leaving when an alternative appears. This is the most important thing in his record and it directly explains the
+six-month horizon.</span></dd></div>
+<div><dt>Confidence</dt><dd><span class="chip up"><span class="d"></span>High — the pattern and the stated horizon agree</span></dd></div>
+</div></div>
+
+<div class="card"><div class="lbl">Motivation</div>
+<p class="sub" style="margin-bottom:8px"><em>"If this succeeded exactly as you hope, what would you be doing two years afterwards?"</em></p>
+<div class="quote"><div class="qt">"Still building it. I'd want it to be paying me properly and I'd want to still be the person who
+decides what gets built."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Wants an operating business and continued control. No exit mentioned.</dd></div>
+<div><dt>Implication</dt><dd><strong>Directly incompatible with Nour's answer to the same question.</strong> Neither founder has raised
+it with the other.</dd></div>
+<div><dt>Confidence</dt><dd><span class="chip up"><span class="d"></span>High</span></dd></div>
+</div></div>
+
+<div class="card"><div class="lbl">Money and risk</div>
+<p class="sub" style="margin-bottom:8px"><em>"What is the largest sum you have been responsible for deciding how to spend?"</em></p>
+<div class="quote"><div class="qt">"Nothing meaningful. I've recommended tooling budgets, maybe a few thousand dollars a year.
+Someone else always signed."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>No experience of capital allocation, stated plainly without inflation.</dd></div>
+<div><dt>Implication</dt><dd>He owns finance and BI in the org plan. The honesty is useful; the gap is real and is on the gap list.</dd></div>
+<div><dt>Confidence</dt><dd><span class="chip up"><span class="d"></span>High</span></dd></div>
+</div></div>
+
+<div class="card warn"><div class="lbl">Response to pressure</div>
+<p class="sub" style="margin-bottom:8px"><em>"Tell me about the most pressure you have been under at work. What did you do differently
+that week?"</em></p>
+<div class="quote"><div class="qt">"A migration that went wrong on a Friday. I stopped talking to anyone and fixed it. Took about
+thirty hours. My manager found out on the Monday."</div></div>
+<div class="dl" style="margin-top:10px">
+<div><dt>Reveals</dt><dd>Withdraws and solves alone under pressure. Effective technically, invisible to the team.</dd></div>
+<div><dt>Implication</dt><dd>In a two-person venture where one founder avoids conflict and the other withdraws under pressure, a bad month
+will produce silence rather than a conversation. Worth naming now.</dd></div>
+<div><dt>Confidence</dt><dd><span class="chip hd"><span class="d"></span>Medium</span></dd></div>
+</div></div>
+</div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.4.4</span><div>
+<h2>Yasmine Fouad</h2><div class="sub">Not captured</div></div></div>
+<div class="panel">
+<p><strong>No character or mindset data exists for this founder.</strong> Her record was completed by proxy, she has connected no
+channels, and she has not answered any question in this section.</p>
+<p>Nothing is inferred. A proxy description of someone's character is a description of how another founder sees them, which is a
+different fact and not the one this section captures. The gap is recorded and carried forward rather than filled.</p>
+</div>
+<div class="find crit"><div class="find-t">What this means downstream</div>
+<div class="find-b">She holds 35% of the equity and is described as covering the regulatory position — the largest open risk in the
+venture. There is no record of her availability, her commitment horizon, her skills, or what outcome she wants. Every one of those is
+required before the founders' agreement can be drafted, and each is currently unknown.</div></div>
+
+<div class="find warn"><div class="find-t">Two mindset patterns interact badly, and neither founder can see it alone</div>
+<div class="find-b">Nour avoids conflict until it escalates; Karim withdraws and solves alone under pressure. Individually both are
+workable. Together they mean a difficult month produces no conversation at all — and there is already an unraised outcome disagreement
+sitting between them. This is the specific reason it is surfaced here rather than left for the founders to reach on their own.</div></div>
+
+</div>
+
+<div class="next-step">
+<button class="btn primary" data-go="s1p5">Continue to 1.5 Venture Direction<span class="arw">&rarr;</span></button>
+</div>
+</div>
+<div class="pane" id="s1p5">
+
+<div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">1.5.1</span><div>
+<h2>What they intend to build</h2><div class="sub">In the founders' own words, unedited</div></div></div>
+<div class="panel">
+<div class="dl">
+<div><dt>Venture description</dt><dd>"Sensors in the trucks and a scan when the goods change hands, so when something arrives warm
+you know which stop it happened at. Right now everyone just writes it off at the end of the month and nobody knows why."</dd></div>
+<div><dt>Problem believed</dt><dd>Cold-chain losses are discovered as monthly totals rather than as events, so they recur.</dd></div>
+<div><dt>Who for</dt><dd>Mid-size pharmaceutical distributors — "companies like the one I work for"</dd></div>
+<div><dt>Why them</dt><dd>Eleven years inside the problem, and two customers who already paid for a version of it and left</dd></div>
+<div><dt>Stage today</dt><dd>Prototype. Two prior paid engagements delivered manually, neither renewed.</dd></div>
+<div><dt>What exists</dt><dd>A working sensor integration, a manual attribution method, and one operator willing to pilot</dd></div>
+</div></div>
+<span class="src" style="margin-top:10px">This description becomes the market topics input in Stage 3. It is recorded verbatim rather than
+tidied, because the words a founder chooses carry the boundary they actually have in mind.</span>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.5.2</span><div>
+<h2>What they intend to get from it</h2><div class="sub">Asked separately, per founder, never in a group</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Question</th><th>Nour Halim</th><th>Karim Adly</th><th>Yasmine Fouad</th></tr></thead>
+<tbody>
+<tr class="bad"><td data-l="Q"><strong>Outcome sought</strong></td>
+<td data-l="N"><strong>Acquisition</strong> — "sold, with someone else running it"</td>
+<td data-l="K"><strong>Independent business</strong> — "still building it, paying me properly"</td>
+<td data-l="Y"><span class="chip dn"><span class="d"></span>Not captured</span></td></tr>
+<tr><td data-l="Q">Time horizon</td><td data-l="N">3–5 years</td><td data-l="K">No stated endpoint</td><td data-l="Y">Not captured</td></tr>
+<tr><td data-l="Q">Income expectation</td><td data-l="N">Needs paying from month 6</td><td data-l="K">Needs a market salary from month 6</td><td data-l="Y">Not captured</td></tr>
+<tr><td data-l="Q">What would make them leave</td><td data-l="N">"If it turns out nobody acts on what we tell them"</td>
+<td data-l="K">"If I'm still the only engineer in two years"</td><td data-l="Y">Not captured</td></tr>
+<tr><td data-l="Q">What they will not do</td><td data-l="N">Will not relocate outside Egypt</td>
+<td data-l="K">Will not go below market salary past month 12</td><td data-l="Y">Not captured</td></tr>
+<tr><td data-l="Q">Role wanted in 3 years</td><td data-l="N">Not operating it</td><td data-l="K">Deciding what gets built</td><td data-l="Y">Not captured</td></tr>
+</tbody></table></div>
+
+<div class="find crit"><div class="find-t">The founders want different outcomes, and neither has said so to the other</div>
+<div class="find-b">Nour wants an acquisition inside five years. Karim wants an independent business he keeps building and gets paid
+properly by. These produce contradictory drag-along, transfer and exit terms — a lawyer cannot draft around a conversation that has
+not happened.<br><br>
+Both answers came from a question about <em>daily life two years after success</em>, not from a question about exits. Asked in a group,
+these two would have converged in the room and diverged afterwards. That is the reason the framework requires this question to be asked
+separately.</div></div>
+
+<div class="find warn"><div class="find-t">Both stated leaving conditions are worth keeping</div>
+<div class="find-b">Nour's — "if nobody acts on what we tell them" — is precisely the phase 1 end trigger the strategy later sets, arrived
+at independently. Karim's — "if I'm still the only engineer in two years" — is a resourcing commitment that has not been made anywhere
+in the plan and should be.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.5.3</span><div>
+<h2>Alignment check</h2><div class="sub">Five checks, run across the founders' separate answers</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Check</th><th>Result</th><th>Detail</th></tr></thead>
+<tbody>
+<tr class="bad"><td data-l="C"><strong>Same outcome sought</strong></td><td data-l="R"><span class="chip dn"><span class="d"></span>Fail</span></td>
+<td data-l="D">Acquisition versus independent business. <strong>Blocks the founders' agreement.</strong></td></tr>
+<tr class="bad"><td data-l="C">Compatible horizons</td><td data-l="R"><span class="chip dn"><span class="d"></span>Fail</span></td>
+<td data-l="D">One founder has a 3–5 year exit horizon; the other has none, and a 6-month commitment</td></tr>
+<tr><td data-l="C">Income expectations fit the plan</td><td data-l="R"><span class="chip hd"><span class="d"></span>Partial</span></td>
+<td data-l="D">Both need paying from month 6, which the financial model carries. It is one of the largest lines in it.</td></tr>
+<tr><td data-l="C">Consistent view of the venture</td><td data-l="R"><span class="chip up"><span class="d"></span>Pass</span></td>
+<td data-l="D">Both describe the same business, the same buyer and the same mechanism</td></tr>
+<tr><td data-l="C">Compatible red lines</td><td data-l="R"><span class="chip up"><span class="d"></span>Pass</span></td>
+<td data-l="D">No relocation, and market salary past month 12. Neither blocks the other.</td></tr>
+</tbody></table></div>
+<div class="find crit"><div class="find-t">This is the highest-value finding in onboarding</div>
+<div class="find-b">An outcome disagreement found here costs one conversation. Found at the founders' agreement it blocks a raise —
+which is exactly where it appears in the legal framework. Found at an exit, it ends the relationship. The cost of resolving it is
+EGP 0 and it is the first item in the legal sequence.</div></div>
+
+</div>
+
+<div class="next-step">
+<button class="btn primary" data-go="s1p6">Continue to 1.6 Team &amp; Constraints<span class="arw">&rarr;</span></button>
+</div>
+</div>
+<div class="pane" id="s1p6">
+
+<div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">1.6.1</span><div>
+<h2>Team view</h2><div class="sub">How the founders combine</div></div></div>
+<div class="hero" style="margin-top:0">
+<div class="stats">
+<div class="stat"><div class="lbl">Founders</div><div class="big">3</div><div class="sub">Two captured, one by proxy</div></div>
+<div class="stat"><div class="lbl">Weighted capacity</div><div class="big">52<s> h/wk</s></div><div class="sub">Rising to 90 from month 6</div></div>
+<div class="stat"><div class="lbl">Shortest commitment</div><div class="big">6<s> mo</s></div><div class="sub">Bounds phase 1 of any plan</div></div>
+<div class="stat"><div class="lbl">Functions covered</div><div class="big">5<s> / 8</s></div><div class="sub">At adequate or better</div></div>
+</div></div>
+
+<div class="tw" style="margin-top:16px"><table>
+<thead><tr><th>Function</th><th>Covered by</th><th>Verdict</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td data-l="F">Domain</td><td data-l="C">Nour — can teach</td><td data-l="V"><span class="chip up"><span class="d"></span>Strong</span></td>
+<td data-l="N">Eleven years inside the problem. The strongest asset in the file.</td></tr>
+<tr><td data-l="F">Technical</td><td data-l="C">Karim — can do alone</td><td data-l="V"><span class="chip up"><span class="d"></span>Strong</span></td>
+<td data-l="N">Verified against six years of commit history</td></tr>
+<tr><td data-l="F">Operational</td><td data-l="C">Nour — can do alone</td><td data-l="V"><span class="chip up"><span class="d"></span>Strong</span></td>
+<td data-l="N">Delivered the manual version to two paying customers</td></tr>
+<tr><td data-l="F">Commercial</td><td data-l="C">Nour — can do alone</td><td data-l="V"><span class="chip hd"><span class="d"></span>Adequate</span></td>
+<td data-l="N">Both prior customers came through one introducer. Untested cold.</td></tr>
+<tr><td data-l="F">Product</td><td data-l="C">Both — can do with help</td><td data-l="V"><span class="chip hd"><span class="d"></span>Adequate</span></td>
+<td data-l="N">Held by both, which usually means held by neither. Decision rights need naming.</td></tr>
+<tr class="bad"><td data-l="F">Financial</td><td data-l="C">Karim — can learn</td><td data-l="V"><span class="chip dn"><span class="d"></span>Thin</span></td>
+<td data-l="N">No capital allocation experience by his own account</td></tr>
+<tr class="bad"><td data-l="F">People</td><td data-l="C">Nour — can learn</td><td data-l="V"><span class="chip dn"><span class="d"></span>Thin</span></td>
+<td data-l="N">Has managed, never hired. First hire lands at month 6.</td></tr>
+<tr class="bad"><td data-l="F">Fundraising</td><td data-l="C">Nobody</td><td data-l="V"><span class="chip dn"><span class="d"></span>Absent</span></td>
+<td data-l="N">Neither founder has raised. The plan assumes a raise closes at month 6.</td></tr>
+</tbody></table></div>
+
+<div class="grid g2" style="margin-top:14px">
+<div class="card"><div class="lbl">Complementarity</div>
+<p class="sub" style="margin-top:8px"><strong>Genuine.</strong> Domain and commercial with Nour, technical with Karim, almost no
+overlap. Two founders with the same skills would be one founder with a co-founder.</p></div>
+<div class="card warn"><div class="lbl">Mindset balance</div>
+<p class="sub" style="margin-top:8px"><strong>Amplifies rather than balances.</strong> One avoids conflict until it escalates; the
+other withdraws and solves alone under pressure. A bad month produces silence, not a conversation.</p></div>
+<div class="card bad"><div class="lbl">Who decides when they disagree</div>
+<p class="sub" style="margin-top:8px">No answer exists. Nothing documented, no majority, and equity is verbal. <em>If there is no
+answer, that is the answer.</em></p></div>
+<div class="card bad"><div class="lbl">Single points of failure</div>
+<p class="sub" style="margin-top:8px">Domain, commercial and operational all rest on Nour. The site survey — six hours of judgement
+per customer — exists in one head and is undocumented.</p></div>
+</div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.6.2</span><div>
+<h2>Constraint set</h2><div class="sub">Hard limits every later framework must respect. Hard constraints block; soft constraints warn.</div></div></div>
+<div class="tw"><table>
+<thead><tr><th>Constraint</th><th>Value</th><th>Type</th><th>Source</th><th>Bounds</th></tr></thead>
+<tbody>
+<tr class="bad"><td data-l="C"><strong>Time available</strong></td><td data-l="V" class="mono">6 months</td>
+<td data-l="T"><span class="chip dn"><span class="d"></span>Hard</span></td><td data-l="S">Karim · commitment_horizon</td>
+<td data-l="B"><strong>Phase 1 length. No plan may assume longer before a reassessment.</strong></td></tr>
+<tr class="bad"><td data-l="C">Weighted capacity</td><td data-l="V" class="mono">52 h/week to M6</td>
+<td data-l="T"><span class="chip dn"><span class="d"></span>Hard</span></td><td data-l="S">Both founders · availability</td>
+<td data-l="B">Scope per phase. No hiring and no paid acquisition in phase 1.</td></tr>
+<tr class="bad"><td data-l="C">Capital available</td><td data-l="V" class="mono">EGP 250K founder capital</td>
+<td data-l="T"><span class="chip dn"><span class="d"></span>Hard</span></td><td data-l="S">Nour · financial_runway 8 months</td>
+<td data-l="B">A raise becomes mandatory by month 6</td></tr>
+<tr><td data-l="C">Capability — fundraising</td><td data-l="V" class="mono">Absent</td>
+<td data-l="T"><span class="chip dn"><span class="d"></span>Hard</span></td><td data-l="S">Skill gap list</td>
+<td data-l="B">An advisor is required before the raise, not during it</td></tr>
+<tr><td data-l="C">Geography</td><td data-l="V" class="mono">Egypt · Arabic and English</td>
+<td data-l="T"><span class="chip hd"><span class="d"></span>Soft</span></td><td data-l="S">Both · location, and Nour's red line</td>
+<td data-l="B">Operating geography and market boundary in Stage 3</td></tr>
+<tr><td data-l="C">Domain depth</td><td data-l="V" class="mono">11 years, one founder</td>
+<td data-l="T"><span class="chip hd"><span class="d"></span>Soft</span></td><td data-l="S">Nour · background</td>
+<td data-l="B">Reduces the market research required before proceeding</td></tr>
+<tr><td data-l="C">Red line — relocation</td><td data-l="V" class="mono">Will not relocate</td>
+<td data-l="T"><span class="chip dn"><span class="d"></span>Hard</span></td><td data-l="S">Nour · what_they_will_not_do</td>
+<td data-l="B">Excludes any strategy requiring a foreign operating base</td></tr>
+<tr><td data-l="C">Red line — salary</td><td data-l="V" class="mono">Market salary from M12</td>
+<td data-l="T"><span class="chip dn"><span class="d"></span>Hard</span></td><td data-l="S">Karim · what_they_will_not_do</td>
+<td data-l="B">Sets a floor under the HR line in the financial model</td></tr>
+<tr class="bad"><td data-l="C"><strong>Alignment</strong></td><td data-l="V" class="mono">Failed</td>
+<td data-l="T"><span class="chip dn"><span class="d"></span>Hard</span></td><td data-l="S">Section 1.5.3</td>
+<td data-l="B"><strong>The founders' agreement cannot be drafted. This blocks the raise.</strong></td></tr>
+</tbody></table></div>
+<div class="find"><div class="find-t">These are limits, not preferences</div>
+<div class="find-b">A hard constraint blocks a downstream plan rather than warning about it — otherwise it is not a constraint.
+A strategy phase longer than six months is not optimistic; it is invalid. Every one names its source so a founder can see why a
+plan was limited, and each is revisited when the underlying fact changes rather than when the plan finds it inconvenient.</div></div>
+</div>
+
+<div class="sec"><div class="sec-h"><span class="sec-n">1.6.3</span><div>
+<h2>Conclusion</h2><div class="sub">The founder record, summarised</div></div></div>
+<div class="panel">
+<p><strong>One founder who has lived the problem for eleven years, one who can build it, one nobody has spoken to — and a
+disagreement about what they are building it for that neither has raised.</strong></p>
+<p>The pairing of Nour and Karim is genuinely complementary. Domain, commercial and operational capability sit with her, technical
+with him, and there is almost no overlap between them. She has sold a version of this to two customers and can articulate precisely why
+they left, which is worth more than an unbroken record. He changed a technical belief on operational evidence and has already met the
+specific class of silent-failure problem this product is most exposed to.</p>
+<p>Three functions are thin for both of them equally — financial, people and fundraising — which is the honest shape of a two-person
+team rather than a failure of the pairing. Only fundraising is blocking, and it becomes binding around month four against a plan that
+needs a raise closed by month six.</p>
+<p>Their mindsets amplify rather than balance. She avoids conflict until it escalates; he withdraws and solves alone under pressure.
+In a two-person venture that means a difficult month produces silence. There is already an unraised outcome disagreement sitting
+between them, which is the predictable result of exactly that combination — and the reason it is surfaced here rather than left for
+them to reach on their own.</p>
+</div>
+<div class="grid g3" style="margin-top:14px">
+<div class="card"><div class="lbl">Strongest asset</div><h4 style="margin-bottom:7px">Eleven years inside the problem</h4>
+<p class="sub">Domain depth is the strongest predictor available at this stage that the problem is real. It also removes months of
+market research the venture would otherwise need.</p></div>
+<div class="card warn"><div class="lbl">Largest gap</div><h4 style="margin-bottom:7px">Nobody has raised money</h4>
+<p class="sub">The only blocking gap. Not learnable in the timeframe, binding by month four, and everything from phase 2 onward
+assumes it is solved.</p></div>
+<div class="card bad"><div class="lbl">Binding constraint</div><h4 style="margin-bottom:7px">Six months</h4>
+<p class="sub">A team is available for as long as its least-available member. This one figure bounds phase 1, sets every deadline
+in the plan, and appears in every framework downstream.</p></div>
+</div>
+<div class="find crit" style="margin-top:14px"><div class="find-t">Capture quality — what is not in this record</div>
+<div class="find-b">Yasmine Fouad holds 35% of the equity and was recorded entirely by proxy. There is no channel data, no character
+assessment, no stated availability, no commitment horizon and no separately-captured outcome. She is described as covering the
+regulatory position, which is the venture's largest open risk. Nothing about her has been inferred, because a proxy description is a
+record of how another founder sees someone rather than the thing this framework captures.</div></div>
+<div class="find warn"><div class="find-t">Open items before the venture proceeds</div>
+<div class="find-b"><strong>1.</strong> The founders have not discussed what outcome they each want. Costs one conversation; blocks the
+founders' agreement and therefore the raise.<br>
+<strong>2.</strong> Yasmine Fouad must complete onboarding directly, or her equity position must be addressed.<br>
+<strong>3.</strong> Equity is verbal across all three founders, with no vesting and nothing documented.<br>
+<strong>4.</strong> No fundraising capability exists against a plan that requires a raise by month six.</div></div>
+
+</div>
+
+<div class="next-step">
+<button class="btn" disabled style="opacity:.45;cursor:default">Stage 2 · Assessment &amp; Package — not yet built<span class="arw">&rarr;</span></button>
+</div>
+</div>
+</div>
 <div class="stage" id="s3">
 <div class="eyebrow">Stage 3 · Ideation</div>
 <h1>Ideation</h1>
@@ -5833,9 +6506,9 @@ document.querySelectorAll('button[data-stage]').forEach(function(b){
   b.addEventListener('click',function(){showStage(b.dataset.stage)});
 });
 // mark completed stages
-['s3','s4','s5','s6','s7'].forEach(function(s){
+['s1','s3','s4','s5','s6','s7'].forEach(function(s){
   var t=document.getElementById('tab-'+s); if(t) t.classList.add('done');
 });
-showStage('s3');
+showStage('s1');
 </script>
 </body></html>
