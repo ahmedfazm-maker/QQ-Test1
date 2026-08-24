@@ -379,25 +379,26 @@ a.btn.primary,a.btn.primary:visited{color:var(--carbon)}
   radial-gradient(circle at 86% -30%,var(--acid) 0 20px,transparent 21px)}
 .qq-in{max-width:980px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;
   justify-content:space-between;gap:20px;position:relative}
-.qq-logo{display:flex;align-items:center;flex:0 0 auto}
-/* Minimum sizes, per the manual: horizontal lockup 180px, mark alone 32px.
-   Below the horizontal floor we drop to the mark rather than shrink the lockup. */
-.qq-logo .qq-h{display:block;width:180px;height:auto}
-.qq-logo .qq-m{display:none;width:34px;height:auto}
+.qq-logo{display:flex;align-items:center;flex:0 0 auto;min-width:0}
+/* The lockup holds at its 180px floor on every viewport down to 320px, so the
+   wordmark is never dropped. The manual: the mark never carries the wordmark's job. */
+.qq-logo .qq-h{display:block;width:180px;height:auto;flex:0 0 auto}
+.qq-logo .qq-m{display:none}
 .qq-meta{font-family:'JetBrains Mono';font-size:9.5px;letter-spacing:.16em;
   text-transform:uppercase;color:var(--graphite);text-align:right;line-height:1.7}
 .qq-meta b{display:block;color:var(--pale);font-weight:400}
 .topnav{top:65px}
 @media(max-width:720px){.qq-in{padding:10px 16px}
-  .qq-logo .qq-h{display:none}.qq-logo .qq-m{display:block}
-  .qq-meta{font-size:8.5px;letter-spacing:.1em}.topnav{top:54px}}
-@media(max-width:420px){.qq-meta{display:none}}
+  .qq-meta{font-size:8.5px;letter-spacing:.1em}.topnav{top:59px}}
+/* Below this the meta block would crowd the exclusion zone — drop the text, keep the logo */
+@media(max-width:560px){.qq-meta{display:none}.qq-in{justify-content:flex-start}}
 
 /* ---- Footer lockup ---- */
 .qq-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;
   flex-wrap:wrap;padding-top:16px;margin-top:8px;border-top:1px solid var(--n600)}
-.qq-foot .qq-h{width:180px;height:auto;display:block}
+.qq-foot .qq-h{width:180px;height:auto;display:block;flex:0 0 auto}
 .qq-foot .qq-m{display:none}
+@media(max-width:560px){.qq-foot{flex-direction:column;align-items:flex-start;gap:10px}}
 .qq-foot .st{font-family:Sora;font-size:13px;color:var(--lime)}
 
 </style></head><body>
