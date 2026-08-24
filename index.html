@@ -7,12 +7,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
-:root{--navy:#0F0F1E;--n800:#1D1D3B;--n700:#191934;--n600:#2C2C5A;--line:#262650;
---purple:#6A00FF;--p2:#7F1FE5;--lav:#C77DFF;--slate:#8A8AA8;--dim:#c4c4d8;
---up:#00E5A0;--down:#FF4D6D;--hold:#FFB020;--r:14px;--ease:cubic-bezier(.2,0,0,1)}
+:root{--navy:#0A0B0A;--n800:#151714;--n700:#101310;--n600:#282B26;--line:#23261F;
+--purple:#C6FF34;--p2:#A8E01F;--lav:#E4FFA6;--slate:#8A8A85;--dim:#C9CCC2;--ink:#F4F6EE;
+--carbon:#0A0B0A;--lime:#C6FF34;--acid:#A8E01F;--pale:#E4FFA6;--bone:#F4F6EE;--graphite:#8A8A85;
+--up:#00E5A0;--down:#FF3B5C;--hold:#FFB020;--r:14px;--ease:cubic-bezier(.2,0,0,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{background:var(--navy);color:#fff;font-family:Inter,sans-serif;font-size:13.5px;
+body{background:var(--navy);color:var(--ink);font-family:Inter,sans-serif;font-size:13.5px;
 line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .mono{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
 .wrap{max-width:980px;margin:0 auto;padding:28px 28px 72px}
@@ -27,21 +28,21 @@ p{margin-bottom:10px}p:last-child{margin-bottom:0}
 .dimtx{color:var(--dim)}
 .src{font-family:'JetBrains Mono';font-size:10px;color:var(--slate);letter-spacing:.04em;line-height:1.5;display:block}
 /* nav */
-.topnav{position:sticky;top:0;z-index:30;background:rgba(15,15,30,.95);
+.topnav{position:sticky;top:0;z-index:30;background:rgba(10,11,10,.94);
 backdrop-filter:blur(10px);border-bottom:1px solid var(--n600)}
 .topnav-in{max-width:980px;margin:0 auto;padding:0 28px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
 .topnav-in::-webkit-scrollbar{display:none}
 .tab{flex:0 0 auto;padding:13px 12px 11px;font-size:11.5px;color:var(--slate);
 border-bottom:2px solid transparent;white-space:nowrap;transition:.15s var(--ease)}
 .tab .tn{font-family:'JetBrains Mono';font-size:10px;opacity:.55;margin-right:5px}
-.tab.done{color:#b9b9cf}.tab.on{color:#fff;border-bottom-color:var(--purple);font-weight:500}
+.tab.done{color:#b9b9cf}.tab.on{color:var(--ink);border-bottom-color:var(--purple);font-weight:500}
 .tab.next{opacity:.4}
 .subnav{display:flex;gap:6px;margin:24px 0 0;flex-wrap:wrap}
 .subtab{padding:9px 15px;border-radius:9px;font-size:12px;color:var(--slate);
 background:var(--n800);border:1px solid transparent;cursor:pointer;transition:.15s var(--ease);
 display:flex;align-items:center;gap:7px}
-.subtab:hover{color:#fff}
-.subtab.on{background:rgba(106,0,255,.16);border-color:var(--purple);color:#fff;font-weight:500}
+.subtab:hover{color:var(--ink)}
+.subtab.on{background:rgba(198,255,52,.14);border-color:var(--lime);color:var(--ink);font-weight:500}
 .subtab .sn{font-family:'JetBrains Mono';font-size:10px;opacity:.6}
 .pane{display:none}.pane.on{display:block;animation:fade .25s var(--ease)}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
@@ -58,8 +59,8 @@ display:flex;align-items:center;gap:7px}
 .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .card{background:var(--n800);border-radius:var(--r);padding:16px 18px;border:1px solid transparent;min-width:0}
-.card.on{border-color:var(--purple);background:linear-gradient(160deg,rgba(106,0,255,.12),var(--n800))}
-.card.warn{border-color:rgba(255,176,32,.4)}.card.bad{border-color:rgba(255,77,109,.4)}
+.card.on{border-color:var(--purple);background:linear-gradient(160deg,rgba(198,255,52,.09),var(--n800))}
+.card.warn{border-color:rgba(255,176,32,.4)}.card.bad{border-color:rgba(255,59,92,.4)}
 .card-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px;flex-wrap:wrap}
 /* definition list — for content that is not tabular */
 .dl{margin-top:10px}
@@ -68,8 +69,8 @@ display:flex;align-items:center;gap:7px}
 .dl dt{color:var(--slate);font-size:11px;letter-spacing:.11em;text-transform:uppercase;padding-top:2px}
 .dl dd{font-size:13px;min-width:0}
 /* hero */
-.hero{background:linear-gradient(140deg,#1a1235,#16162e);border-radius:var(--r);
-padding:22px 24px;margin-top:20px;border:1px solid #2a2a54}
+.hero{background:linear-gradient(140deg,#141711,#0E100D);border-radius:var(--r);
+padding:22px 24px;margin-top:20px;border:1px solid #282B26}
 .hero .lead{font-size:15px;line-height:1.55}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:20px}
 .stat .big{font-family:'JetBrains Mono';font-size:28px;font-weight:500;letter-spacing:-.02em;line-height:1}
@@ -82,9 +83,9 @@ border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap;vertical-al
 .chip .d{width:6px;height:6px;border-radius:50%;flex:0 0 auto}
 .chip.bare{padding-left:10px}.chip.bare .d{display:none}
 .up{background:rgba(0,229,160,.11);color:var(--up)}.up .d{background:var(--up)}
-.dn{background:rgba(255,77,109,.11);color:var(--down)}.dn .d{background:var(--down)}
+.dn{background:rgba(255,59,92,.11);color:var(--down)}.dn .d{background:var(--down)}
 .hd{background:rgba(255,176,32,.11);color:var(--hold)}.hd .d{background:var(--hold)}
-.nt{background:#262650;color:var(--slate)}.nt .d{background:var(--slate)}
+.nt{background:#23261F;color:var(--slate)}.nt .d{background:var(--slate)}
 .lv{background:rgba(199,125,255,.13);color:var(--lav)}.lv .d{background:var(--lav)}
 /* tables — only for genuinely tabular data */
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:6px}
@@ -95,7 +96,7 @@ th.r,td.r{text-align:right}
 td{padding:10px 12px 10px 0;border-top:1px solid var(--line);font-size:12.5px;vertical-align:top}
 td:last-child,th:last-child{padding-right:0}
 .num{font-family:'JetBrains Mono';font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
-tr.hi td{background:rgba(106,0,255,.07)}tr.bad td{background:rgba(255,77,109,.06)}
+tr.hi td{background:rgba(198,255,52,.055)}tr.bad td{background:rgba(255,59,92,.06)}
 /* findings */
 .find{border-left:2px solid var(--purple);padding-left:15px;margin:16px 0}
 .find.crit{border-color:var(--down)}.find.warn{border-color:var(--hold)}.find.ok{border-color:var(--up)}
@@ -128,10 +129,10 @@ padding:6px 11px;font-size:12px;color:var(--dim)}
 .flag{display:flex;gap:9px;align-items:flex-start;padding:10px 13px;border-radius:10px;
 font-size:12.5px;line-height:1.5;margin-top:2px}
 .flag .d{width:6px;height:6px;border-radius:50%;flex:0 0 auto;margin-top:7px}
-.flag.dn{background:rgba(255,77,109,.10);color:#ffb3c0}.flag.dn .d{background:var(--down)}
+.flag.dn{background:rgba(255,59,92,.10);color:#ff9fb0}.flag.dn .d{background:var(--down)}
 .flag.hd{background:rgba(255,176,32,.10);color:#ffd79a}.flag.hd .d{background:var(--hold)}
 .flag.up{background:rgba(0,229,160,.10);color:#8fecd0}.flag.up .d{background:var(--up)}
-.flag.nt{background:#262650;color:var(--slate)}.flag.nt .d{background:var(--slate)}
+.flag.nt{background:#23261F;color:var(--slate)}.flag.nt .d{background:var(--slate)}
 /* dl inside cards has less room */
 .card .dl>div{grid-template-columns:112px minmax(0,1fr);gap:12px}
 /* dl variant: label above value, for long values in narrow containers */
@@ -153,15 +154,15 @@ font-size:9.5px;line-height:1.35;vertical-align:bottom;min-width:78px}
 .mx th:first-child{text-align:left;min-width:190px;position:sticky;left:0;z-index:2}
 .mx td{padding:11px 10px;text-align:center;border-top:1px solid var(--line);font-size:12px}
 .mx td:first-child{text-align:left;position:sticky;left:0;background:var(--navy);z-index:1;font-size:12.5px}
-.mx tr.self td{background:rgba(106,0,255,.10)}
-.mx tr.self td:first-child{background:#221546}
+.mx tr.self td{background:rgba(198,255,52,.08)}
+.mx tr.self td:first-child{background:#1A1D16}
 .mx tr.grp td{background:var(--n700);font-family:'JetBrains Mono';font-size:10px;
 letter-spacing:.14em;text-transform:uppercase;color:var(--slate);text-align:left;padding:8px 10px}
 .mk{display:inline-block;width:15px;height:15px;border-radius:50%;line-height:15px;font-size:10px}
 .mk.y{background:rgba(0,229,160,.16);color:var(--up)}
 .mk.p{background:rgba(255,176,32,.16);color:var(--hold)}
-.mk.n{background:#262650;color:#4a4a70}
-.mk.c{background:rgba(199,125,255,.16);color:var(--lav)}
+.mk.n{background:#23261F;color:#3A3D35}
+.mk.c{background:rgba(228,255,166,.16);color:var(--lav)}
 /* triangle */
 .tri{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
 .corner{background:var(--n800);border-radius:var(--r);padding:18px 20px;border-top:2px solid var(--purple)}
@@ -201,14 +202,14 @@ background:rgba(199,125,255,.12);border-radius:5px;text-align:center;line-height
 .mx th:first-child{text-align:left;min-width:180px;position:sticky;left:0;z-index:2}
 .mx td{padding:11px 10px;text-align:center;border-top:1px solid var(--line);font-size:12px}
 .mx td:first-child{text-align:left;position:sticky;left:0;background:var(--navy);z-index:1;font-size:12.5px}
-.mx tr.self td{background:rgba(106,0,255,.10)}.mx tr.self td:first-child{background:#221546}
+.mx tr.self td{background:rgba(198,255,52,.08)}.mx tr.self td:first-child{background:#1A1D16}
 .mx tr.grp td{background:var(--n700);font-family:'JetBrains Mono';font-size:10px;letter-spacing:.14em;
 text-transform:uppercase;color:var(--slate);text-align:left;padding:8px 10px}
 .mk{display:inline-block;width:15px;height:15px;border-radius:50%;line-height:15px;font-size:10px}
 .mk.y{background:rgba(0,229,160,.16);color:var(--up)}
 .mk.p{background:rgba(255,176,32,.16);color:var(--hold)}
-.mk.n{background:#262650;color:#4a4a70}
-.mk.c{background:rgba(199,125,255,.16);color:var(--lav)}
+.mk.n{background:#23261F;color:#3A3D35}
+.mk.c{background:rgba(228,255,166,.16);color:var(--lav)}
 /* org node */
 .org{margin-top:12px}
 .node{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:11px 14px;background:var(--n800);
@@ -221,7 +222,7 @@ border-radius:10px;margin-bottom:7px;align-items:center}
 /* actions */
 .actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
 .btn{padding:11px 20px;border-radius:9px;font-size:12.5px;font-weight:500;border:1px solid var(--n600);
-background:transparent;color:#fff;cursor:pointer;font-family:Inter;transition:.15s var(--ease)}
+background:transparent;color:var(--ink);cursor:pointer;font-family:Inter;transition:.15s var(--ease)}
 .btn.primary{background:linear-gradient(135deg,var(--purple),var(--p2));border-color:transparent}
 .btn.ghost{color:var(--slate)}.btn:hover{filter:brightness(1.15)}
 .upload{border:1px dashed #33336a;border-radius:var(--r);padding:20px;text-align:center;margin-top:12px;background:#161630}
@@ -284,7 +285,7 @@ color:var(--slate);font-size:11.5px;display:flex;justify-content:space-between;g
 .lgo-hd>div{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .lgo-hd h4{margin:0;font-family:'Sora';font-size:15px;font-weight:400}
 .lgo-i{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:5px;
-  background:var(--pur);color:#fff;font-family:'JetBrains Mono';font-size:11px;flex:0 0 auto}
+  background:var(--pur);color:var(--ink);font-family:'JetBrains Mono';font-size:11px;flex:0 0 auto}
 .lgo-sc{font-family:'JetBrains Mono';font-size:17px;color:var(--ink)}
 .lgo-body{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:0}
 .lgo-stage{padding:18px 16px;border-right:1px solid var(--line);background:#FAF9F6;color:#14181C;
@@ -331,7 +332,7 @@ color:var(--slate);font-size:11.5px;display:flex;justify-content:space-between;g
 .mis{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--n800)}
 .mis-fig{padding:10px;position:relative}
 .mis-fig::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(to top left,transparent calc(50% - .8px),rgba(255,77,109,.75) 50%,transparent calc(50% + .8px))}
+  background:linear-gradient(to top left,transparent calc(50% - .8px),rgba(255,59,92,.75) 50%,transparent calc(50% + .8px))}
 .mis-fig>svg{width:100%;height:auto;display:block}
 .mis-t{padding:9px 12px 0;font-size:12.5px;font-weight:500;color:var(--down)}
 .mis p{padding:4px 12px 12px;margin:0;font-size:11.5px;line-height:1.5}
@@ -350,7 +351,57 @@ color:var(--slate);font-size:11.5px;display:flex;justify-content:space-between;g
 .stage{display:none} .stage.on{display:block}
 .tab{cursor:pointer} .tab.locked{cursor:default}
 .tab.locked:hover{color:var(--slate)}
+
+/* ============ QUIDQUO · LIME & CARBON ============ */
+/* Rule: Lime marks what a user can act on. It never carries a value.
+   Data, accents and links take Pale Lime. Gain takes Signal Up, never Lime. */
+
+/* Never light-on-lime — Carbon always sits on a Lime field */
+.btn.primary{background:linear-gradient(135deg,var(--acid),var(--lime));color:var(--carbon);
+  border-color:transparent;font-weight:600}
+.btn.primary:hover{background:var(--lime);color:var(--carbon)}
+a.btn.primary,a.btn.primary:visited{color:var(--carbon)}
+
+/* Value bars carry a number — Pale Lime, not Lime */
+.bar i{background:var(--pale)}
+.spec-tr i{background:var(--pale)}
+
+/* Signal colours always pair with a word, never colour alone */
+.chip{font-weight:600}
+
+/* ---- Header ---- */
+.qq-head{position:sticky;top:0;z-index:40;background:var(--carbon);
+  border-bottom:1px solid var(--n600);overflow:hidden}
+.qq-head::before{content:"";position:absolute;inset:0;opacity:.055;pointer-events:none;
+  background-image:radial-gradient(circle at 12% 130%,var(--lime) 0 14px,transparent 15px),
+  radial-gradient(circle at 26% -40%,var(--acid) 0 18px,transparent 19px),
+  radial-gradient(circle at 62% 150%,var(--lime) 0 16px,transparent 17px),
+  radial-gradient(circle at 86% -30%,var(--acid) 0 20px,transparent 21px)}
+.qq-in{max-width:980px;margin:0 auto;padding:13px 28px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;position:relative}
+.qq-logo{display:flex;align-items:center;flex:0 0 auto}
+/* Minimum sizes, per the manual: horizontal lockup 180px, mark alone 32px.
+   Below the horizontal floor we drop to the mark rather than shrink the lockup. */
+.qq-logo .qq-h{display:block;width:180px;height:auto}
+.qq-logo .qq-m{display:none;width:34px;height:auto}
+.qq-meta{font-family:'JetBrains Mono';font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--graphite);text-align:right;line-height:1.7}
+.qq-meta b{display:block;color:var(--pale);font-weight:400}
+.topnav{top:65px}
+@media(max-width:720px){.qq-in{padding:10px 16px}
+  .qq-logo .qq-h{display:none}.qq-logo .qq-m{display:block}
+  .qq-meta{font-size:8.5px;letter-spacing:.1em}.topnav{top:54px}}
+@media(max-width:420px){.qq-meta{display:none}}
+
+/* ---- Footer lockup ---- */
+.qq-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  flex-wrap:wrap;padding-top:16px;margin-top:8px;border-top:1px solid var(--n600)}
+.qq-foot .qq-h{width:180px;height:auto;display:block}
+.qq-foot .qq-m{display:none}
+.qq-foot .st{font-family:Sora;font-size:13px;color:var(--lime)}
+
 </style></head><body>
+<div class="qq-head"><div class="qq-in"><div class="qq-logo"><svg class="qq-h" role="img" aria-label="QuidQuo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2113 460"><g transform="translate(-310.13,-0.01) scale(1.0)"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></g><g transform="translate(561.7,-565.07) scale(1.4854)"><path fill="#F4F6EE" d="M98.91,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM108.62,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M218.99,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M379.68,477.18v30.64h-26.66v-30.64h26.66ZM379.43,526.76v131.54h-26.41v-131.54h26.41Z"/><path fill="#F4F6EE" d="M537.88,469.71v132.29c0,37.87-16.94,56.3-48.33,56.3h-36.37c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h58.05v-57.05h26.66ZM511.22,600.75v-48.58h-55.56c-22.67,0-32.89,11.96-32.89,40.36s10.21,40.11,32.89,40.11h26.16c21.18,0,29.4-9.47,29.4-31.89Z"/><path fill="#F4F6EE" d="M654.72,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM664.43,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M774.8,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M987.31,526.76c34.88,0,57.05,21.42,57.05,65.77s-22.17,65.77-57.05,65.77h-27.65c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h27.65ZM962.15,552.17c-22.92,0-32.89,11.96-32.89,40.36s9.97,40.11,32.89,40.11h22.67c22.67,0,32.89-11.71,32.89-40.11s-10.21-40.36-32.89-40.36h-22.67Z"/></g></svg><svg class="qq-m" role="img" aria-label="QuidQuo" xmlns="http://www.w3.org/2000/svg" viewBox="310.13 0 424.1 429.98"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></svg></div><div class="qq-meta">Venture File<b>Sanad · Edition 01</b></div></div></div>
 <div class="topnav"><div class="topnav-in">
 <div class="tab" id="tab-s1" data-stage="s1"><span class="tn">01</span>Onboarding</div>
 <div class="tab" id="tab-s2" data-stage="s2"><span class="tn">02</span>Assessment & Package</div>
@@ -1680,7 +1731,7 @@ list that isn't paying.</p>
 <div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">19</span><div>
 <h2>What we'd suggest</h2><div class="sub">A recommendation based on everything above — not on what's largest. If the honest answer were "you don't need us yet," this section would say so.</div></div></div>
 
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.14),var(--n800))">
+<div class="panel on" style="background:linear-gradient(160deg,rgba(198,255,52,.10),var(--n800))">
 <div class="grid g3" style="margin-top:0">
 <div class="stat"><div class="lbl">Recommended</div><div class="big" style="font-size:24px">Foundation</div>
 <p class="sub" style="margin-top:4px">Problem, market and model — done properly</p></div>
@@ -3568,7 +3619,7 @@ The per-unit cost is an order of magnitude above what seg_01 will pay.</span></d
 <div class="legend">
 <span class="k"><i style="background:var(--up)"></i>Offered</span>
 <span class="k"><i style="background:var(--hold)"></i>Partial</span>
-<span class="k"><i style="background:#4a4a70"></i>Not offered</span>
+<span class="k"><i style="background:#3A3D35"></i>Not offered</span>
 <span class="k"><i style="background:var(--lav)"></i>Claimed by Sanad, not yet built or verified</span>
 </div>
 </div>
@@ -3672,7 +3723,7 @@ because the market is small, not because the capability is difficult — which i
 <p style="font-size:13.5px">EDA guidance is tightening, which turns a record from good practice into a dated obligation.</p></div>
 </div>
 
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.12),var(--n800));margin-top:12px">
+<div class="panel on" style="background:linear-gradient(160deg,rgba(198,255,52,.09),var(--n800));margin-top:12px">
 <div class="lbl" style="color:var(--lav)">Where this venture can stand</div>
 <p style="font-size:14px;margin-top:6px">The only player in this market offering attribution at the custody handover — checkable
 against the comparison matrix today, and durable only once the accumulated inspection record makes leaving expensive.</p>
@@ -4115,7 +4166,7 @@ it is answered by adoption evidence, not by design.</p></div>
 <div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">5.2.1</span><div>
 <h2>Direction</h2><div class="sub">Where the business is going, set before how it gets there</div></div></div>
 
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.12),var(--n800))">
+<div class="panel on" style="background:linear-gradient(160deg,rgba(198,255,52,.09),var(--n800))">
 <div class="lbl" style="color:var(--lav)">Final positioning</div>
 <p style="font-size:15px;line-height:1.55;margin-top:6px">For mid-size Egyptian pharmaceutical distributors, Sanad is the
 cold-chain record that attributes loss to a node. The category is compliance-grade temperature attribution; the differentiator is
@@ -4512,7 +4563,7 @@ what the evidence does not support, and its assumption that the reader is capabl
 <div class="sec"><div class="sec-h"><span class="sec-n">6.1.3</span><div>
 <h2>Brand behaviour</h2><div class="sub">What you do and how you deliver — the personality in action</div></div></div>
 
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.12),var(--n800))">
+<div class="panel on" style="background:linear-gradient(160deg,rgba(198,255,52,.09),var(--n800))">
 <div class="lbl" style="color:var(--lav)">Brand promise</div>
 <p style="font-size:15px;line-height:1.55;margin-top:6px">Every excursion we detect comes with where it happened. If we cannot say where,
 we say so — we never report a loss without its location and call that a finding.</p>
@@ -4669,7 +4720,7 @@ It does not produce hex values, typefaces or a logo — those are design decisio
 <td data-l="Says">Measurement and fairness</td><td data-l="Risk">Widely used in financial services locally</td><td data-l="S" class="num">34</td></tr>
 </tbody></table></div>
 
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.12),var(--n800));margin-top:12px">
+<div class="panel on" style="background:linear-gradient(160deg,rgba(198,255,52,.09),var(--n800));margin-top:12px">
 <div class="lbl" style="color:var(--lav)">Recommendation</div>
 <p style="font-size:15px;margin-top:6px"><strong>Sanad</strong> — 48.5 of 50.</p>
 <p class="sub" style="margin-top:8px">It means, in the audience's own legal vocabulary, a document that evidences a claim. That is precisely
@@ -5136,7 +5187,7 @@ That is the single largest effect AI has on this venture, and it is a scope deci
 <div class="sec"><div class="sec-h"><span class="sec-n">6.2.6</span><div>
 <h2>MVP</h2><div class="sub">Direction, structure, and the threshold set before building</div></div></div>
 
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.12),var(--n800))">
+<div class="panel on" style="background:linear-gradient(160deg,rgba(198,255,52,.09),var(--n800))">
 <div class="lbl" style="color:var(--lav)">What the MVP is for</div>
 <div class="dl" style="margin-top:8px">
 <div><dt>Tests</dt><dd><strong>Whether supervisors keep scanning once nobody is watching</strong> — the critical dependency of the whole model,
@@ -6985,7 +7036,7 @@ being watched.</div></div>
 <div class="sec"><div class="sec-h"><span class="sec-n">6.8.3</span><div>
 <h2>Overall business dashboard</h2><div class="sub">Thirteen numbers, readable in under a minute</div></div></div>
 
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.12),var(--n800))">
+<div class="panel on" style="background:linear-gradient(160deg,rgba(198,255,52,.09),var(--n800))">
 <div class="lbl" style="color:var(--lav)">North star</div>
 <p style="font-size:17px;font-family:Sora;margin-top:6px">Attributions acted upon</p>
 <p class="sub" style="margin-top:8px">It represents value delivered rather than revenue collected, it moves before revenue does, and a
@@ -7138,7 +7189,7 @@ and changing that cell recalculates the whole model.</p>
 <p class="sub" style="margin-top:8px">Every assumption is a blue cell. Yellow fill marks the high-sensitivity ones.</p></div>
 </div>
 
-<div class="panel" style="margin-top:14px;text-align:center;background:linear-gradient(160deg,rgba(106,0,255,.14),var(--n800))">
+<div class="panel" style="margin-top:14px;text-align:center;background:linear-gradient(160deg,rgba(198,255,52,.10),var(--n800))">
 <div style="font-size:15px;margin-bottom:4px">Download the full working model</div>
 <p class="sub" style="margin-bottom:14px">Excel workbook · live formulas · edit any assumption and the model recalculates</p>
 <a class="btn primary" href="Sanad_Financial_Model.xlsx" download style="text-decoration:none;display:inline-block">Download Sanad_Financial_Model.xlsx</a>
@@ -7789,7 +7840,7 @@ holds its edge against Record Ink on a phone screen. Print retains #7C2A32.</p>
 </div>
 </div>
 <div class="pane" id="s8p3">
-<div class="panel on" style="margin-top:26px;background:linear-gradient(160deg,rgba(106,0,255,.14),var(--n800));display:flex;
+<div class="panel on" style="margin-top:26px;background:linear-gradient(160deg,rgba(198,255,52,.10),var(--n800));display:flex;
 justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
 <div><div style="font-size:15px">Sanad — Brand Manual</div>
 <p class="sub" style="margin-top:2px">3 sections · 24 pages · PDF · logo files in SVG, PNG and EPS</p></div>
@@ -8327,7 +8378,7 @@ is therefore historic, and the teaser and deck both say so rather than implying 
 
 <div class="sec"><div class="sec-h"><span class="sec-n">9.1.2</span><div>
 <h2>Teaser</h2><div class="sub">One page · first contact · its only job is to earn a meeting</div></div></div>
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.14),var(--n800));text-align:center">
+<div class="panel on" style="background:linear-gradient(160deg,rgba(198,255,52,.10),var(--n800));text-align:center">
 <div style="font-size:15px;margin-bottom:4px">Sanad — Investor Teaser</div>
 <p class="sub" style="margin-bottom:14px">1 page · PDF · branded · 5 numbers</p>
 <a class="btn primary" href="Sanad_Teaser.pdf" download style="text-decoration:none;display:inline-block">Download branded teaser</a>
@@ -8400,7 +8451,7 @@ churn is the origin of the concept — but it states plainly that neither custom
 <div class="pane" id="s9p2">
 <div class="sec" style="margin-top:26px"><div class="sec-h"><span class="sec-n">9.2.1</span><div>
 <h2>Pitch deck</h2><div class="sub">Fourteen slides · shared post-interest, when an investor has asked for it</div></div></div>
-<div class="panel on" style="background:linear-gradient(160deg,rgba(106,0,255,.14),var(--n800));display:flex;
+<div class="panel on" style="background:linear-gradient(160deg,rgba(198,255,52,.10),var(--n800));display:flex;
 justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
 <div><div style="font-size:15px">Sanad — Investor Pitch Deck</div>
 <p class="sub" style="margin-top:2px">14 slides + appendix · draft, watermarked until you approve release</p></div>
@@ -9737,6 +9788,7 @@ has been open since day one.</p></div>
 </div>
 </div>
 </div>
+<div class="qq-foot"><div class="qq-logo"><svg class="qq-h" role="img" aria-label="QuidQuo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2113 460"><g transform="translate(-310.13,-0.01) scale(1.0)"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></g><g transform="translate(561.7,-565.07) scale(1.4854)"><path fill="#F4F6EE" d="M98.91,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM108.62,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M218.99,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M379.68,477.18v30.64h-26.66v-30.64h26.66ZM379.43,526.76v131.54h-26.41v-131.54h26.41Z"/><path fill="#F4F6EE" d="M537.88,469.71v132.29c0,37.87-16.94,56.3-48.33,56.3h-36.37c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h58.05v-57.05h26.66ZM511.22,600.75v-48.58h-55.56c-22.67,0-32.89,11.96-32.89,40.36s10.21,40.11,32.89,40.11h26.16c21.18,0,29.4-9.47,29.4-31.89Z"/><path fill="#F4F6EE" d="M654.72,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM664.43,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M774.8,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M987.31,526.76c34.88,0,57.05,21.42,57.05,65.77s-22.17,65.77-57.05,65.77h-27.65c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h27.65ZM962.15,552.17c-22.92,0-32.89,11.96-32.89,40.36s9.97,40.11,32.89,40.11h22.67c22.67,0,32.89-11.71,32.89-40.11s-10.21-40.36-32.89-40.36h-22.67Z"/></g></svg><svg class="qq-m" role="img" aria-label="QuidQuo" xmlns="http://www.w3.org/2000/svg" viewBox="310.13 0 424.1 429.98"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></svg></div><div class="st">Fair value, both ways.</div></div>
 <div class="foot">
 <span>QuidQuo · Venture File · Sanad</span>
 <span>Cold-chain monitoring for pharmaceutical distributors · Cairo, Egypt</span>
