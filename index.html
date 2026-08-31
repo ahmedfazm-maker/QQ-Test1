@@ -12,7 +12,7 @@
 --carbon:#0A0B0A;--c800:#151714;--c850:#101310;--c600:#282B26;--c650:#23261F;
 --lime:#C6FF34;--acid:#A8E01F;--pale:#E4FFA6;--bone:#F4F6EE;--dim:#C9CCC2;--graphite:#8A8A85;
 --up:#00E5A0;--hold:#FFB020;--down:#FF3B5C;
---r:14px;--rb:9px;--ease:cubic-bezier(.2,0,0,1);--sb:244px}
+--r:14px;--rb:9px;--ease:cubic-bezier(.2,0,0,1);--sb:230px}
 html,body{height:100%}
 body{background:var(--carbon);color:var(--bone);font-family:Inter,-apple-system,system-ui,sans-serif;
 font-size:13px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow:hidden}
@@ -52,40 +52,40 @@ font-weight:600;border:1px solid;white-space:nowrap;line-height:1.5}
 .chip.lv{color:var(--pale);border-color:rgba(228,255,166,.3);background:rgba(228,255,166,.08)}
 
 /* ---------- shell ---------- */
-#app{display:none;height:100vh}
+#app{display:none;height:100vh;height:100dvh}
 #app.on{display:flex}
 .side{width:var(--sb);flex:0 0 auto;background:var(--c850);border-right:1px solid var(--c650);
-display:flex;flex-direction:column;height:100vh;transition:width .2s var(--ease)}
-.side-h{padding:11px 11px 6px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.side-h .lg{width:120px;height:auto;display:block}
+display:flex;flex-direction:column;height:100vh;height:100dvh;transition:width .2s var(--ease)}
+.side-h{padding:10px 10px 5px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.side-h .lg{cursor:pointer;width:104px;height:auto;display:block}
 .side-h .lg-m{width:23px;display:none}
 .side.mini{width:64px}
 .side.mini .lg{display:none}.side.mini .lg-m{display:block}
 .side.mini .nv-t,.side.mini .sec-h,.side.mini .rc,.side.mini .u-txt{display:none}
 .side.mini .nv{justify-content:center;padding:9px 0}
 .side-scroll{flex:1 1 auto;display:flex;flex-direction:column;min-height:0;overflow:hidden;padding:0 7px 5px}
-.sec-h{display:flex;align-items:center;gap:5px;padding:12px 8px 3px;cursor:pointer;color:var(--graphite);
-font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;user-select:none;flex:0 0 auto}
+.sec-h{display:flex;align-items:center;gap:5px;margin-top:20px;padding:0 8px 4px;cursor:pointer;color:var(--graphite);
+font-size:8px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;user-select:none;flex:0 0 auto}
 .sec-h .ar{transition:transform .18s var(--ease);flex:0 0 auto}
 .sec-h.cl .ar{transform:rotate(-90deg)}
 .sec-h:hover{color:var(--dim)}
-#nav-top{display:flex;flex-direction:column;gap:1px;flex:0 0 auto}
+#nav-top{display:flex;flex-direction:column;gap:1px;flex:0 0 auto;margin-top:2px}
 .sec-b{display:flex;flex-direction:column;gap:1px}
 .sec-h.cl+.sec-b{display:none}
 #nav-recents{flex:1 1 auto;min-height:0;overflow-y:auto;padding-right:2px}
-.nv{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;cursor:pointer;flex:0 0 auto;
-color:var(--dim);font-size:12px;transition:.14s var(--ease);position:relative;border:1px solid transparent}
+.nv{display:flex;align-items:center;gap:8px;padding:4px 8px;border-radius:6px;cursor:pointer;flex:0 0 auto;
+color:var(--dim);font-size:11px;transition:.14s var(--ease);position:relative;border:1px solid transparent}
 .nv:hover{background:var(--c800);color:var(--bone)}
 .nv.on{background:rgba(198,255,52,.10);border-color:rgba(198,255,52,.32);color:var(--bone);font-weight:500}
-.nv svg{flex:0 0 auto}
+.nv svg{flex:0 0 auto;width:13px;height:13px}
 .nv-t{flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .nv .bdg{background:var(--lime);color:var(--carbon);font-family:'JetBrains Mono';font-size:9px;
 font-weight:600;border-radius:9px;padding:1px 6px;flex:0 0 auto}
-.rc{flex:0 0 auto;padding:4px 8px;border-radius:6px;cursor:pointer;color:var(--graphite);font-size:11.5px;line-height:1.4;
+.rc{flex:0 0 auto;padding:3px 8px;border-radius:6px;cursor:pointer;color:var(--graphite);font-size:10.5px;line-height:1.35;
 overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:.14s var(--ease)}
 .rc:hover{background:var(--c800);color:var(--bone)}
 .rc.on{background:var(--c800);color:var(--bone)}
-.rc-m{font-family:'JetBrains Mono';font-size:8.5px;color:#5E625A;display:block;margin-top:1px}
+.rc-m{font-family:'JetBrains Mono';font-size:7.5px;color:#5E625A;display:block;margin-top:1px}
 
 .side-f{flex:0 0 auto;border-top:1px solid var(--c650);padding:6px;position:relative}
 .usr{display:flex;align-items:center;gap:9px;padding:6px;border-radius:8px;cursor:pointer;width:100%;
@@ -94,8 +94,8 @@ background:transparent;border:0;text-align:left;transition:.14s var(--ease)}
 .av{width:25px;height:25px;border-radius:8px;background:linear-gradient(135deg,var(--acid),var(--lime));
 color:var(--carbon);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex:0 0 auto}
 .u-txt{flex:1 1 auto;min-width:0}
-.u-txt b{display:block;font-size:11.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.u-txt span{display:block;font-size:9.5px;color:var(--graphite)}
+.u-txt b{display:block;font-size:11px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.u-txt span{display:block;font-size:9px;color:var(--graphite)}
 
 /* ---------- dropdown ---------- */
 .menu{position:absolute;bottom:calc(100% + 6px);left:8px;right:8px;background:var(--c800);
@@ -111,8 +111,8 @@ font-size:12.5px;color:var(--dim);background:transparent;border:0;width:100%;tex
 .mh{padding:7px 10px 4px;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite);font-weight:600}
 
 /* ---------- main ---------- */
-.main{flex:1 1 auto;display:flex;min-width:0;height:100vh}
-.center{flex:1 1 auto;display:flex;flex-direction:column;min-width:0;height:100vh}
+.main{flex:1 1 auto;display:flex;min-width:0;height:100vh;height:100dvh}
+.center{flex:1 1 auto;display:flex;flex-direction:column;min-width:0;height:100vh;height:100dvh}
 
 .topbar{flex:0 0 auto;height:49px;border-bottom:1px solid var(--c650);display:flex;align-items:center;
 gap:12px;padding:0 18px;background:var(--carbon)}
@@ -167,7 +167,7 @@ color:var(--dim);cursor:pointer;transition:.14s var(--ease)}
 
 /* ---------- artifact panel ---------- */
 .artifact{flex:0 0 auto;width:0;background:var(--c850);border-left:1px solid var(--c650);
-display:flex;flex-direction:column;height:100vh;overflow:hidden;transition:width .24s var(--ease)}
+display:flex;flex-direction:column;height:100vh;height:100dvh;overflow:hidden;transition:width .24s var(--ease)}
 .artifact.on{width:min(48vw,620px)}
 .artifact.max{width:calc(100vw - var(--sb))}
 
@@ -185,6 +185,24 @@ display:flex;align-items:center;justify-content:center;flex:0 0 auto;color:var(-
 .art-open .at{text-align:left;min-width:0}
 .art-open .at b{display:block;font-size:12.5px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .art-open .at span{display:block;font-size:10.5px;color:var(--graphite)}
+
+.nv.aether{background:linear-gradient(100deg,rgba(198,255,52,.13),rgba(168,224,31,.05));
+border-color:rgba(198,255,52,.30);color:var(--bone);font-weight:500;margin-bottom:3px;padding:6px 8px}
+.nv.aether:hover{border-color:rgba(198,255,52,.5)}
+.nv.aether.on{background:linear-gradient(100deg,rgba(198,255,52,.22),rgba(168,224,31,.08));
+border-color:rgba(198,255,52,.55)}
+.nv.aether .ae{width:17px;height:17px;border-radius:5px;background:linear-gradient(135deg,var(--acid),var(--lime));
+color:var(--carbon);display:flex;align-items:center;justify-content:center;font-family:Sora;
+font-size:9px;font-weight:700;flex:0 0 auto}
+.nv.aether .nv-t{font-size:11px}
+.nv.aether .nv-t s{display:block;text-decoration:none;font-size:7.5px;color:var(--pale);
+letter-spacing:.09em;text-transform:uppercase;font-weight:600;margin-top:-1px}
+.vent{display:flex;align-items:center;gap:7px;padding:5px 8px;margin:0 0 3px;border-radius:6px;
+background:var(--c800);border:1px solid var(--c650);cursor:pointer}
+.vent:hover{border-color:#3D4238}
+.vent .vd{width:6px;height:6px;border-radius:50%;background:var(--up);flex:0 0 auto}
+.vent .vt{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px}
+.vent .vl{font-size:7.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--graphite);font-weight:600}
 
 /* ---------- generic content ---------- */
 .card{background:var(--c800);border:1px solid var(--c650);border-radius:var(--r);padding:16px}
@@ -274,7 +292,26 @@ color:var(--dim);font-size:12.5px;transition:.14s var(--ease)}
 .fol.on{background:rgba(198,255,52,.10);color:var(--bone)}
 .fol .ct{margin-left:auto;font-family:'JetBrains Mono';font-size:10.5px;color:var(--graphite)}
 .file{display:flex;align-items:center;gap:12px;padding:11px 13px;border:1px solid var(--c650);
-border-radius:10px;background:var(--c800);margin-bottom:8px}
+border-radius:10px;background:var(--c800);margin-bottom:8px;cursor:pointer;transition:.14s var(--ease)}
+.file:hover{border-color:#3D4238}
+.fact{display:flex;gap:4px;flex:0 0 auto}
+.fact button{width:26px;height:26px;border-radius:6px;border:0;background:transparent;color:var(--graphite);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.fact button:hover{background:var(--c650);color:var(--bone)}
+.fact button.del:hover{background:rgba(255,59,92,.14);color:var(--down)}
+.agpick{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.agp{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--c650);border-radius:9px;background:var(--c850);cursor:pointer;transition:.14s var(--ease)}
+.agp:hover{border-color:#3D4238}
+.agp.on{border-color:rgba(198,255,52,.45);background:linear-gradient(90deg,rgba(198,255,52,.08),var(--c850))}
+.agp .ai2{width:24px;height:24px;border-radius:6px;background:var(--c650);color:var(--pale);display:flex;align-items:center;justify-content:center;font-family:Sora;font-size:9.5px;flex:0 0 auto}
+.agp.on .ai2{background:linear-gradient(135deg,var(--acid),var(--lime));color:var(--carbon);font-weight:700}
+.agp .at2{flex:1 1 auto;min-width:0}
+.agp .at2 b{display:block;font-size:12.5px;font-weight:500}
+.agp .at2 span{display:block;font-size:11px;color:var(--graphite)}
+.agp .ck2{width:16px;height:16px;border-radius:4px;border:1px solid var(--c600);flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--carbon)}
+.agp.on .ck2{background:var(--lime);border-color:var(--lime)}
+.fol{position:relative}
+.fol .fx{opacity:0;margin-left:2px}
+.fol:hover .fx,.fol.on .fx{opacity:1}
 .file .fi{width:31px;height:31px;border-radius:7px;background:var(--c650);display:flex;align-items:center;
 justify-content:center;flex:0 0 auto;color:var(--pale);font-family:'JetBrains Mono';font-size:9px}
 .file .fn{flex:1 1 auto;min-width:0}
@@ -321,9 +358,9 @@ border-radius:11px;background:var(--c800);cursor:pointer;transition:.16s var(--e
 .sub-ag .t span{display:block;font-size:11.5px;color:var(--graphite)}
 
 /* ---------- flow screens ---------- */
-.screen{display:none;height:100vh;overflow-y:auto}
+.screen{display:none;height:100vh;height:100dvh;overflow-y:auto}
 .screen.on{display:block}
-.auth{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px;position:relative}
+.auth{min-height:100vh;min-height:100dvh;height:100dvh;display:flex;align-items:center;justify-content:center;padding:28px;position:relative}
 .auth::before{content:"";position:absolute;inset:0;opacity:.05;pointer-events:none;
 background-image:radial-gradient(circle at 14% 18%,var(--lime) 0 90px,transparent 92px),
 radial-gradient(circle at 78% 8%,var(--acid) 0 130px,transparent 132px),
@@ -352,7 +389,7 @@ align-items:center;justify-content:center;font-family:'JetBrains Mono';font-size
 .stp.dn{color:var(--dim)}
 .stp.dn .b{border-color:var(--up);color:var(--up)}
 .stp-l{width:34px;height:1px;background:var(--c650);margin:0 11px;flex:0 0 auto}
-@media(max-width:720px){.stp span{display:none}.stp-l{width:18px;margin:0 6px}}
+@media(max-width:560px){.stp .lbl-t{display:none}}
 
 /* ---------- plans ---------- */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0}
@@ -373,9 +410,43 @@ border-left:1.5px solid var(--lime);border-bottom:1.5px solid var(--lime);transf
 .plan li.no{color:#5E625A}
 .plan li.no::before{border-color:#3D4238}
 @media(max-width:860px){.plans{grid-template-columns:1fr}.g4,.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}.hero{grid-template-columns:repeat(2,1fr)}
-.side{position:fixed;z-index:400;transform:translateX(-100%)}.side.open{transform:none}
-.artifact.on{position:fixed;inset:0;width:100%!important;z-index:350}}
+@media(max-width:820px){
+ .g2,.g3,.g4{grid-template-columns:1fr}.hero{grid-template-columns:repeat(2,1fr)}
+ .side{position:fixed;top:0;left:0;bottom:0;z-index:400;width:min(86vw,330px)!important;
+   transform:translateX(-100%);transition:transform .24s var(--ease);box-shadow:22px 0 60px rgba(0,0,0,.5)}
+ .side.open{transform:none}
+ .side.mini{width:min(86vw,330px)!important}
+ .side.mini .nv-t,.side.mini .sec-h,.side.mini .rc,.side.mini .u-txt{display:block}
+ .side.mini .lg{display:block}.side.mini .lg-m{display:none}
+ .side.mini .nv{justify-content:flex-start;padding:6px 8px}
+ .side-h .lg{width:132px}
+ .nv{font-size:13.5px;padding:8px 10px}.nv svg{width:16px;height:16px}
+ .rc{font-size:13px;padding:7px 10px}.rc-m{font-size:9.5px}
+ .sec-h{font-size:9.5px;margin-top:24px;padding:0 10px 5px}
+ .u-txt b{font-size:13px}.u-txt span{font-size:10.5px}.av{width:30px;height:30px}
+ .nv.aether .nv-t{font-size:13.5px}.nv.aether .ae{width:20px;height:20px;font-size:10px}
+ .side-f{padding:8px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
+ .artifact.on{position:fixed;inset:0;width:100%!important;z-index:350}
+ .sd-scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:399;display:none}
+ .sd-scrim.on{display:block}
+ .steps{padding:8px 10px 9px;flex-wrap:wrap;gap:3px 0;justify-content:center}
+ .skip{position:static!important;transform:none!important;order:99;flex:0 0 100%;margin-top:5px;
+   display:flex;justify-content:center;min-height:29px;font-size:11.5px}
+ .stp .b{width:16px;height:16px;font-size:8px}
+ .stp{font-size:9.5px;gap:5px}
+ .stp-l{width:9px;margin:0 2px}
+ .msgs,.wrap{padding-left:15px;padding-right:15px}
+ .composer{padding:10px 12px calc(14px + env(safe-area-inset-bottom))}
+ .mod{max-width:100%}
+ .pipe{padding:14px 12px 20px}.col{flex:0 0 232px}
+ .kb{flex-direction:column}.kb-l{flex:0 0 auto;border-right:0;border-bottom:1px solid var(--c650);
+   display:flex;gap:6px;overflow-x:auto;padding:10px}
+ .kb-l .lbl,.kb-l p{display:none}.fol{white-space:nowrap}
+ .kb-r{padding:14px 15px}
+ .drawer{width:100%}
+ .topbar{padding:0 12px}
+}
+@media(max-width:420px){.hero{grid-template-columns:1fr}}
 
 /* ---------- modal ---------- */
 .mod-ovl{position:fixed;inset:0;background:rgba(0,0,0,.62);z-index:500;display:none;
@@ -416,13 +487,117 @@ justify-content:center;font-family:'JetBrains Mono';font-size:11px;color:var(--p
 .mod-nav{flex:0 0 auto;border-right:0;border-bottom:1px solid var(--c650);display:flex;gap:6px;overflow-x:auto}
 .mod-nav .mt{display:none}.mod-nav button{width:auto;white-space:nowrap}}
 
+.flow-col{display:flex;flex-direction:column;height:100vh;height:100dvh}
+.flow-row{display:flex;height:100vh;height:100dvh}
+.flow-col.grow{flex:1 1 auto;min-width:0}
+
 /* ---------- venture context iframe ---------- */
 .vf-wrap{width:100%;height:100%;border:0;display:block;background:var(--carbon)}
 
 /* ---------- skip bar ---------- */
 .skip{position:absolute;right:22px;top:50%;transform:translateY(-50%)}
-.steps{position:relative}
-@media(max-width:720px){.skip{right:12px}}
+
+/* ---------- command centre ---------- */
+.cc-hero{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--c650);
+border:1px solid var(--c650);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.cc-hero div{background:var(--c800);padding:12px 13px}
+.cc-hero .v{font-family:'JetBrains Mono';font-size:21px;line-height:1.15;margin:2px 0}
+.sc-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.sc{display:flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid var(--c650);
+border-radius:9px;background:var(--c800);cursor:pointer;font-size:12px;color:var(--dim);transition:.14s var(--ease)}
+.sc:hover{border-color:rgba(198,255,52,.4);color:var(--bone)}
+.sc .si{width:19px;height:19px;border-radius:5px;background:var(--c650);color:var(--pale);
+display:flex;align-items:center;justify-content:center;font-family:Sora;font-size:9px;flex:0 0 auto}
+.sc.ae{border-color:rgba(198,255,52,.4)}
+.sc.ae .si{background:linear-gradient(135deg,var(--acid),var(--lime));color:var(--carbon);font-weight:700}
+.feed{display:flex;flex-direction:column;gap:0}
+.fi{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--c650);position:relative}
+.fi:last-child{border-bottom:0}
+.fi .fic{width:26px;height:26px;border-radius:7px;flex:0 0 auto;display:flex;align-items:center;
+justify-content:center;font-size:9.5px;font-weight:700;background:var(--c650);color:var(--pale)}
+.fi.act .fic{background:rgba(198,255,52,.14);color:var(--lime);border:1px solid rgba(198,255,52,.3)}
+.fi .fb{flex:1 1 auto;min-width:0}
+.fi .fb b{display:block;font-size:12.5px;font-weight:600;margin-bottom:2px}
+.fi .fb p{margin:0;font-size:12px;color:var(--graphite)}
+.fi .ft{font-family:'JetBrains Mono';font-size:9.5px;color:#5E625A;flex:0 0 auto}
+.fi .fa{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+.lane{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;margin-bottom:18px}
+.lane .lc{flex:0 0 210px;background:var(--c800);border:1px solid var(--c650);border-radius:11px;padding:12px}
+.lane .lc .lh{display:flex;align-items:center;gap:7px;margin-bottom:9px}
+.lane .lc .lh b{font-size:12px;flex:1 1 auto}
+.lane .lc .li{font-size:11.5px;color:var(--graphite);padding:4px 0;border-bottom:1px solid var(--c650)}
+.lane .lc .li:last-child{border-bottom:0}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--c650);margin-bottom:16px;overflow-x:auto}
+.tb{padding:8px 12px;font-size:12px;color:var(--graphite);cursor:pointer;border-bottom:2px solid transparent;
+white-space:nowrap;transition:.14s var(--ease)}
+.tb:hover{color:var(--dim)}
+.tb.on{color:var(--bone);border-bottom-color:var(--lime)}
+.tb .nb{display:inline-flex;align-items:center;justify-content:center;min-width:15px;height:15px;padding:0 4px;
+margin-left:6px;border-radius:8px;background:var(--lime);color:var(--carbon);font-family:'JetBrains Mono';
+font-size:9px;font-weight:600;vertical-align:middle}
+.tb.on .nb{background:var(--pale)}
+
+/* ---------- my ventures ---------- */
+.vg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(max-width:820px){.vg{grid-template-columns:1fr}.cc-hero{grid-template-columns:repeat(2,1fr)}
+.lane .lc{flex:0 0 175px}}
+.vc{background:var(--c800);border:1px solid var(--c650);border-radius:13px;padding:15px;cursor:pointer;
+transition:.16s var(--ease)}
+.vc:hover{border-color:#3D4238}
+.vc.on{border-color:rgba(198,255,52,.5);background:linear-gradient(160deg,rgba(198,255,52,.07),var(--c800))}
+.vc .vh{display:flex;align-items:flex-start;gap:11px;margin-bottom:11px}
+.vc .vi{width:34px;height:34px;border-radius:9px;flex:0 0 auto;display:flex;align-items:center;
+justify-content:center;font-family:Sora;font-size:13px;background:var(--c650);color:var(--pale)}
+.vc.on .vi{background:linear-gradient(135deg,var(--acid),var(--lime));color:var(--carbon);font-weight:700}
+.vc .vh b{display:block;font-size:13.5px;font-family:Sora;font-weight:400}
+.vc .vh span{display:block;font-size:11px;color:var(--graphite)}
+.vc .vm{display:flex;gap:14px;flex-wrap:wrap;padding-top:10px;border-top:1px solid var(--c650)}
+.vc .vm div{min-width:0}
+.vc .vm .k{font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:var(--graphite);font-weight:600}
+.vc .vm .n{font-family:'JetBrains Mono';font-size:13px;color:var(--bone)}
+.addv{border:1.5px dashed var(--c600);border-radius:13px;padding:20px;text-align:center;cursor:pointer;
+color:var(--graphite);transition:.16s var(--ease);display:flex;flex-direction:column;align-items:center;
+justify-content:center;gap:7px;min-height:150px}
+.addv:hover{border-color:rgba(198,255,52,.45);color:var(--dim)}
+
+/* ---------- composer: plus + mic ---------- */
+.cin{display:flex;align-items:flex-end;gap:8px;padding:7px 8px 7px 10px;border-radius:22px}
+.cin .ta{flex:1 1 auto;min-width:0;padding:5px 0}
+.cin textarea{min-height:20px}
+.cbtn{width:30px;height:30px;border-radius:50%;border:0;background:transparent;color:var(--graphite);
+cursor:pointer;display:flex;align-items:center;justify-content:center;flex:0 0 auto;transition:.14s var(--ease)}
+.cbtn:hover{background:var(--c650);color:var(--bone)}
+.cbtn.mic:hover{color:var(--lime)}
+.send{width:30px;height:30px;border-radius:50%;flex:0 0 auto}
+
+.cc-hero.tight div{padding:9px 12px}
+.cc-hero.tight .v{font-size:18px;margin:0}
+.cc-sec{margin-top:26px}
+.cc-h{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.cc-h h3{font-size:14px;font-family:Sora;font-weight:400;flex:0 0 auto}
+.cc-h .sub{flex:1 1 auto}
+.cc-h .btn{margin-left:auto}
+.sc.lk{opacity:.6;border-style:dashed}
+.sc.lk:hover{opacity:1;border-color:rgba(198,255,52,.4)}
+.ag-hero div{padding:9px 12px}
+.ag-hero .v{font-size:17px;margin:0}
+.mk-c{display:flex;gap:12px;padding:13px;border:1px solid var(--c650);border-radius:11px;
+background:var(--c800);margin-bottom:9px;align-items:flex-start}
+.mk-c .mi2{width:32px;height:32px;border-radius:8px;background:var(--c650);color:var(--pale);
+display:flex;align-items:center;justify-content:center;font-family:Sora;font-size:11px;flex:0 0 auto}
+.mk-c .mb{flex:1 1 auto;min-width:0}
+.mk-c .mb b{display:block;font-size:13px;font-weight:600}
+.mk-c .mb p{margin:3px 0 0;font-size:12px;color:var(--graphite)}
+.mk-c .mp{flex:0 0 auto;text-align:right}
+.mk-c .mp .pr{font-family:'JetBrains Mono';font-size:12.5px;color:var(--bone)}
+.tok{height:8px;border-radius:5px;background:var(--c650);overflow:hidden;margin:9px 0 7px}
+.tok i{display:block;height:100%;background:var(--pale);border-radius:5px}
+.tok i.hi{background:var(--hold)}
+.pstat{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--c650);
+border:1px solid var(--c650);border-radius:11px;overflow:hidden;margin:0 0 14px}
+.pstat div{background:var(--c800);padding:9px 12px}
+.pstat .v{font-family:'JetBrains Mono';font-size:17px;color:var(--bone);line-height:1.2}
+@media(max-width:820px){.pstat{grid-template-columns:repeat(2,1fr)}.cc-hero.tight{grid-template-columns:repeat(2,1fr)}}
 </style>
 </head><body>
 
@@ -449,15 +624,11 @@ justify-content:center;font-family:'JetBrains Mono';font-size:11px;color:var(--p
 
 <!-- ============ 2 · ONBOARDING ============ -->
 <div class="screen" id="sc-onb">
-  <div style="display:flex;flex-direction:column;height:100vh">
+  <div class="flow-col">
     <div class="steps" id="steps-onb"><button class="btn sm gh skip" onclick="goAsm()">Skip onboarding &rarr;</button></div>
     <div class="body" id="onb-body"><div class="msgs" id="onb-msgs"></div></div>
     <div class="composer">
-      <div class="cin">
-        <textarea id="onb-in" rows="1" placeholder="Reply to the Identity agent…"></textarea>
-        <div class="crow"><button class="icb" style="width:28px;height:28px"><span data-ic="clip"></span></button><span class="sp"></span>
-          <button class="send" id="onb-send" onclick="sendOnb()"><span data-ic="send"></span></button></div>
-      </div>
+      <div class="cin"><button class="cbtn" onclick="toast('Add files or photos')" title="Add"><span data-ic="plus2"></span></button><div class="ta"><textarea id="onb-in" rows="1" placeholder="Reply to the Identity agent…"></textarea></div><button class="cbtn mic" onclick="toast('Voice chat')" title="Voice"><span data-ic="mic"></span></button><button class="send" onclick="sendOnb()"><span data-ic="send"></span></button></div>
       <p class="hint">The Identity agent records what you tell it, and marks what it could not verify.</p>
     </div>
   </div>
@@ -465,16 +636,12 @@ justify-content:center;font-family:'JetBrains Mono';font-size:11px;color:var(--p
 
 <!-- ============ 3 · ASSESSMENT ============ -->
 <div class="screen" id="sc-asm">
- <div style="display:flex;height:100vh">
-  <div style="display:flex;flex-direction:column;height:100vh;flex:1 1 auto;min-width:0">
+ <div class="flow-row">
+  <div class="flow-col grow">
     <div class="steps" id="steps-asm"><button class="btn sm gh skip" onclick="goPlan()">Skip assessment &rarr;</button></div>
     <div class="body"><div class="msgs" id="asm-msgs"></div></div>
     <div class="composer">
-      <div class="cin">
-        <textarea id="asm-in" rows="1" placeholder="Reply to the Assessment agent…"></textarea>
-        <div class="crow"><button class="icb" style="width:28px;height:28px"><span data-ic="clip"></span></button><span class="sp"></span>
-          <button class="send" id="asm-send" onclick="sendAsm()"><span data-ic="send"></span></button></div>
-      </div>
+      <div class="cin"><button class="cbtn" onclick="toast('Add files or photos')" title="Add"><span data-ic="plus2"></span></button><div class="ta"><textarea id="asm-in" rows="1" placeholder="Reply to the Assessment agent…"></textarea></div><button class="cbtn mic" onclick="toast('Voice chat')" title="Voice"><span data-ic="mic"></span></button><button class="send" onclick="sendAsm()"><span data-ic="send"></span></button></div>
       <p class="hint">Gaps are recorded, never estimated. Missing measures are excluded rather than scored zero.</p>
     </div>
   </div>
@@ -491,7 +658,7 @@ justify-content:center;font-family:'JetBrains Mono';font-size:11px;color:var(--p
 
 <!-- ============ 4 · PLANS ============ -->
 <div class="screen" id="sc-plan">
-  <div style="display:flex;flex-direction:column;height:100vh">
+  <div class="flow-col">
     <div class="steps" id="steps-plan"><button class="btn sm gh skip" onclick="goApp()">Skip subscription &rarr;</button></div>
     <div class="body"><div class="wrap wide" id="plan-body"></div></div>
   </div>
@@ -501,7 +668,7 @@ justify-content:center;font-family:'JetBrains Mono';font-size:11px;color:var(--p
 <div id="app">
   <aside class="side" id="side">
     <div class="side-h">
-      <span class="lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2113 460"><g transform="translate(-310.13,-0.01) scale(1.0)"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></g><g transform="translate(561.7,-565.07) scale(1.4854)"><path fill="#F4F6EE" d="M98.91,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM108.62,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M218.99,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M379.68,477.18v30.64h-26.66v-30.64h26.66ZM379.43,526.76v131.54h-26.41v-131.54h26.41Z"/><path fill="#F4F6EE" d="M537.88,469.71v132.29c0,37.87-16.94,56.3-48.33,56.3h-36.37c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h58.05v-57.05h26.66ZM511.22,600.75v-48.58h-55.56c-22.67,0-32.89,11.96-32.89,40.36s10.21,40.11,32.89,40.11h26.16c21.18,0,29.4-9.47,29.4-31.89Z"/><path fill="#F4F6EE" d="M654.72,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM664.43,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M774.8,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M987.31,526.76c34.88,0,57.05,21.42,57.05,65.77s-22.17,65.77-57.05,65.77h-27.65c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h27.65ZM962.15,552.17c-22.92,0-32.89,11.96-32.89,40.36s9.97,40.11,32.89,40.11h22.67c22.67,0,32.89-11.71,32.89-40.11s-10.21-40.36-32.89-40.36h-22.67Z"/></g></svg></span><span class="lg-m"><svg xmlns="http://www.w3.org/2000/svg" viewBox="310.13 0 424.1 429.98"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></svg></span>
+      <span class="lg" onclick="goHome()" title="Aether — home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2113 460"><g transform="translate(-310.13,-0.01) scale(1.0)"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></g><g transform="translate(561.7,-565.07) scale(1.4854)"><path fill="#F4F6EE" d="M98.91,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM108.62,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M218.99,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M379.68,477.18v30.64h-26.66v-30.64h26.66ZM379.43,526.76v131.54h-26.41v-131.54h26.41Z"/><path fill="#F4F6EE" d="M537.88,469.71v132.29c0,37.87-16.94,56.3-48.33,56.3h-36.37c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h58.05v-57.05h26.66ZM511.22,600.75v-48.58h-55.56c-22.67,0-32.89,11.96-32.89,40.36s10.21,40.11,32.89,40.11h26.16c21.18,0,29.4-9.47,29.4-31.89Z"/><path fill="#F4F6EE" d="M654.72,490.14c48.83,0,75.98,27.65,75.98,84.21,0,39.86-13.45,65.52-38.62,76.98l15.94,33.38h-29.65l-12.95-26.91c-3.49.5-6.98.5-10.71.5h-22.92c-49.08,0-75.98-27.65-75.98-83.96s27.16-84.21,75.98-84.21h22.92ZM664.43,593.28l14.7,31.14c15.2-7.23,21.92-23.42,21.92-50.08,0-38.37-13.95-54.81-46.34-54.81h-22.92c-32.39,0-46.59,16.44-46.59,54.81s13.95,54.56,46.59,54.56h19.93l-16.94-35.63h29.65Z"/><path fill="#F4F6EE" d="M774.8,526.76v78.73c0,15.45,11.46,27.16,32.39,27.16h21.43c20.93,0,32.14-11.71,32.14-27.16v-78.73h25.91v79.72c0,30.39-19.43,51.82-57.05,51.82h-24.41c-37.62,0-57.05-21.43-57.05-51.82v-79.72h26.66Z"/><path fill="#F4F6EE" d="M987.31,526.76c34.88,0,57.05,21.42,57.05,65.77s-22.17,65.77-57.05,65.77h-27.65c-35.13,0-57.05-21.43-57.05-65.77s21.92-65.77,57.05-65.77h27.65ZM962.15,552.17c-22.92,0-32.89,11.96-32.89,40.36s9.97,40.11,32.89,40.11h22.67c22.67,0,32.89-11.71,32.89-40.11s-10.21-40.36-32.89-40.36h-22.67Z"/></g></svg></span><span class="lg-m" onclick="goHome()" title="Aether — home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="310.13 0 424.1 429.98"><path fill="#A8E01F" d="M403.97,273.21c0-157.93,72.2-171.56,162.13-171.56,22,0,43.67,1.22,63.66,5.4-18-71.16-83.64-77.69-157.26-98.37-110.31-30.99-151.66,22.86-160.93,132.85-10.24,121.46,35.5,162.73,97.25,175.66-3.16-12.52-4.85-27.03-4.85-43.97Z"/><path fill="#C6FF34" d="M571.86,107.4c-89.93,0-162.12,13.63-162.13,171.56,0,113.31,75.55,118.03,162.13,142.36,110.31,30.99,151.66-22.86,160.93-132.85,13.55-160.8-70.99-181.07-160.93-181.07Z"/></svg></span>
       <button class="icb" onclick="toggleMini()" title="Collapse"><span data-ic="panel"></span></button>
     </div>
     <div class="side-scroll">
@@ -524,18 +691,14 @@ justify-content:center;font-family:'JetBrains Mono';font-size:11px;color:var(--p
   <div class="main">
     <div class="center">
       <div class="topbar">
-        <button class="icb" id="mob-menu" onclick="document.getElementById('side').classList.toggle('open')" style="display:none"><span data-ic="menu"></span></button>
+        <button class="icb" id="mob-menu" onclick="toggleMini()" style="display:none"><span data-ic="menu"></span></button>
         <h3 id="tb-title">Venture Context</h3>
         <div id="tb-actions" style="display:flex;gap:6px"></div>
       </div>
       <div class="body" id="view"></div>
       <div id="chat-composer" style="display:none">
         <div class="composer">
-          <div class="cin">
-            <textarea id="chat-in" rows="1" placeholder="Message the agent…"></textarea>
-            <div class="crow"><button class="icb" style="width:28px;height:28px"><span data-ic="clip"></span></button><span class="sp"></span>
-              <button class="send" onclick="sendChat()"><span data-ic="send"></span></button></div>
-          </div>
+          <div class="cin"><button class="cbtn" onclick="toast('Add files or photos')" title="Add"><span data-ic="plus2"></span></button><div class="ta"><textarea id="chat-in" rows="1" placeholder="Message the agent…"></textarea></div><button class="cbtn mic" onclick="toast('Voice chat')" title="Voice"><span data-ic="mic"></span></button><button class="send" onclick="sendChat()"><span data-ic="send"></span></button></div>
         </div>
       </div>
     </div>
@@ -561,6 +724,7 @@ justify-content:center;font-family:'JetBrains Mono';font-size:11px;color:var(--p
   </div>
 </div>
 
+<div class="sd-scrim" id="scrim" onclick="closeSide()"></div>
 <div class="ovl" id="ovl" onclick="closeDrawer()"></div>
 <aside class="drawer" id="drawer">
   <div class="dr-h">
@@ -589,89 +753,95 @@ const ICO={
  doc:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg>',
  up:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>',
  send:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg>',
+ plus2:'<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 5v14M5 12h14"/></svg>',
+ mic:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0014 0M12 18v4M8 22h8"/></svg>',
+ grid:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>',
+ trash:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg>',
+ lock:'<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>',
  cog:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.9l.1.1a2 2 0 11-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.9-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 11-4 0v-.1A1.7 1.7 0 008.9 19a1.7 1.7 0 00-1.9.3l-.1.1a2 2 0 11-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.9 1.7 1.7 0 00-1.5-1H3a2 2 0 110-4h.1A1.7 1.7 0 004.6 8.9a1.7 1.7 0 00-.3-1.9l-.1-.1a2 2 0 112.8-2.8l.1.1a1.7 1.7 0 001.9.3H9a1.7 1.7 0 001-1.5V3a2 2 0 114 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.9-.3l.1-.1a2 2 0 112.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.9V9a1.7 1.7 0 001.5 1H21a2 2 0 110 4h-.1a1.7 1.7 0 00-1.5 1z"/></svg>',
  globe:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 010 18 15 15 0 010-18"/></svg>',
  clip:'<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11l-8.5 8.5a5 5 0 01-7-7L14 4a3.5 3.5 0 015 5l-8.5 8.5a2 2 0 01-3-3L15 6"/></svg>'
 };
 
 const AGENTS={
- aether:{n:'Aether',r:'Master agent · orchestrator',ic:'Æ',
+ aether:{n:'Aether',r:'Master agent',ic:'Æ',chatFirst:1,
   d:'Aether is the orchestrator. It holds the venture state, decides which specialist agent should act next, resolves contradictions between their outputs, and never lets two agents write the same field. Ask it anything and it routes — or answers directly when the question spans several agents.',
   stats:[['Sessions','48'],['Routed to','5 agents'],['Contradictions caught','7'],['State fields held','412']],
   subs:[]},
  identity:{n:'Identity',r:'Founder & team',ic:'ID',
   d:'The Identity agent builds the founder record. It captures profile, background and skills across eight functions, and reads character through indirect questioning — it never names the trait it is testing. Everything it records is attributed: what you told it, what it read from a connected channel, and what it could not verify.',
   stats:[['Founders captured','2 of 3'],['Channels connected','4'],['Skill functions','8'],['Confidence','0.71']],
-  subs:[['1.1','Founder profile','Background, history, verified record'],
-        ['1.2','Skills & capability','Eight functions, five levels, gaps named'],
-        ['1.3','Character & mindset','Ten dimensions, read indirectly'],
-        ['1.4','Venture direction','What outcome each founder actually wants'],
-        ['1.5','Constraint set','Hard constraints that block downstream plans']]},
+  subs:[
+        ['1.1', 'Founder profile', 'Background, history, verified record', '5 Aug', '0'],
+        ['1.2', 'Skills & capability', 'Eight functions, five levels, gaps named', '5 Aug', '0'],
+        ['1.3', 'Character & mindset', 'Ten dimensions, read indirectly', '5 Aug', '1'],
+        ['1.4', 'Venture direction', 'What outcome each founder actually wants', '3d ago', '1'],
+        ['1.5', 'Constraint set', 'Hard constraints that block downstream plans', '3d ago', '0']
+       ]},
  assessment:{n:'Assessment',r:'Venture scoring',ic:'AS',
   d:'The Assessment agent scores the venture on four dimensions against what is normal for its stage, and reports a confidence alongside every score. It recalculates your numbers from source rather than accepting them, records gaps instead of estimating them, and excludes measures it cannot evidence rather than scoring them zero.',
   stats:[['Assessments run','2'],['Latest score','60 / 100'],['Confidence','0.71'],['Measures excluded','3']],
-  subs:[['2.1','Initial assessment','The first independent read'],
-        ['2.2','Re-assessment','Scored from scratch, not updated'],
-        ['2.3','Numbers recalculated','Your figures, computed from source'],
-        ['2.4','What is missing','Expected at this stage, not found'],
-        ['2.5','Package recommendation','Which tier the evidence supports']]},
- staffing:{n:'Staffing',r:'Org & hiring',ic:'ST',
-  d:'The Staffing agent turns the operating plan into an organisation. It sizes roles from actual task load rather than ambition, decides what a human does and what an agent does, writes the role briefs, and keeps the option pool sized against the hiring plan instead of a convention.',
-  stats:[['Roles defined','6'],['Tasks mapped','23'],['Machine-executable','31% of load'],['Pool sized','12%']],
-  subs:[['3.1','Org design','Positions derived from task load'],
-        ['3.2','Role briefs','What each hire owns, and when'],
-        ['3.3','Human vs agent','Which work leaves the human'],
-        ['3.4','Hiring plan & pool','Sequence, cost, and equity']]},
+  subs:[['2.1','Initial assessment','The first independent read \u2014 before anything was built',
+         '12 Aug','0'],
+        ['2.2','Final assessment','Scored from scratch against everything built since',
+         '2h ago','2']]},
  build:{n:'Build',r:'Venture construction',ic:'BD',
   d:'The Build agent does the construction work: ideation and validation, market context, business model and strategy, the eight tactical frameworks, the financial model, and brand development. It is the widest agent in the platform and the one that produces most of your venture file.',
   stats:[['Frameworks run','18'],['Sections produced','29'],['Model formulas','4,278'],['Open contradictions','2']],
-  subs:[['4.1','Ideation','Targeting, problem, concept, validation'],
-        ['4.2','Market context','Sizing counted from source, not estimated'],
-        ['4.3','Strategy','Business model and phased roadmap'],
-        ['4.4','Tactical context','Brand, product, commercial, growth, ops, legal, org, BI'],
-        ['4.5','Financial model','Live model, editable assumptions'],
-        ['4.6','Brand development','Logo, palette, brand manual']]},
+  subs:[
+        ['4.1', 'Ideation', 'Targeting, problem, concept, validation', '20 Aug', '0'],
+        ['4.2', 'Market context', 'Sizing counted from source, not estimated', '22 Aug', '0'],
+        ['4.3', 'Strategy', 'Business model and phased roadmap', '24 Aug', '0'],
+        ['4.4', 'Tactical context', 'Brand, product, commercial, growth, ops, legal, org, BI', '26 Aug', '1'],
+        ['4.5', 'Financial model', 'Live model, editable assumptions', '3h ago', '2'],
+        ['4.6', 'Brand development', 'Logo, palette, brand manual', '1d ago', '0']
+       ]},
  dealflow:{n:'Deal flow',r:'Fundraising & investors',ic:'DF',
   d:'The Deal flow agent runs the raise. It produces the teaser, deck and data room, values the business with methods appropriate to its stage, maintains the cap table, explains the terms — and manages your investor pipeline, moving names between stages as things happen.',
   stats:[['Investors in pipeline','11'],['Active conversations','4'],['Valuation midpoint','EGP 9.0M'],['Target raise','EGP 3.2M']],
-  subs:[['5.1','Investor materials','Teaser and pitch deck'],
-        ['5.2','Valuation','Methods, risk factors, range'],
-        ['5.3','Data room','Navigation into the underlying work'],
-        ['5.4','Cap table','Ownership, fully diluted, post-round'],
-        ['5.5','Investment terms','What is standard at this stage'],
-        ['5.6','Pipeline','Move investors, log notes, set next actions']]}
+  subs:[
+        ['5.1', 'Investor materials', 'Teaser and pitch deck', '1d ago', '0'],
+        ['5.2', 'Valuation', 'Methods, risk factors, range', '2d ago', '0'],
+        ['5.3', 'Data room', 'Navigation into the underlying work', '4d ago', '0'],
+        ['5.4', 'Cap table', 'Ownership, fully diluted, post-round', '2d ago', '1'],
+        ['5.5', 'Investment terms', 'What is standard at this stage', '12m ago', '3'],
+        ['5.6', 'Pipeline', 'Move investors, log notes, set next actions', '12m ago', '1']
+       ]}
 };
 
 const PHASES=[
- {id:'screening',n:'Screening',c:'#8A8A85'},
- {id:'dd',n:'Due diligence',c:'#FFB020'},
- {id:'terms',n:'Deal terms',c:'#E4FFA6'},
- {id:'closing',n:'Deal closing',c:'#C6FF34'},
- {id:'closed',n:'Closed',c:'#00E5A0'},
- {id:'rejected',n:'Rejected',c:'#FF3B5C'}];
+ {id:'scouting',n:'Scouting',c:'#8A8A85',d:'Identified, not yet contacted'},
+ {id:'connect',n:'Connect',c:'#A8A8A0',d:'First contact made'},
+ {id:'align',n:'Align',c:'#FFB020',d:'Testing fit both ways'},
+ {id:'disclose',n:'Disclose',c:'#FFD37A',d:'Data room open, diligence running'},
+ {id:'negotiate',n:'Negotiate',c:'#E4FFA6',d:'Terms on the table'},
+ {id:'commit',n:'Commit',c:'#C6FF34',d:'Committed, awaiting signature'},
+ {id:'closed',n:'Closed',c:'#00E5A0',d:'Signed and funded'},
+ {id:'paused',n:'Paused',c:'#8A8A85',d:'Stalled — revisit later'},
+ {id:'withdrawn',n:'Withdrawn',c:'#FF3B5C',d:'Passed, or we walked'}];
 
 let INVESTORS=[
- {id:'i1',n:'Amal Ventures',f:'Cairo · Seed',am:'EGP 1.5M',ph:'screening',ty:'VC',ct:'Layla Mansour',
+ {id:'i1',n:'Amal Ventures',f:'Cairo · Seed',am:'EGP 1.5M',ph:'scouting',ty:'VC',ct:'Layla Mansour',
   nx:'Send teaser — 4 Sep',notes:['Intro came through the EDA compliance network.','Asked for the teaser only. No deck yet.']},
- {id:'i2',n:'Nile Angels Syndicate',f:'Cairo · Angel group',am:'EGP 800K',ph:'screening',ty:'Angel',ct:'Hossam Bakr',
+ {id:'i2',n:'Nile Angels Syndicate',f:'Cairo · Angel group',am:'EGP 800K',ph:'connect',ty:'Angel',ct:'Hossam Bakr',
   nx:'Pitch night — 11 Sep',notes:['12-member syndicate. Two members run logistics businesses.']},
- {id:'i3',n:'Delta Seed Fund',f:'Alexandria · Seed',am:'EGP 2.0M',ph:'dd',ty:'VC',ct:'Mariam Zaki',
+ {id:'i3',n:'Delta Seed Fund',f:'Alexandria · Seed',am:'EGP 2.0M',ph:'disclose',ty:'VC',ct:'Mariam Zaki',
   nx:'Send cap table — overdue',notes:['Asked for the founders agreement. WE DO NOT HAVE ONE.','Flagged the 158% revenue-vs-SOM contradiction unprompted.','Wants the EDA position confirmed before proceeding.']},
- {id:'i4',n:'Karim Farouk',f:'Angel · ex-pharma distribution',am:'EGP 400K',ph:'dd',ty:'Angel',ct:'Direct',
+ {id:'i4',n:'Karim Farouk',f:'Angel · ex-pharma distribution',am:'EGP 400K',ph:'align',ty:'Angel',ct:'Direct',
   nx:'Depot visit — 6 Sep',notes:['Ran a 90-vehicle distributor for nine years. Knows the problem cold.','Wants to see a supervisor scan unsupervised before committing.']},
- {id:'i5',n:'Levant Growth Partners',f:'Dubai · Seed / Series A',am:'EGP 3.2M',ph:'terms',ty:'VC',ct:'Rana Haddad',
+ {id:'i5',n:'Levant Growth Partners',f:'Dubai · Seed / Series A',am:'EGP 3.2M',ph:'negotiate',ty:'VC',ct:'Rana Haddad',
   nx:'Term sheet review — 8 Sep',notes:['Offered EGP 3.2M at EGP 9.0M pre. 26.2% post-round.','Pool pre-money at 12% — founders bear it. FLAGGED.','1x non-participating. Broad-based weighted average. Both standard.','Drag-along included — unresolved founder exit disagreement makes this material.']},
- {id:'i6',n:'Cairo Impact Capital',f:'Cairo · Impact',am:'EGP 1.0M',ph:'terms',ty:'Impact',ct:'Nadia Ibrahim',
+ {id:'i6',n:'Cairo Impact Capital',f:'Cairo · Impact',am:'EGP 1.0M',ph:'negotiate',ty:'Impact',ct:'Nadia Ibrahim',
   nx:'Impact metrics call — 9 Sep',notes:['Wants the north star metric evidenced, not projected.']},
- {id:'i7',n:'Sherif Adel',f:'Angel · operator',am:'EGP 250K',ph:'closing',ty:'Angel',ct:'Direct',
+ {id:'i7',n:'Sherif Adel',f:'Angel · operator',am:'EGP 250K',ph:'commit',ty:'Angel',ct:'Direct',
   nx:'Signature — awaiting entity',notes:['Committed verbally. BLOCKED: there is no company to invest into.']},
  {id:'i8',n:'Medhat Family Office',f:'Cairo · Family office',am:'EGP 600K',ph:'closed',ty:'Family office',ct:'Tarek Medhat',
   nx:'Funds received',notes:['First close. Conditional on incorporation within 60 days.']},
- {id:'i9',n:'Horizon MENA Fund',f:'Riyadh · Series A',am:'—',ph:'rejected',ty:'VC',ct:'Faisal Otaibi',
+ {id:'i9',n:'Horizon MENA Fund',f:'Riyadh · Series A',am:'—',ph:'withdrawn',ty:'VC',ct:'Faisal Otaibi',
   nx:'Revisit after second vertical',notes:['Passed on market size. 34 buyers is below their floor.','Explicitly said: come back when the second vertical is proven.']},
- {id:'i10',n:'Blue Harbour Capital',f:'London · Seed',am:'—',ph:'rejected',ty:'VC',ct:'James Whitfield',
+ {id:'i10',n:'Blue Harbour Capital',f:'London · Seed',am:'—',ph:'paused',ty:'VC',ct:'James Whitfield',
   nx:'No further action',notes:['Passed. No local presence and would not lead outside Europe.']},
- {id:'i11',n:'Osman Group Ventures',f:'Cairo · Strategic',am:'EGP 1.2M',ph:'screening',ty:'Strategic',ct:'Yousef Osman',
+ {id:'i11',n:'Osman Group Ventures',f:'Cairo · Strategic',am:'EGP 1.2M',ph:'align',ty:'Strategic',ct:'Yousef Osman',
   nx:'First call — 5 Sep',notes:['Owns a distributor in the target segment. Customer and investor at once — conflict to think about.']}];
 
 const FOLDERS=[
@@ -680,7 +850,7 @@ const FOLDERS=[
  {id:'financial',n:'Financial',ct:3,ag:['Build','Deal flow']},
  {id:'market',n:'Market research',ct:4,ag:['Build','Assessment']},
  {id:'customer',n:'Customer evidence',ct:3,ag:['Build','Assessment']},
- {id:'founder',n:'Founder records',ct:2,ag:['Identity','Staffing']}];
+ {id:'founder',n:'Founder records',ct:2,ag:['Identity','Assessment']}];
 
 const FILES=[
  {n:'EDA licence register extract.xlsx',s:'248 KB · 12 Aug 2026',f:'market',t:'XLSX',ag:['Build','Assessment']},
@@ -695,8 +865,8 @@ const FILES=[
  {n:'Bank statements — personal.pdf',s:'2.2 MB · 1 Aug 2026',f:'financial',t:'PDF',ag:[]},
  {n:'Draft founders agreement — UNSIGNED.docx',s:'54 KB · 2 Jul 2026',f:'legal',t:'DOCX',ag:['Deal flow']},
  {n:'Trademark search — NOT RUN.txt',s:'0 KB · —',f:'legal',t:'TXT',ag:['Deal flow']},
- {n:'Nour Halim — CV.pdf',s:'180 KB · 5 Aug 2026',f:'founder',t:'PDF',ag:['Identity','Staffing']},
- {n:'Karim Adly — CV.pdf',s:'165 KB · 5 Aug 2026',f:'founder',t:'PDF',ag:['Identity','Staffing']}];
+ {n:'Nour Halim — CV.pdf',s:'180 KB · 5 Aug 2026',f:'founder',t:'PDF',ag:['Identity','Assessment']},
+ {n:'Karim Adly — CV.pdf',s:'165 KB · 5 Aug 2026',f:'founder',t:'PDF',ag:['Identity','Assessment']}];
 
 const CONNECTORS=[
  {n:'Google Drive',c:'#E4FFA6',i:'GD',d:'Read documents and spreadsheets from a shared folder.',s:'connected',m:'3 folders · synced 2h ago'},
@@ -714,7 +884,7 @@ const NOTIFS=[
  {a:'AS',ag:'Assessment',t:'Re-assessment complete — 60 / 100 at 0.71 confidence',b:'Up 12 points. Three measures are still excluded and all three need a paying customer.',tm:'2h',u:1},
  {a:'BD',ag:'Build',t:'Contradiction unresolved in the financial model',b:'Year 3 revenue is 158% of your own serviceable market. I have flagged it rather than capping it — you decide which figure is wrong.',tm:'3h',u:1},
  {a:'DF',ag:'Deal flow',t:'Delta Seed Fund asked for the founders agreement',b:'There is no signed agreement. This is the second investor to ask.',tm:'5h',u:0},
- {a:'ST',ag:'Staffing',t:'Phase 1 is at 113% of founder capacity',b:'The plan needs more hours than the two of you have. Either the commercial lead starts earlier or phase 1 stretches.',tm:'1d',u:0},
+ {a:'BD',ag:'Build',t:'Phase 1 is at 113% of founder capacity',b:'The org plan needs more hours than the two of you have.',tm:'1d',u:0},
  {a:'Æ',ag:'Aether',t:'Legal and structure is still your binding constraint',b:'Fourth cycle. No entity, no IP assignment, no founders agreement — it blocks the raise, and it costs almost nothing to fix.',tm:'1d',u:0},
  {a:'ID',ag:'Identity',t:'Yasmine Fouad still has no direct record',b:'She holds 15% and was captured by proxy. Investors will ask.',tm:'2d',u:0}];
 
@@ -722,8 +892,8 @@ const RECENTS=[
  ['Term sheet — what to push back on','Deal flow · 12m'],
  ['Why is year 3 above my SOM?','Build · 3h'],
  ['Re-assessment walkthrough','Assessment · 2h'],
- ['Commercial lead role brief','Staffing · 1d'],
- ['Sizing the option pool','Staffing · 1d'],
+ ['Commercial lead role brief','Build · 1d'],
+ ['Sizing the option pool','Deal flow · 1d'],
  ['Logo concepts — round 2','Build · 2d'],
  ['Does the EDA accept system records?','Aether · 2d'],
  ['Karim availability past month 6','Identity · 3d'],
@@ -743,6 +913,60 @@ const STAGES=[
  ['08','Brand Development','3 sections','Five logo concepts scored, three palettes, complete brand manual.'],
  ['09','Investment Readiness','7 sections','60 / 100 at 0.71. Materials ready. Company not.']];
 
+/* ---------- portfolio ---------- */
+let PORTFOLIO={name:'Halim Ventures',mode:'single'};
+let VENTURES=[
+ {id:'sanad',n:'Sanad',s:'Cold-chain integrity · Cairo',ic:'SA',score:60,conf:'0.71',
+  stage:'Solution Development',raise:'EGP 3.2M',pipe:11,flags:3,active:1},
+ {id:'medad',n:'Medad',s:'Arabic OCR for legal archives · Cairo',ic:'ME',score:44,conf:'0.42',
+  stage:'Prototype',raise:'—',pipe:0,flags:5,active:0},
+ {id:'rafiq',n:'Rafiq',s:'Field-service dispatch · Alexandria',ic:'RA',score:71,conf:'0.78',
+  stage:'Revenue Generation',raise:'EGP 8.0M',pipe:6,flags:1,active:0}];
+let CUR='sanad';
+
+const FEED=[
+ {a:'DF',ag:'Deal flow',k:'action',t:'Levant term sheet needs your decision',
+  b:'The 12% option pool is pre-money — you carry that dilution, not the investor. I can draft the pushback, but the call is yours.',
+  tm:'12m',acts:[['Review terms','go(\'agchat\',\'dealflow|Investment terms|\')'],['Open pipeline','go(\'pipe\')']]},
+ {a:'ID',ag:'Identity',k:'action',t:'Yasmine Fouad still has no direct record',
+  b:'She holds 15%, captured by proxy. Two investors have now asked. I need 10 minutes with her, or a decision to record her as unverified.',
+  tm:'2h',acts:[['Send her a link','toast(\'Invite sent\')'],['Record as unverified','toast(\'Recorded\')']]},
+ {a:'BD',ag:'Build',k:'wait',t:'Waiting on you — which figure is wrong?',
+  b:'Year 3 revenue is 158% of your own serviceable market. I will not resolve this silently. Until you decide, the model carries both.',
+  tm:'3h',acts:[['Discuss with Build','go(\'agchat\',\'build|Financial model|\')']]},
+ {a:'AS',ag:'Assessment',k:'done',t:'Re-assessment complete — 60/100 at 0.71',
+  b:'Up 12 points, confidence nearly doubled. Three measures still excluded; all three need a paying customer.',
+  tm:'5h',acts:[['Read it','go(\'ctx\')']]},
+ {a:'BD',ag:'Build',k:'done',t:'Brand manual produced',
+  b:'Five logo concepts scored, three palettes, full manual across three sections. You selected the Node on the Rule.',
+  tm:'1d',acts:[]},
+ {a:'BD',ag:'Build',k:'wait',t:'Phase 1 is at 113% of founder capacity',
+  b:'The org plan needs more hours than the two of you have. Either the commercial lead starts earlier, or phase 1 stretches.',
+  tm:'1d',acts:[['Rework the plan','go(\'agchat\',\'build|Tactical context|\')']]},
+ {a:'\u00c6',ag:'Aether',k:'action',t:'Legal and structure is still the binding constraint',
+  b:'Fourth cycle. No entity, no IP assignment, no founders agreement. It blocks the raise and costs almost nothing to fix.',
+  tm:'1d',acts:[['Ask Aether why','go(\'ag\',\'aether\')']]},
+ {a:'DF',ag:'Deal flow',k:'done',t:'Medhat Family Office moved to Closed',
+  b:'First close. Conditional on incorporation within 60 days — that clock is now running.',
+  tm:'2d',acts:[]}];
+
+const WORK=[
+ {ag:'Build',ic:'BD',now:'Tactical context — business intelligence',items:['23 KPIs defined','5 without a data source','Awaiting instrumentation']},
+ {ag:'Deal flow',ic:'DF',now:'Term sheet analysis',items:['16 terms reviewed','4 flagged','Draft pushback ready']},
+ {ag:'Build',ic:'BD',now:'Org design \u2014 commercial lead brief',items:['Role scoped','Comp benchmarked','Waiting on start date']},
+ {ag:'Identity',ic:'ID',now:'Blocked — third founder',items:['2 of 3 captured','Proxy record flagged','Needs your action']},
+ {ag:'Assessment',ic:'AS',now:'Idle until a customer pays',items:['3 measures excluded','Next run: on request']}];
+
+const LOCKED=[
+ {id:'staffing',n:'Staffing',ic:'ST',p:'EGP 1,800',d:'Org design from real task load, role briefs, hiring sequence and option-pool sizing.',
+  why:'Your org plan is inside Build. A dedicated agent matters once you are hiring more than two people.'},
+ {id:'legal',n:'Legal',ic:'LG',p:'EGP 2,200',d:'Entity formation, IP assignment, contract review against your jurisdiction.',
+  why:'You have four blocking legal items and no entity. This is the one the assessment keeps pointing at.'},
+ {id:'growth',n:'Growth',ic:'GR',p:'EGP 1,500',d:'Channel testing, funnel instrumentation and acquisition experiments.',
+  why:'Not yet. You have 34 nameable buyers — a growth agent has nothing to optimise until you are selling.'}];
+
+const TOKENS={used:612000,limit:1000000,renews:'1 October 2026',plan:'Growth'};
+
 /* ---------- icon hydration ---------- */
 function hydrate(root){(root||document).querySelectorAll('[data-ic]').forEach(function(e){
   if(!e.dataset.done){e.innerHTML=ICO[e.dataset.ic]||'';e.dataset.done=1;}});}
@@ -755,7 +979,7 @@ function drawSteps(id,cur){
   var el=document.getElementById(id);if(!el)return;var h='';
   STEPS.forEach(function(s,i){
     var cls=i<cur?'dn':(i===cur?'on':'');
-    h+='<div class="stp '+cls+'"><span class="b">'+(i<cur?'✓':(i+1))+'</span><span>'+s+'</span></div>';
+    h+='<div class="stp '+cls+'"><span class="b">'+(i<cur?'✓':(i+1))+'</span><span class="lbl-t">'+s+'</span></div>';
     if(i<STEPS.length-1)h+='<span class="stp-l"></span>';});
   var s=SKIP[id];
   if(s)h+='<button class="btn sm gh skip" onclick="'+s[0]+'()">'+s[1]+' →</button>';
@@ -781,41 +1005,110 @@ function think(box,ms,then){
   push(box,typing());
   setTimeout(function(){var t=document.getElementById('typ');if(t)t.remove();then();},ms||900);}
 
-/* ---------- 2 · ONBOARDING ---------- */
-var onbStep=0;
-const ONB=[
- {q:'connect',a:'<p>Good \u2014 reading them now.</p>'+
-   '<p>I have pulled <strong>11 years across pharmaceutical distribution operations</strong>, ending as operations manager at a 60-vehicle distributor. Six years of that is verifiable from your work history. I have marked the rest as <strong>told, not verified</strong> — I will not present it as more than that.</p>'+
-   '<p>Now something that is not on your profile. On a normal Tuesday, what takes up most of your day?</p>',
+
+/* ================= ONBOARDING · follows F_01 section order =================
+   1 Connected Channels · 2 Profile · 3 Background · 4 Skills
+   5 Character & Mindset (indirect, trait never named) · 6 Professional Interests
+   7 Venture Direction · 8 Team View · 9 Constraint Set                        */
+var onbStep=0, MODE=null;
+const F01=[
+ {s:'2 \u00b7 Profile',
+  a:'<p>Read. From LinkedIn I have <strong>11 years in pharmaceutical distribution operations</strong>, ending as operations manager at a 60-vehicle distributor. Six years of that is verifiable from the public record; the rest is your account of it.</p>'+
+    '<p>I record those differently and I will keep doing so. <strong>Nothing you tell me is presented later as verified.</strong></p>'+
+    '<p>Section 3, background. What did you actually do at that distributor \u2014 not the title, the work?</p>',
+  sg:['Ran the cold-chain fleet','Managed the depot floor','Both, plus compliance']},
+ {s:'4 \u00b7 Skills',
+  a:'<p>Recorded. Now skills \u2014 eight functions, five levels each. I am asking what you can do <strong>without help</strong>, which is a different question from what you have been responsible for.</p>'+
+    '<p>Take fundraising. Have you personally raised money before?</p>',
+  sg:['No, never','Once, unsuccessfully','Yes']},
+ {s:'5 \u00b7 Character & Mindset',
+  a:'<p>Marked as a gap, not a weakness. It is the most common one at this stage.</p>'+
+    '<p>Different kind of question now. On a normal Tuesday, <strong>what takes up most of your day?</strong></p>',
   sg:['Talking to operators','Building the product','Chasing paperwork']},
- {q:'Talking to operators',a:'<p>Noted.</p>'+
-   '<p>Two more, then I will get out of your way.</p>'+
-   '<p>Imagine this works. It is four years from now and the business is doing well. <strong>What does your own day look like?</strong> Not the company — you.</p>',
+ {s:'5 \u00b7 Character & Mindset',
+  a:'<p>Noted.</p><p>When the last customer stopped paying \u2014 what was the first thing you did?</p>',
+  sg:['Called them and asked why','Looked at the product','Started looking for the next customer']},
+ {s:'7 \u00b7 Venture Direction',
+  a:'<p>Recorded.</p>'+
+    '<p style="color:var(--graphite);font-size:12.5px">Those two questions were section 5. I am not going to tell you what they measure \u2014 knowing changes the answer, and the reading is only useful if it is unguarded. It is on your file and you can read it.</p>'+
+    '<p>Section 7. Imagine this works. Four years from now, the business is doing well. <strong>What does your own day look like?</strong> Not the company \u2014 you.</p>',
   sg:['Running something bigger','Sold it, doing the next thing','Same work, more of it']},
- {q:'Sold it, doing the next thing',a:'<p>Recorded, and I want to flag something rather than sit on it.</p>'+
-   '<p>Karim answered the same question two days ago. He described <strong>still running Sanad in four years</strong>, with a team around him.</p>'+
-   '<p>Neither answer is wrong. But you want an exit and your co-founder wants a business, and you have not had that conversation. It will surface again — in the founders agreement, and in any term sheet with a drag-along clause.</p>'+
-   '<p>Last one. Who else holds equity?</p>',
+ {s:'8 \u00b7 Team View',
+  a:'<p>Recorded, and I am going to flag it rather than sit on it.</p>'+
+    '<p>Karim answered the same question two days ago. He described <strong>still running this in four years</strong>, with a team around him.</p>'+
+    '<p>Neither answer is wrong. But you want an exit and your co-founder wants a business, and you have not had that conversation. It will surface in the founders agreement, and again in any term sheet with a drag-along clause.</p>'+
+    '<p>Section 8. Who else holds equity?</p>',
   sg:['Karim and Yasmine','Just Karim','Nobody yet']},
- {q:'Karim and Yasmine',a:'<p>Thank you. I have the split as <strong>50 / 35 / 15</strong>, agreed verbally, no vesting, no entity.</p>'+
-   '<p>I have a record for you and for Karim. I have nothing direct from Yasmine — you described her, which makes her record <strong>proxy-captured</strong>. She holds 15% and I cannot verify anything about her. Investors will ask.</p>'+
-   '<p>That is enough to start. Handing you to the Assessment agent.</p>',
+ {s:'9 \u00b7 Constraint Set',
+  a:'<p>Recorded as <strong>50 / 35 / 15, verbal, no vesting, no entity</strong>.</p>'+
+    '<p>I have a direct record for you and for Karim. Nothing from Yasmine \u2014 you described her, so her record is <strong>proxy-captured</strong>. She holds 15% and I can verify nothing about her. That is a hard constraint on what any later framework may assume.</p>'+
+    '<p>Last section. Anything that is simply fixed \u2014 money, time, geography, an obligation?</p>',
+  sg:['Karim is part-time to month 6','No capital to put in','Cairo only']},
+ {s:'Complete',
+  a:'<p>That is the constraint set, and it binds every plan downstream. A framework that assumes full-time engineering past month six will be flagged, not quietly built.</p>'+
+    '<p><strong>Nine sections captured.</strong> Two founders directly, one by proxy. Four channels read. Three hard constraints.</p>'+
+    '<p>Handing you to the Assessment agent.</p>',
   done:1}];
 
 function initOnb(){
   drawSteps('steps-onb',1);CURIC='ID';
   var m=document.getElementById('onb-msgs');if(m.dataset.init)return;m.dataset.init=1;
   push('onb-msgs',bubble('Identity agent','ID',
-   '<p>I am the Identity agent. Before the platform can assess anything, it needs to know who is building it.</p>'+
-   '<p>The fastest way is to let me read what already exists rather than asking you to retype it. <strong>Connect LinkedIn and your email</strong> and I will pull your background, then ask you only what I cannot find.</p>'+
-   '<p>Everything I record is attributed — what you told me, what I read, and what I could not verify. You can see and delete any of it.</p>'+
-   '<div id="chan" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:13px">'+
-   CHANNELS.map(function(c){
-     return '<button class="btn sm" id="ch-'+c[0]+'" onclick="connectCh(\''+c[0]+'\')" '+
-      'style="gap:7px">'+c[2]+'<span>'+c[1]+'</span></button>'}).join('')+'</div>'+
-   '<p class="sub" style="font-size:11.5px;margin-top:10px">Connect what is relevant. '+
-   'I will tell you what I read from each one, and you can disconnect any of them afterwards.</p>'+
-   '<div style="margin-top:12px"><button class="btn primary sm" onclick="chDone()">Continue</button></div>'));}
+   '<p>I am the Identity agent. Before anything is assessed, the platform needs to know who is building it \u2014 and whether "it" is one venture or several.</p>'+
+   '<p>Which are you?</p>'+
+   '<div class="grid g2" style="margin-top:12px;gap:9px">'+
+   '<div class="card" style="cursor:pointer" onclick="setMode(\'single\')">'+
+   '<h4>A single venture</h4><p class="sub" style="font-size:12px;margin-top:4px">'+
+   'One business. I capture you and your co-founders, then hand over for one assessment.</p></div>'+
+   '<div class="card" style="cursor:pointer" onclick="setMode(\'portfolio\')">'+
+   '<h4>A portfolio or organisation</h4><p class="sub" style="font-size:12px;margin-top:4px">'+
+   'Several ventures. I capture the organisation first, then each venture separately \u2014 each gets its own assessment.</p></div>'+
+   '</div>'));}
+
+function setMode(m){
+  MODE=m;PORTFOLIO.mode=m;
+  document.querySelectorAll('#onb-msgs .grid').forEach(function(e){e.remove()});
+  push('onb-msgs',bubble('Nour Halim','NH','<p>'+(m==='single'?'A single venture':'A portfolio \u2014 three ventures')+'</p>','u'));
+  think('onb-msgs',900,function(){
+    if(m==='portfolio'){
+      push('onb-msgs',bubble('Identity agent','ID',
+       '<p>Then the order changes. I capture <strong>the organisation first</strong> \u2014 who runs it, what it invests in, how decisions get made \u2014 and then each venture separately.</p>'+
+       '<p>Each venture is assessed on its own. A portfolio score would average away the one that is in trouble, which is exactly the one you need to see.</p>'+
+       '<p>Your subscription is for the organisation, priced by how many ventures it covers.</p>'+
+       '<div class="dl" style="margin-top:10px">'+
+       '<div><dt>Organisation</dt><dd>Halim Ventures \u00b7 Cairo</dd></div>'+
+       '<div><dt>Ventures</dt><dd>Sanad, Medad, Rafiq</dd></div>'+
+       '<div><dt>Assessments</dt><dd class="mono" style="color:var(--pale)">3 \u00b7 one per venture</dd></div></div>'+
+       '<p style="margin-top:11px">Starting with the organisation, then <strong>Sanad</strong> first. Same nine sections either way.</p>'));}
+    else{
+      push('onb-msgs',bubble('Identity agent','ID',
+       '<p>One venture. Nine sections, and I will name each as we reach it.</p>'));}
+    setTimeout(function(){
+      push('onb-msgs',bubble('Identity agent','ID',
+       '<p><strong>Section 1 \u2014 connected channels.</strong> These come first because every fact a channel gives me is a question you do not answer and a claim I do not take on trust.</p>'+
+       '<div id="chan" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">'+
+       CHANNELS.map(function(c){
+         return '<button class="btn sm" id="ch-'+c[0]+'" onclick="connectCh(\''+c[0]+'\')" style="gap:7px">'+
+          c[2]+'<span>'+c[1]+'</span></button>'}).join('')+'</div>'+
+       '<p class="sub" style="font-size:11.5px;margin-top:10px">LinkedIn is the most useful single connection. '+
+       'Connect what is relevant \u2014 I will tell you what I read from each, and you can disconnect any of them afterwards.</p>'+
+       '<div style="margin-top:12px"><button class="btn primary sm" onclick="chDone()">Continue</button></div>'));},700);});}
+
+function pickOnb(t){document.getElementById('onb-in').value=t;sendOnb();}
+function sendOnb(){
+  var i=document.getElementById('onb-in'),v=i.value.trim();if(!v)return;i.value='';
+  document.querySelectorAll('#onb-msgs .sugg').forEach(function(s){s.remove()});
+  push('onb-msgs',bubble('Nour Halim','NH','<p>'+esc(v)+'</p>','u'));
+  var st=F01[onbStep];if(!st)return;onbStep++;
+  think('onb-msgs',1000,function(){
+    var sg=(!st.done&&F01[onbStep-1].sg)
+      ?'<div class="sugg">'+F01[onbStep-1].sg.map(function(s){
+         return '<button class="sg" onclick="pickOnb(\''+s+'\')">'+s+'</button>'}).join('')+'</div>':'';
+    push('onb-msgs',bubble('Identity agent','ID',
+     '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">'+st.s+'</div>'+st.a+sg));
+    if(st.done)setTimeout(function(){push('onb-msgs',
+      '<div style="max-width:560px;margin:6px 0 0 42px"><button class="btn primary" onclick="goAsm()">'+
+      'Continue to the initial assessment <span data-ic="send"></span></button></div>');},500);});}
 
 const CHANNELS=[
  ['li','LinkedIn','<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05 4.02 0 4.76 2.6 4.76 6V21h-4v-5.5c0-1.3-.03-3-1.85-3-1.85 0-2.13 1.44-2.13 2.9V21h-4z"/></svg>'],
@@ -832,31 +1125,13 @@ function connectCh(id){
   b.style.color=chOn[id]?'var(--bone)':'';}
 function chDone(){
   var n=Object.keys(chOn).filter(function(k){return chOn[k]});
-  if(!n.length){toastLite('Connect at least one, or skip');return;}
+  if(!n.length){toast('Connect at least one, or skip');return;}
   var names=n.map(function(k){return CHANNELS.filter(function(c){return c[0]===k})[0][1]});
-  document.getElementById('chan').parentElement.querySelectorAll('#chan,.sub,div[style*="margin-top:12px"]')
-    .forEach(function(e){e.remove()});
+  var box=document.getElementById('chan');
+  if(box){var p=box.closest('.bd');
+    p.querySelectorAll('#chan,.sub,div[style*="margin-top:12px"]').forEach(function(e){e.remove()});}
   document.getElementById('onb-in').value='Connected '+names.join(', ');
   sendOnb();}
-function toastLite(m){
-  var t=document.createElement('div');
-  t.style.cssText='position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--c800);'+
-   'border:1px solid var(--c600);border-radius:10px;padding:9px 15px;font-size:12.5px;z-index:900';
-  t.textContent=m;document.body.appendChild(t);setTimeout(function(){t.remove()},1800);}
-function pickOnb(t){document.getElementById('onb-in').value=t;sendOnb();}
-function sendOnb(){
-  var i=document.getElementById('onb-in'),v=i.value.trim();if(!v)return;i.value='';
-  document.querySelectorAll('#onb-msgs .sugg').forEach(function(s){s.remove()});
-  push('onb-msgs',bubble('Nour Halim','NH','<p>'+esc(v)+'</p>','u'));
-  var st=ONB[onbStep];onbStep++;
-  think('onb-msgs',1000,function(){
-    var sg=st.sg?'<div class="sugg">'+st.sg.map(function(s){return '<button class="sg" onclick="pickOnb(\''+s+'\')">'+s+'</button>'}).join('')+'</div>':'';
-    if(onbStep<ONB.length){sg=ONB[onbStep].sg?'<div class="sugg">'+ONB[onbStep].sg.map(function(s){return '<button class="sg" onclick="pickOnb(\''+s+'\')">'+s+'</button>'}).join('')+'</div>':'';}
-    push('onb-msgs',bubble('Identity agent','ID',st.a+(st.done?'':sg)));
-    if(st.done){
-      setTimeout(function(){push('onb-msgs',
-        '<div style="max-width:560px;margin:6px 0 0 42px"><button class="btn primary" onclick="goAsm()">Continue to the initial assessment <span data-ic="send"></span></button></div>');},500);}
-  });}
 function esc(s){return s.replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
 
 /* ---------- 3 · ASSESSMENT ---------- */
@@ -972,16 +1247,19 @@ const PLANS=[
      [0,'Market, strategy and tactical build'],[0,'Financial model'],[0,'Investor materials and valuation'],[0,'Fundraising pipeline']]},
  {n:'Growth',p:'EGP 6,900',per:'/month',rec:1,d:'Build the venture and get it fundable.',
   f:[[1,'Everything in Foundation'],[1,'Full Build agent — 18 frameworks'],[1,'Live financial model'],
-     [1,'Brand development'],[1,'Investor materials, valuation, cap table'],[1,'Fundraising pipeline'],[0,'Staffing agent and org design']]},
+     [1,'Brand development'],[1,'Investor materials, valuation, cap table'],[1,'Fundraising pipeline'],[0,'Deal flow — investor pipeline management']]},
  {n:'Scale',p:'EGP 14,500',per:'/month',d:'Run the venture and the raise together.',
-  f:[[1,'Everything in Growth'],[1,'Staffing agent — org, roles, hiring'],[1,'Deal flow — investor pipeline management'],
+  f:[[1,'Everything in Growth'],[1,'Deal flow — investor pipeline management'],[1,'Add individual agents à la carte'],
      [1,'Unlimited connectors'],[1,'Priority Aether orchestration'],[1,'Quarterly reassessment and board pack'],[1,'Dedicated success manager']]}];
 var chosen=1;
 function initPlan(){
   drawSteps('steps-plan',3);
   var h='<div style="text-align:center;margin-bottom:6px"><h1 style="font-size:25px;margin-bottom:6px">Choose your plan</h1>'+
    '<p class="sub">Based on your assessment — 48 / 100 at confidence 0.38, at Prototype stage.</p></div>'+
-   '<div class="find" style="max-width:640px;margin:18px auto"><b>The Assessment agent recommends Growth</b>'+
+   '<div class="find" style="max-width:640px;margin:18px auto">'+
+   '<b>The Staffing agent has built you a package \u2014 Growth</b>'+
+   '<p style="margin-bottom:7px">Staffing reads the assessment and works out which agents you actually need, '+
+   'then prices a package around them. It is not a menu you guess at.</p>'+
    '<p>You have nine unscoreable measures and three blocking items. Foundation stops before the market work and the financial model; Scale assumes revenue you do not have yet.</p></div>'+
    '<div class="plans">';
   PLANS.forEach(function(p,i){
@@ -1006,22 +1284,34 @@ function goApp(){show('app');initApp();}
 
 /* ================= APP SHELL ================= */
 var route={v:'ctx',id:null};
-const TOP=[['ctx','Venture Context','ctx'],['pipe','Fundraising Pipeline','pipe'],
- ['kb','Knowledge Base','kb'],['conn','Connectors','conn'],['notif','Notifications','bell']];
+const TOP=[['cc','Command Center','bell'],['ctx','Venture Context','ctx'],
+ ['pipe','Fundraising Pipeline','pipe'],['kb','Knowledge Base','kb'],['conn','Connectors','conn']];
+function newCount(){return FEED.filter(function(f){return (f.k==='action'||f.k==='wait')&&!f.seen}).length;}
 
 function initApp(){
+  var v=VENTURES.filter(function(x){return x.id===CUR})[0];
   var t=document.getElementById('nav-top');
-  t.innerHTML=TOP.map(function(x){
-    var b=x[0]==='notif'?'<span class="bdg">3</span>':'';
+  t.innerHTML=
+   '<div class="vent" onclick="openMod(\'ventures\')"><span class="vd"></span>'+
+   '<span class="vt"><span class="vl">Venture</span>'+v.n+'</span>'+
+   '<span data-ic="ar" style="color:var(--graphite)"></span></div>'+
+   TOP.map(function(x){
+    var b=x[0]==='cc'?'<span class="bdg">'+newCount()+'</span>':'';
     return '<div class="nv" data-r="'+x[0]+'" onclick="go(\''+x[0]+'\')"><span data-ic="'+x[2]+'"></span><span class="nv-t">'+x[1]+'</span>'+b+'</div>'}).join('');
   document.getElementById('nav-agents').innerHTML=Object.keys(AGENTS).map(function(k){
     var a=AGENTS[k];
+    if(k==='aether')
+      return '<div class="nv aether" data-r="ag:aether" onclick="go(\'ag\',\'aether\')">'+
+        '<span class="ae">\u00c6</span><span class="nv-t">Aether<s>Master agent</s></span></div>';
     return '<div class="nv" data-r="ag:'+k+'" onclick="go(\'ag\',\''+k+'\')">'+
-      '<span style="width:16px;text-align:center;font-family:Sora;font-size:10.5px;color:var(--pale)">'+a.ic+'</span>'+
+      '<span style="width:14px;text-align:center;font-family:Sora;font-size:10px;color:var(--pale)">'+a.ic+'</span>'+
       '<span class="nv-t">'+a.n+'</span></div>'}).join('');
   document.getElementById('nav-recents').innerHTML=RECENTS.map(function(r,i){
     return '<div class="rc" onclick="go(\'chat\',\''+i+'\')">'+r[0]+'<span class="rc-m">'+r[1]+'</span></div>'}).join('');
   document.getElementById('umenu').innerHTML=
+   '<button class="mi" onclick="openMod(\'ventures\')"><span data-ic="grid"></span>My Ventures'+
+     '<span class="r">'+VENTURES.length+'</span></button>'+
+   '<div class="msep"></div>'+
    '<button class="mi" onclick="openMod(\'settings\')"><span data-ic="cog"></span>Settings</button>'+
    '<button class="mi" onclick="openMod(\'lang\')"><span data-ic="globe"></span>Language<span class="r" id="lang-r">English</span></button>'+
    '<div class="msep"></div>'+
@@ -1029,11 +1319,21 @@ function initApp(){
    '<button class="mi" onclick="toast(\'QuidQuo Academy\')">QuidQuo Academy</button>'+
    '<div class="msep"></div>'+
    '<button class="mi" style="color:var(--down)" onclick="logout()">Log out</button>';
-  hydrate(document);go('ctx');
-  if(window.innerWidth<=640)document.getElementById('mob-menu').style.display='flex';}
+  hydrate(document);goHome();
+  if(window.innerWidth<=820)document.getElementById('mob-menu').style.display='flex';
+  window.addEventListener('resize',function(){
+    document.getElementById('mob-menu').style.display=window.innerWidth<=820?'flex':'none';
+    if(window.innerWidth>820)closeSide();});}
 
 function toggleSec(h){h.classList.toggle('cl');}
-function toggleMini(){document.getElementById('side').classList.toggle('mini');}
+function goHome(){go('ag','aether');}
+function toggleMini(){
+  var s=document.getElementById('side');
+  if(window.innerWidth<=820){s.classList.toggle('open');
+    document.getElementById('scrim').classList.toggle('on',s.classList.contains('open'));}
+  else s.classList.toggle('mini');}
+function closeSide(){document.getElementById('side').classList.remove('open');
+  document.getElementById('scrim').classList.remove('on');}
 function toggleMenu(e){e.stopPropagation();document.getElementById('umenu').classList.toggle('on');}
 document.addEventListener('click',function(){document.getElementById('umenu').classList.remove('on')});
 var LANG='English';
@@ -1043,6 +1343,29 @@ var setTab='general';
 function openMod(kind){
   document.getElementById('umenu').classList.remove('on');
   document.getElementById('mod').dataset.kind=kind;
+  if(kind==='agents'){
+    document.getElementById('mod-t').textContent='Add agents';
+    document.getElementById('mod-nav').style.display='none';
+    document.getElementById('mod-c').innerHTML=
+     '<p class="sub" style="font-size:12px;margin-bottom:14px">Your Growth package covers 5 agents. '+
+     'These three are available separately \u2014 and I will tell you plainly where one would not earn its cost yet.</p>'+
+     LOCKED.map(function(l){
+       return '<div class="mk-c"><span class="mi2">'+l.ic+'</span><span class="mb"><b>'+l.n+' agent</b>'+
+        '<p>'+l.d+'</p><p style="color:var(--pale);margin-top:5px">'+l.why+'</p></span>'+
+        '<span class="mp"><div class="pr">'+l.p+'</div>'+
+        '<div class="sub" style="font-size:10px">per month</div>'+
+        '<button class="btn sm" style="margin-top:7px" onclick="toast(\''+l.n+' agent added\')">Add</button></span></div>'}).join('')+
+     '<div class="find" style="margin-top:6px"><b>Or move up a tier</b>'+
+     '<p>Scale includes all three and works out cheaper than adding two separately.</p>'+
+     '<button class="btn sm" style="margin-top:9px" onclick="closeMod();openMod(\'settings\')">Compare plans</button></div>';
+    document.getElementById('mod').classList.add('on');
+    hydrate(document.getElementById('mod'));return;}
+  if(kind==='ventures'){
+    document.getElementById('mod-t').textContent='My Ventures \u2014 '+PORTFOLIO.name;
+    document.getElementById('mod-nav').style.display='none';
+    document.getElementById('mod-c').innerHTML=ventBody();
+    document.getElementById('mod').classList.add('on');
+    hydrate(document.getElementById('mod'));return;}
   if(kind==='lang'){
     document.getElementById('mod-t').textContent='Language';
     document.getElementById('mod-nav').style.display='none';
@@ -1091,7 +1414,16 @@ function setBody(t){
     row('Payment method','Visa ending 4242','<button class="btn sm">Update</button>')+
     row('Billing email','nour@sanad.eg','<button class="btn sm">Edit</button>')+
     row('Invoices','12 available','<button class="btn sm">Download</button>');
-  if(t==='usage')return '<div class="hero" style="margin-top:0"><div><div class="lbl">Agent sessions</div>'+
+  if(t==='usage'){
+    var pct=Math.round(TOKENS.used/TOKENS.limit*100);
+    return '<div class="row" style="border-bottom:0;padding-top:0"><span class="rl">'+
+     '<b>Tokens \u2014 '+pct+'% used</b>'+
+     '<span>'+(TOKENS.used/1000).toFixed(0)+'k of '+(TOKENS.limit/1000).toFixed(0)+'k this cycle \u00b7 renews '+TOKENS.renews+'</span>'+
+     '</span><button class="btn sm primary" onclick="toast(\'Token top-up\')">Buy more tokens</button></div>'+
+     '<div class="tok"><i class="'+(pct>80?'hi':'')+'" style="width:'+pct+'%"></i></div>'+
+     '<p class="sub" style="font-size:11.5px;margin-bottom:16px">At the current rate you will reach the limit around '+
+     '24 September \u2014 six days before it renews. Top-ups do not expire.</p>'+
+     '<div class="hero" style="margin-top:0"><div><div class="lbl">Agent sessions</div>'+
     '<div class="v">148</div><div class="c">this month</div></div>'+
     '<div><div class="lbl">Frameworks run</div><div class="v">26</div><div class="c">of 26 available</div></div>'+
     '<div><div class="lbl">Files</div><div class="v">14</div><div class="c">of 200</div></div>'+
@@ -1101,8 +1433,7 @@ function setBody(t){
     '<div class="br"><span class="k">Build</span><span class="t"><i style="width:64%"></i></span><span class="v">94</span></div>'+
     '<div class="br"><span class="k">Deal flow</span><span class="t"><i style="width:29%"></i></span><span class="v">43</span></div>'+
     '<div class="br"><span class="k">Assessment</span><span class="t"><i style="width:12%"></i></span><span class="v">18</span></div>'+
-    '<div class="br"><span class="k">Identity</span><span class="t"><i style="width:8%"></i></span><span class="v">12</span></div>'+
-    '<div class="br"><span class="k">Staffing</span><span class="t"><i style="width:6%"></i></span><span class="v">9</span></div></div>';
+    '<div class="br"><span class="k">Identity</span><span class="t"><i style="width:8%"></i></span><span class="v">12</span></div></div>';}
   return '<div class="plans" style="grid-template-columns:1fr 1fr">'+
     PLANS.slice(0,2).map(function(p,i){return '<div class="plan '+(i===1?'sel':'')+'">'+
       (i===1?'<span class="rb">Current</span>':'')+'<div class="pn">'+p.n+'</div>'+
@@ -1134,7 +1465,7 @@ function go(v,id){
   document.querySelectorAll('.nv').forEach(function(n){
     n.classList.toggle('on',n.dataset.r===(v==='ag'?'ag:'+id:v))});
   document.querySelectorAll('.rc').forEach(function(n,i){n.classList.toggle('on',v==='chat'&&String(i)===String(id))});
-  document.getElementById('side').classList.remove('open');
+  closeSide();
   var cc=document.getElementById('chat-composer');
   cc.style.display=(v==='chat'||v==='agchat')?'block':'none';
   var view=document.getElementById('view'),tb=document.getElementById('tb-title'),
@@ -1147,15 +1478,21 @@ function go(v,id){
     var f=document.getElementById('vf');f.srcdoc=VF_APP;}
   else if(v==='pipe'){tb.textContent='Fundraising Pipeline';
     ta.innerHTML='<button class="btn sm primary" onclick="addInvestor()"><span data-ic="plus"></span>Add investor</button>';
-    view.style.overflowY='hidden';view.innerHTML='<div class="pipe" id="pipe"></div>';drawPipe();}
+    view.style.overflowY='auto';
+    view.innerHTML='<div style="padding:16px 22px 0">'+pipeStats()+'</div>'+
+      '<div class="pipe" id="pipe"></div>';drawPipe();}
   else if(v==='kb'){tb.textContent='Knowledge Base';
     ta.innerHTML='<button class="btn sm"><span data-ic="plus"></span>New folder</button>';
     view.style.overflowY='hidden';view.innerHTML=V_KB();}
   else if(v==='conn'){tb.textContent='Connectors';view.innerHTML=V_CONN();}
-  else if(v==='notif'){tb.textContent='Notifications';
-    ta.innerHTML='<button class="btn sm gh" onclick="toast(\'All marked read\')">Mark all read</button>';
-    view.innerHTML=V_NOTIF();}
-  else if(v==='ag'){var a=AGENTS[id];tb.textContent=a.n+' agent';view.innerHTML=V_AGENT(id);}
+  else if(v==='cc'){tb.textContent='Command Center';
+    ta.innerHTML='<span class="chip lv">Run by Aether</span>';
+    view.innerHTML=V_CC();}
+  else if(v==='ag'){var a=AGENTS[id];
+    if(a.chatFirst){tb.textContent='Aether \u00b7 Master agent';
+      ta.innerHTML='<span class="chip lv">Orchestrator</span>';
+      cc.style.display='block';view.innerHTML=V_AETHER();}
+    else{tb.textContent=a.n+' agent';view.innerHTML=V_AGENT(id);}}
   else if(v==='chat'){tb.textContent=RECENTS[id][0];view.innerHTML=V_CHAT(RECENTS[id]);}
   else if(v==='agchat'){var p=id.split('|');tb.textContent=p[1];view.innerHTML=V_SUBCHAT(p[0],p[1],p[2]);}
   hydrate(view);hydrate(ta);
@@ -1215,6 +1552,24 @@ function drawPipe(){
         '<b>'+i.n+'</b><div class="f">'+i.f+'</div><div class="m"><span class="am">'+i.am+'</span>'+
         '<span class="chip nt">'+i.ty+'</span></div></div>'}).join('')+
      '</div><div class="col-sum">'+(tot?'EGP '+tot.toFixed(1)+'M':'\u2014')+'</div></div>'}).join('');}
+function pipeStats(){
+  var live=INVESTORS.filter(function(i){return ['scouting','connect','align','disclose','negotiate','commit'].indexOf(i.ph)>=0});
+  function amt(a){var m=/([\d.]+)M/.exec(a);return m?parseFloat(m[1]):0;}
+  var pipeline=live.reduce(function(a,i){return a+amt(i.am)},0);
+  var closed=INVESTORS.filter(function(i){return i.ph==='closed'}).reduce(function(a,i){return a+amt(i.am)},0);
+  var out=INVESTORS.filter(function(i){return i.ph==='withdrawn'||i.ph==='paused'}).length;
+  var target=3.2, pct=Math.round(closed/target*100);
+  return '<div class="pstat">'+
+   '<div><div class="lbl">Target raise</div><div class="v">EGP '+target.toFixed(1)+'M</div></div>'+
+   '<div><div class="lbl">Committed</div><div class="v" style="color:var(--up)">EGP '+closed.toFixed(1)+'M</div>'+
+   '<div class="sub" style="font-size:10px">'+pct+'% of target</div></div>'+
+   '<div><div class="lbl">In play</div><div class="v">EGP '+pipeline.toFixed(1)+'M</div>'+
+   '<div class="sub" style="font-size:10px">'+live.length+' investors</div></div>'+
+   '<div><div class="lbl">Out</div><div class="v" style="color:var(--down)">'+out+'</div>'+
+   '<div class="sub" style="font-size:10px">passed or paused</div></div>'+
+   '<div><div class="lbl">Overdue</div><div class="v" style="color:var(--hold)">1</div>'+
+   '<div class="sub" style="font-size:10px">Delta Seed \u00b7 cap table</div></div>'+
+   '</div>';}
 var dragId=null;
 function dStart(e){dragId=e.target.dataset.id;e.target.classList.add('drag');e.dataTransfer.effectAllowed='move';}
 function dEnd(e){e.target.classList.remove('drag');}
@@ -1258,29 +1613,89 @@ function addInvestor(){go('agchat','dealflow|Pipeline|__add__');}
 
 /* ---------- VIEW · KNOWLEDGE BASE ---------- */
 var kbFolder='all';
+const ALL_AGENTS=[['Aether','\u00c6','Routes and holds state'],['Identity','ID','Founder & team'],
+ ['Assessment','AS','Scoring'],['Build','BD','Venture construction'],
+ ['Deal flow','DF','Fundraising']];
 function V_KB(){
   return '<div class="kb"><div class="kb-l">'+
    '<div class="lbl" style="padding:0 10px 8px">Folders</div>'+
-   FOLDERS.map(function(f){return '<div class="fol '+(f.id===kbFolder?'on':'')+'" onclick="kbFolder=\''+f.id+'\';go(\'kb\')">'+
+   FOLDERS.map(function(f){
+     return '<div class="fol '+(f.id===kbFolder?'on':'')+'" onclick="kbFolder=\''+f.id+'\';go(\'kb\')">'+
      '<span data-ic="kb"></span><span style="flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+
      f.n+'</span><span class="ct">'+f.ct+'</span></div>'}).join('')+
    '<div class="lbl" style="padding:18px 10px 8px">Agent access</div>'+
-   '<p class="sub" style="font-size:11.5px;padding:0 10px">Tag a folder or a file to an agent and only that agent reads it. Untagged files are read by none.</p>'+
+   '<p class="sub" style="font-size:11.5px;padding:0 10px">Tag a folder or a file to an agent and only that agent reads it. '+
+   'Untagged files are read by none.</p>'+
    '</div><div class="kb-r">'+kbRight()+'</div></div>';}
 function kbRight(){
   var f=FOLDERS.filter(function(x){return x.id===kbFolder})[0];
   var files=kbFolder==='all'?FILES:FILES.filter(function(x){return x.f===kbFolder});
-  var h='<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px">'+
+  var h='<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap">'+
    '<div><h2 style="font-size:18px">'+f.n+'</h2>'+
    '<p class="sub">'+files.length+' files'+(f.ag.length?' \u00b7 read by '+f.ag.join(', '):'')+'</p></div>'+
-   (kbFolder!=='all'?'<button class="btn sm" onclick="toast(\'Agent tags updated\')">Edit agent access</button>':'')+'</div>'+
+   (kbFolder!=='all'
+     ? '<div style="display:flex;gap:7px">'+
+       '<button class="btn sm" onclick="editAccess(\'folder\',\''+f.id+'\')">Edit folder access</button>'+
+       '<button class="btn sm" style="color:var(--down);border-color:rgba(255,59,92,.35)" '+
+       'onclick="delFolder(\''+f.id+'\')">Delete folder</button></div>'
+     : '')+'</div>'+
    '<div class="drop" onclick="toast(\'File picker\')"><span data-ic="up"></span>'+
    '<div style="margin-top:7px;font-size:12.5px">Drop files here to add them to '+f.n+'</div></div>';
   files.forEach(function(x){
-    h+='<div class="file"><span class="fi">'+x.t+'</span><span class="fn"><b>'+x.n+'</b><span>'+x.s+'</span></span>'+
+    var i=FILES.indexOf(x);
+    h+='<div class="file" onclick="editAccess(\'file\','+i+')">'+
+      '<span class="fi">'+x.t+'</span><span class="fn"><b>'+x.n+'</b><span>'+x.s+'</span></span>'+
       '<span class="tags">'+(x.ag.length?x.ag.map(function(a){return '<span class="chip lv">'+a+'</span>'}).join('')
-        :'<span class="chip dn"><span class="d"></span>No agent</span>')+'</span></div>';});
+        :'<span class="chip dn"><span class="d"></span>No agent</span>')+'</span>'+
+      '<span class="fact">'+
+      '<button title="Edit agent access" onclick="event.stopPropagation();editAccess(\'file\','+i+')">'+ICO.cog+'</button>'+
+      '<button class="del" title="Delete file" onclick="event.stopPropagation();delFile('+i+')">'+ICO.trash+'</button>'+
+      '</span></div>';});
+  if(!files.length)h+='<div class="empty"><h3>No files here</h3><p>Drop something in, or pick another folder.</p></div>';
   return h;}
+var acTarget=null;
+function editAccess(kind,ref){
+  acTarget={kind:kind,ref:ref};
+  var name,cur;
+  if(kind==='file'){var x=FILES[ref];name=x.n;cur=x.ag.slice();}
+  else{var f=FOLDERS.filter(function(y){return y.id===ref})[0];name=f.n;cur=f.ag.slice();}
+  document.getElementById('dr-h').innerHTML='<b style="font-size:14px;font-family:Sora">Agent access</b>'+
+    '<div class="sub" style="font-size:11.5px;word-break:break-word">'+name+'</div>';
+  document.getElementById('dr-b').innerHTML=
+   '<p class="sub" style="font-size:12px;margin-bottom:12px">Only the agents you tick can read this '+kind+
+   '. An untagged '+kind+' is read by none \u2014 which is a valid choice for anything sensitive.</p>'+
+   '<div class="agpick" id="agpick">'+
+   ALL_AGENTS.map(function(a){
+     return '<div class="agp '+(cur.indexOf(a[0])>=0?'on':'')+'" data-a="'+a[0]+'" onclick="this.classList.toggle(\'on\')">'+
+      '<span class="ai2">'+a[1]+'</span><span class="at2"><b>'+a[0]+'</b><span>'+a[2]+'</span></span>'+
+      '<span class="ck2">\u2713</span></div>'}).join('')+'</div>'+
+   '<div style="display:flex;gap:8px;margin-top:16px">'+
+   '<button class="btn primary sm" style="flex:1" onclick="saveAccess()">Save access</button>'+
+   '<button class="btn sm" onclick="clearAccess()">Clear all</button></div>'+
+   (kind==='file'
+     ? '<button class="btn sm blk" style="margin-top:10px;color:var(--down);border-color:rgba(255,59,92,.35)" '+
+       'onclick="delFile('+ref+')">Delete this file</button>' : '');
+  document.getElementById('drawer').classList.add('on');
+  document.getElementById('ovl').classList.add('on');}
+function clearAccess(){document.querySelectorAll('#agpick .agp').forEach(function(e){e.classList.remove('on')});}
+function saveAccess(){
+  var sel=[];document.querySelectorAll('#agpick .agp.on').forEach(function(e){sel.push(e.dataset.a)});
+  if(acTarget.kind==='file')FILES[acTarget.ref].ag=sel;
+  else FOLDERS.filter(function(f){return f.id===acTarget.ref})[0].ag=sel;
+  closeDrawer();go('kb');
+  toast(sel.length?'Access: '+sel.join(', '):'Access cleared \u2014 no agent can read it');}
+function delFile(i){
+  var n=FILES[i].n;FILES.splice(i,1);
+  FOLDERS.forEach(function(f){
+    f.ct=f.id==='all'?FILES.length:FILES.filter(function(x){return x.f===f.id}).length});
+  closeDrawer();go('kb');toast('Deleted '+n);}
+function delFolder(id){
+  var f=FOLDERS.filter(function(x){return x.id===id})[0];
+  var n=FILES.filter(function(x){return x.f===id}).length;
+  for(var i=FILES.length-1;i>=0;i--)if(FILES[i].f===id)FILES.splice(i,1);
+  FOLDERS.splice(FOLDERS.indexOf(f),1);
+  FOLDERS[0].ct=FILES.length;
+  kbFolder='all';go('kb');toast('Deleted '+f.n+' and '+n+' files');}
 
 /* ---------- VIEW · CONNECTORS ---------- */
 function V_CONN(){
@@ -1324,15 +1739,19 @@ function V_AGENT(k){
    '<div class="ag-hd"><span class="ag-ic">'+a.ic+'</span>'+
    '<span style="flex:1 1 auto;min-width:0"><h1>'+a.n+'</h1><p class="sub">'+a.r+'</p></span></div>'+
    '<p class="dimt" style="font-size:13.5px;margin-bottom:18px">'+a.d+'</p>'+
-   '<div class="hero">'+a.stats.map(function(s){
-     return '<div><div class="lbl">'+s[0]+'</div><div class="v" style="font-size:19px">'+s[1]+'</div></div>'}).join('')+'</div>'+
+   '<div class="hero ag-hero">'+a.stats.map(function(s){
+     return '<div><div class="lbl">'+s[0]+'</div><div class="v">'+s[1]+'</div></div>'}).join('')+'</div>'+
    (a.subs.length
      ? '<div class="sec-t" style="margin-top:26px"><h2>Start a conversation</h2>'+
        '<span class="s">'+a.subs.length+' entry points</span></div>'+
        '<div style="display:flex;flex-direction:column;gap:8px">'+
        a.subs.map(function(s){
+         var last=s[3]||'\u2014', un=parseInt(s[4]||0);
          return '<div class="sub-ag" onclick="go(\'agchat\',\''+k+'|'+s[1]+'|\')">'+
           '<span class="n">'+s[0]+'</span><span class="t"><b>'+s[1]+'</b><span>'+s[2]+'</span></span>'+
+          '<span style="flex:0 0 auto;text-align:right;display:flex;align-items:center;gap:8px">'+
+          (un?'<span class="chip lv" style="font-size:9.5px;padding:2px 7px">'+un+' new</span>':'')+
+          '<span class="sub" style="font-family:\'JetBrains Mono\';font-size:10px">'+last+'</span></span>'+
           '<span data-ic="chat" style="color:var(--graphite)"></span></div>'}).join('')+'</div>'
      : '<div style="margin-top:24px"><button class="btn primary" onclick="go(\'agchat\',\''+k+'|Ask Aether|\')">'+
        '<span data-ic="chat"></span>Ask Aether</button>'+
@@ -1370,6 +1789,126 @@ function TERMS_ART(){return ''+
  '<tr><td>Founder vesting</td><td>4yr / 1yr cliff</td><td><span class="chip hd"><span class="d"></span>Ask for credit</span></td></tr>'+
  '</tbody></table></div>'+
  '<div class="find c"><b>Not legal advice</b><p>This explains what is standard so you can read the document. A qualified lawyer in Egypt negotiates it.</p></div></div>';}
+
+/* ---------- VIEW · COMMAND CENTER ---------- */
+var ccTab='all';
+function V_CC(){
+  var act=FEED.filter(function(f){return f.k==='action'}).length;
+  var wait=FEED.filter(function(f){return f.k==='wait'}).length;
+  var done=FEED.filter(function(f){return f.k==='done'}).length;
+  var h='<div class="wrap wide">'+
+   '<div class="msg a" style="margin-bottom:16px"><div class="ic">\u00c6</div><div class="bd">'+
+   '<div class="who">Aether</div>'+
+   '<p>Here is what your team has been doing. <strong>'+act+' items need you</strong>, '+wait+
+   ' are waiting on a decision, and '+done+' finished since you last looked.</p>'+
+   '<p style="color:var(--graphite);font-size:12.5px">I have not resolved anything on your behalf. Where two agents disagree, both readings are still on the file.</p>'+
+   '</div></div>'+
+   '<div class="cc-hero tight">'+
+   '<div><div class="lbl">Needs you</div><div class="v" style="color:var(--lime)">'+act+'</div></div>'+
+   '<div><div class="lbl">Waiting</div><div class="v" style="color:var(--hold)">'+wait+'</div></div>'+
+   '<div><div class="lbl">Done this week</div><div class="v" style="color:var(--up)">'+done+'</div></div>'+
+   '<div><div class="lbl">Agents active</div><div class="v">4<s>/5</s></div></div>'+
+   '</div>'+
+   '<div class="cc-sec"><div class="cc-h"><h3>Jump to an agent</h3>'+
+   '<button class="btn sm" onclick="openMod(\'agents\')"><span data-ic="plus2"></span>Add agents</button></div>'+
+   '<div class="sc-row">'+
+   '<div class="sc ae" onclick="go(\'ag\',\'aether\')"><span class="si">\u00c6</span>Ask Aether</div>'+
+   Object.keys(AGENTS).filter(function(k){return k!=='aether'}).map(function(k){
+     return '<div class="sc" onclick="go(\'ag\',\''+k+'\')"><span class="si">'+AGENTS[k].ic+'</span>'+AGENTS[k].n+'</div>'}).join('')+
+   LOCKED.map(function(l){
+     return '<div class="sc lk" onclick="openMod(\'agents\')"><span class="si">'+l.ic+'</span>'+l.n+
+      '<span data-ic="lock" style="margin-left:2px"></span></div>'}).join('')+
+   '</div></div>'+
+   '<div class="cc-sec"><div class="cc-h"><h3>Agents activity</h3>'+
+   '<span class="sub" style="font-size:11.5px">What each one is working on right now</span></div><div class="lane">'+
+   WORK.map(function(w){
+     return '<div class="lc"><div class="lh"><span class="si" style="width:19px;height:19px;border-radius:5px;'+
+      'background:var(--c650);color:var(--pale);display:flex;align-items:center;justify-content:center;'+
+      'font-family:Sora;font-size:9px">'+w.ic+'</span><b>'+w.ag+'</b></div>'+
+      '<p style="font-size:11.5px;color:var(--dim);margin:0 0 8px">'+w.now+'</p>'+
+      w.items.map(function(i){return '<div class="li">'+i+'</div>'}).join('')+'</div>'}).join('')+
+   '</div>'+
+   '<div class="cc-sec"><div class="cc-h"><h3>Activity</h3></div>'+
+   '<div id="cc-tabs">'+ccTabs()+'</div>'+
+   '<div class="feed" id="cc-feed">'+ccFeed()+'</div></div>';
+  return h+'</div>';}
+function unseen(k){return FEED.filter(function(f){
+  return (k==='all'||f.k===k)&&!f.seen}).length;}
+function ccTabs(){
+  return '<div class="tabs">'+
+   [['all','Everything'],['action','Needs you'],['wait','Waiting'],['done','Done']].map(function(t){
+     var n=unseen(t[0]);
+     return '<div class="tb '+(t[0]===ccTab?'on':'')+'" onclick="setCCTab(\''+t[0]+'\')">'+t[1]+
+       (n?'<span class="nb">'+n+'</span>':'')+'</div>'}).join('')+'</div>';}
+function ccFeed(){
+  return FEED.filter(function(f){return ccTab==='all'||f.k===ccTab}).map(function(f){
+    return '<div class="fi '+(f.k==='action'?'act':'')+'"><span class="fic">'+f.a+'</span>'+
+      '<span class="fb"><b>'+f.t+(f.seen?'':' <span class="chip lv" style="font-size:9px;padding:1px 6px">New</span>')+'</b><p>'+f.b+'</p>'+
+      '<span class="fa"><span class="chip '+(f.k==='action'?'lv':(f.k==='wait'?'hd':'up'))+'">'+
+      (f.k==='action'?'Needs you':(f.k==='wait'?'Waiting':'Done'))+'</span>'+
+      '<span class="chip nt">'+f.ag+'</span>'+
+      f.acts.map(function(a){return '<button class="btn sm" onclick="'+a[1].replace(/"/g,'&quot;')+'">'+a[0]+'</button>'}).join('')+
+      '</span></span><span class="ft">'+f.tm+'</span></div>'}).join('');}
+function setCCTab(k){
+  ccTab=k;
+  FEED.forEach(function(f){if(k==='all'||f.k===k)f.seen=1;});
+  document.getElementById('cc-tabs').innerHTML=ccTabs();
+  document.getElementById('cc-feed').innerHTML=ccFeed();
+  var b=document.querySelector('#nav-top .nv .bdg');if(b)b.textContent=newCount();
+  hydrate(document.getElementById('cc-feed'));}
+
+/* ---------- VIEW · AETHER CHAT (home) ---------- */
+function V_AETHER(){
+  return '<div class="msgs" id="cmsgs">'+
+   bubble('Aether','\u00c6',
+    '<p>I am Aether. I hold the venture state for <strong>'+
+    VENTURES.filter(function(v){return v.id===CUR})[0].n+
+    '</strong> and I decide which of the five specialist agents should act next.</p>'+
+    '<p>I do three things the others do not. I keep one writer per field, so no two agents can quietly overwrite each other. '+
+    'I surface contradictions instead of resolving them silently. And I answer questions that span several agents at once.</p>'+
+    '<p style="color:var(--graphite);font-size:12.5px">Right now, <strong style="color:var(--bone)">'+
+    FEED.filter(function(f){return f.k==='action'}).length+
+    ' things need you</strong> \u2014 the Command Center has them in order.</p>'+
+    '<div class="sugg">'+
+    ['What should I do this week?','What is blocking the raise?','Where do my outputs disagree?','Show me the Command Center']
+      .map(function(s){return '<button class="sg" onclick="askChat(this.textContent)">'+s+'</button>'}).join('')+
+    '</div>')+'</div>';}
+
+/* ---------- MODAL · MY VENTURES ---------- */
+function ventBody(){
+  var tot=VENTURES.length, avg=Math.round(VENTURES.reduce(function(a,v){return a+v.score},0)/tot);
+  var pipe=VENTURES.reduce(function(a,v){return a+v.pipe},0);
+  var flags=VENTURES.reduce(function(a,v){return a+v.flags},0);
+  return '<div class="cc-hero" style="margin-bottom:14px">'+
+   '<div><div class="lbl">Ventures</div><div class="v">'+tot+'</div><div class="c">1 active</div></div>'+
+   '<div><div class="lbl">Avg score</div><div class="v">'+avg+'<s>/100</s></div><div class="c">portfolio</div></div>'+
+   '<div><div class="lbl">In pipeline</div><div class="v">'+pipe+'</div><div class="c">investors</div></div>'+
+   '<div><div class="lbl">Blocking</div><div class="v" style="color:var(--down)">'+flags+'</div><div class="c">across portfolio</div></div>'+
+   '</div>'+
+   '<p class="sub" style="font-size:11.5px;margin-bottom:12px">Selecting a venture switches the entire platform to it \u2014 agents, files, pipeline and venture file.</p>'+
+   '<div class="vg">'+
+   VENTURES.map(function(v){
+     return '<div class="vc '+(v.id===CUR?'on':'')+'" onclick="pickVenture(\''+v.id+'\')">'+
+      '<div class="vh"><span class="vi">'+v.ic+'</span><span style="flex:1 1 auto;min-width:0">'+
+      '<b>'+v.n+'</b><span>'+v.s+'</span></span>'+
+      (v.id===CUR?'<span class="chip up"><span class="d"></span>Active</span>':'')+'</div>'+
+      '<div class="vm"><div><div class="k">Score</div><div class="n">'+v.score+' <s style="font-size:10px;color:var(--graphite)">\u00b7 '+v.conf+'</s></div></div>'+
+      '<div><div class="k">Stage</div><div class="n" style="font-size:11px">'+v.stage+'</div></div>'+
+      '<div><div class="k">Raise</div><div class="n" style="font-size:11px">'+v.raise+'</div></div>'+
+      '<div><div class="k">Blocking</div><div class="n" style="color:'+(v.flags>2?'var(--down)':'var(--hold)')+'">'+v.flags+'</div></div>'+
+      '</div></div>'}).join('')+
+   '<div class="addv" onclick="addVenture()"><span data-ic="plus2"></span>'+
+   '<b style="font-size:13px;color:var(--dim)">Add a venture</b>'+
+   '<span style="font-size:11.5px">Identity and Assessment agents run it in, same as the first one.</span></div>'+
+   '</div>';}
+function pickVenture(id){
+  CUR=id;var v=VENTURES.filter(function(x){return x.id===id})[0];
+  VENTURES.forEach(function(x){x.active=x.id===id?1:0});
+  closeMod();initApp();toast('Switched to '+v.n);}
+function addVenture(){closeMod();
+  toast('Starting Identity agent for a new venture');
+  onbStep=0;var m=document.getElementById('onb-msgs');m.innerHTML='';delete m.dataset.init;
+  show('sc-onb');initOnb();}
 
 /* ---------- VIEW · SUB-AGENT CHAT ---------- */
 function V_SUBCHAT(k,sub,ctxArg){
