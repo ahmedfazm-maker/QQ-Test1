@@ -635,6 +635,39 @@ color:var(--graphite);cursor:pointer;display:flex;align-items:center;justify-con
 .crumb .cs{color:var(--c600);flex:0 0 auto}
 .crumb .cn2{font-size:13.5px;color:var(--bone);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(max-width:820px){.crumb .cp{display:none}.crumb .cs{display:none}}
+
+/* ---------- guided flow rail ---------- */
+.flow-head{position:sticky;top:0;z-index:12;margin:-4px 0 4px;
+background:linear-gradient(to bottom,var(--carbon) 78%,transparent)}
+.rail-w{border:1px solid var(--c650);border-radius:11px;background:var(--c800);padding:11px 13px}
+.rail-w.done{border-color:rgba(0,229,160,.3)}
+.rail-t{font-family:'JetBrains Mono';font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+color:var(--pale);margin-bottom:9px}
+.rail-w.done .rail-t{color:var(--up)}
+.rail-s{display:flex;gap:0;flex-wrap:wrap}
+.rs{display:flex;align-items:center;gap:7px;flex:1 1 auto;min-width:0;padding-right:12px;position:relative}
+.rs:not(:last-child)::after{content:"";position:absolute;right:5px;top:50%;width:6px;height:1px;background:var(--c600)}
+.rs .rd{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--c600);flex:0 0 auto}
+.rs .rn{font-size:11px;color:var(--graphite);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rs.on .rd{background:var(--lime);border-color:var(--lime);box-shadow:0 0 0 3px rgba(198,255,52,.16)}
+.rs.on .rn{color:var(--bone);font-weight:500}
+.rs.dn .rd{background:var(--up);border-color:var(--up)}
+.rs.dn .rn{color:var(--dim)}
+@media(max-width:820px){.rail-s{gap:5px 0}.rs{flex:0 0 50%;padding-right:8px}.rs::after{display:none}}
+.ask{margin-top:13px;padding:11px 13px;border-radius:10px;background:rgba(198,255,52,.07);
+border:1px solid rgba(198,255,52,.24);font-size:13px;color:var(--bone)}
+.sg.go{border-color:rgba(198,255,52,.45);color:var(--bone);background:rgba(198,255,52,.08)}
+.sg.go:hover{background:rgba(198,255,52,.14)}
+
+/* ---------- human gate ---------- */
+.gate-b{display:flex;align-items:center;gap:8px;margin-top:13px;padding:8px 12px;border-radius:9px 9px 0 0;
+background:rgba(255,176,32,.11);border:1px solid rgba(255,176,32,.32);border-bottom:0;
+font-family:'JetBrains Mono';font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--hold)}
+.gate-b .gd{width:6px;height:6px;border-radius:50%;background:var(--hold);flex:0 0 auto}
+.gate-b .gx{margin-left:auto;letter-spacing:.04em;text-transform:none;color:var(--graphite);font-size:9.5px}
+.ask.gate{background:rgba(255,176,32,.06);border-color:rgba(255,176,32,.28);border-radius:0 0 10px 10px;margin-top:0}
+.chg{display:block;margin-top:7px;padding-top:7px;border-top:1px dashed var(--c600);
+font-size:11.5px;color:var(--graphite)}
 </style>
 </head><body>
 
@@ -2106,76 +2139,489 @@ function addVenture(){closeMod();
   onbStep=0;var m=document.getElementById('onb-msgs');m.innerHTML='';delete m.dataset.init;
   show('sc-onb');initOnb();}
 
+/* ================= BUILD AGENT · GUIDED FRAMEWORK FLOWS =================
+   Each Build sub-agent walks its framework step by step. The agent produces the
+   step's output, states what it needs from the founder, and will not advance
+   until that decision is made.                                              */
 
-/* ---------- framework-grounded openers ---------- */
+const FLOWS={
+
+'Ideation':{fw:'F_03',steps:[
+ {n:'Market targeting',fw:'F_03A',
+  body:'<p>Step one of four. A problem cannot be defined without an owner, so I segment first and pick a beachhead.</p>'+
+   '<p>From the market context, four candidate segments:</p>'+
+   '<div class="tw"><table><thead><tr><th>Segment</th><th class="r">Orgs</th><th class="r">Vehicles</th><th>Reachable</th></tr></thead><tbody>'+
+   '<tr class="hi"><td>Mid-size distributors, 20\u2013150 vehicles</td><td class="num">34</td><td class="num">952</td><td>Directly, by name</td></tr>'+
+   '<tr><td>Large distributors, 150+</td><td class="num">6</td><td class="num">890</td><td>Procurement cycle, 9\u201318 months</td></tr>'+
+   '<tr><td>Hospital pharmacies</td><td class="num">41</td><td class="num">210</td><td>Tender only</td></tr>'+
+   '<tr><td>Third-party logistics</td><td class="num">21</td><td class="num">126</td><td>Sub-contracted, no budget</td></tr>'+
+   '</tbody></table></div>'+
+   '<p>I have selected the first as beachhead on three grounds: every buyer can be named, the decision sits with one operations director, and all eleven validation interviews came from it.</p>',
+  ask:'The framework will not let me define a problem from a segment I cannot reach. Do you agree the beachhead is right?',
+  changes:'Bounds every framework after this one: problem definition, sizing, pricing and the financial model.',
+  sg:['Agree \u2014 recommended','Challenge the beachhead','Show the excluded segments'],
+  ack:'<p>Beachhead recorded: <strong>34 mid-size distributors, 952 vehicles, EGP 7.43M</strong>. Every downstream framework is now bounded by this.</p>'},
+ {n:'Problem definition',fw:'F_03B',
+  body:'<p>Step two. Problems come from three sources and I keep them separate, because a problem you inferred is not a problem someone told you.</p>'+
+   '<div class="tw"><table><thead><tr><th>Problem</th><th>Source</th><th class="r">Severity</th><th class="r">Frequency</th></tr></thead><tbody>'+
+   '<tr class="hi"><td>Losses have no location</td><td>Stated, 9 of 11</td><td class="num">4.6</td><td class="num">Monthly</td></tr>'+
+   '<tr class="hi"><td>Inspection records rebuilt by hand</td><td>Observed, 2 sites</td><td class="num">4.1</td><td class="num">3\u00d7/year</td></tr>'+
+   '<tr><td>Driver accountability disputes</td><td>Inferred</td><td class="num">2.8</td><td class="num">Occasional</td></tr>'+
+   '<tr><td>Insurance claims rejected</td><td>Stated, 2 of 11</td><td class="num">3.2</td><td class="num">Rare</td></tr>'+
+   '</tbody></table></div>'+
+   '<p>Two clear the shortlist bar. The third is inferred and I will not carry an inferred problem into ideation, so it is recorded and parked.</p>',
+  ask:'Shortlist the top two and move to concept ideation?',
+  changes:'Decides which problems get a solution. A problem dropped here is not revisited unless you reopen this step.',
+  sg:['Shortlist both \u2014 recommended','Only the first one','Reinstate the inferred one'],
+  ack:'<p>Two problems shortlisted, both evidenced. The inferred one stays on file as a recorded gap, not a deletion.</p>'},
+ {n:'Concept ideation',fw:'F_03C',
+  body:'<p>Step three. One solution per problem, in the same order, then a single concept that holds them together.</p>'+
+   '<div class="grid g2" style="margin:12px 0">'+
+   '<div class="card on"><h4>Handover Record</h4><p class="sub" style="margin-top:5px">A sensor in each cold vehicle and a scan at every custody handover. An excursion falls inside a known leg, with a known handler, at a known place.</p>'+
+   '<span class="src" style="margin-top:7px">Answers problem 1</span></div>'+
+   '<div class="card on"><h4>Compliance File</h4><p class="sub" style="margin-top:5px">The inspection history assembles itself from the same record. Current at any moment, gaps declared.</p>'+
+   '<span class="src" style="margin-top:7px">Answers problem 2</span></div></div>'+
+   '<p><strong>Concept:</strong> the cold-chain record that tells a distributor <em>where</em> a loss happened, not just that one did.</p>',
+  ask:'The framework requires one concept statement a customer could repeat back. Does this one hold?',
+  changes:'Becomes the concept every later framework builds on, and the sentence you repeat in every meeting.',
+  sg:['Take it to validation \u2014 recommended','Rewrite the concept','Add a third solution'],
+  ack:'<p>Concept recorded. Note that it is currently <span class="chip nt">Asserted</span> \u2014 it becomes evidenced only after step four.</p>'},
+ {n:'Validation',fw:'F_03D',
+  body:'<p>Step four, and the one that decides whether any of the above is real.</p>'+
+   '<p>I ran the simulation first and then eleven real interviews across eight companies. <strong>I keep them in separate columns and never average them.</strong></p>'+
+   '<div class="tw"><table><thead><tr><th>Aspect</th><th class="r">Simulated</th><th class="r">Real</th><th>Gap</th></tr></thead><tbody>'+
+   '<tr><td>Problem recognised unprompted</td><td class="num">7 / 10</td><td class="num">9 / 11</td><td>Simulation understated it</td></tr>'+
+   '<tr><td>Currently spending on a workaround</td><td class="num">6 / 10</td><td class="num">10 / 11</td><td>Simulation understated it</td></tr>'+
+   '<tr class="bad"><td>Would pay the asking price</td><td class="num">8 / 10</td><td class="num">4 / 11</td><td>Simulation was wrong</td></tr>'+
+   '<tr><td>Expects a paid pilot first</td><td class="num">3 / 10</td><td class="num">10 / 11</td><td>Simulation missed it entirely</td></tr>'+
+   '</tbody></table></div>'+
+   '<div class="find c"><b>The simulation was wrong about the thing that matters</b>'+
+   '<p>It said eight in ten would pay. Four in eleven said so, and ten of eleven expect a pilot first. Had we planned from the simulated numbers, the commercial model would have been built on a false conversion rate.</p></div>',
+  gate:'validation_verdict',
+  ask:'This is a human gate, not a step I can pass on your behalf. Kill, pivot or proceed?',
+  changes:'Nothing downstream runs until this is answered. Proceed commits the platform to building against this concept.',
+  sg:['Proceed \u2014 recommended','Pivot the concept','Kill it'],
+  ack:'<p><strong>Ideation complete.</strong> Problem evidenced, concept defined, validation real rather than simulated, and the commercial entry point corrected before it cost you anything.</p>',
+  done:1,art:['Ideation \u2014 Sanad','F_03A\u2013D \u00b7 4 SECTIONS']}
+]},
+
+'Market context':{fw:'F_04A',steps:[
+ {n:'Value stream',fw:'F_04A.1',
+  body:'<p>Step one of five. Before sizing anything I map how value actually moves, because the transfer points are where the losses happen and where you can insert.</p>'+
+   '<div class="rail" style="margin-top:10px">'+
+   '<div class="ph"><div><div class="pn">1</div></div><div><h4>Manufacturer release</h4><p class="sub">Temperature-controlled, documented</p></div></div>'+
+   '<div class="ph"><div><div class="pn">2</div></div><div><h4>Distributor intake</h4><p class="sub">First transfer point \u00b7 custody changes</p></div></div>'+
+   '<div class="ph"><div><div class="pn">3</div></div><div><h4>Depot storage</h4><p class="sub">Monitored, generally well</p></div></div>'+
+   '<div class="ph"><div><div class="pn">4</div></div><div><h4>Vehicle loading</h4><p class="sub">Second transfer point \u00b7 unmonitored</p></div></div>'+
+   '<div class="ph"><div><div class="pn">5</div></div><div><h4>Delivery leg</h4><p class="sub">Third transfer point \u00b7 unmonitored</p></div></div>'+
+   '<div class="ph"><div><div class="pn">6</div></div><div><h4>Pharmacy receipt</h4><p class="sub">Signed for, rarely verified</p></div></div>'+
+   '</div><p style="margin-top:10px">Three transfer points are unmonitored. That is the whole opportunity.</p>',
+  ask:'Confirm the value stream before I segment against it?',
+  changes:'The transfer points drive the opportunity. An error here propagates into segmentation and product.',
+  sg:['Confirmed','Add a step','Question step 4'],
+  ack:'<p>Value stream recorded with three named transfer points.</p>'},
+ {n:'Segmentation',fw:'F_04A.2',
+  body:'<p>Step two. Four segments compared on identical attributes, because segments compared on different criteria cannot be ranked.</p>'+
+   '<div class="tw"><table><thead><tr><th>Segment</th><th class="r">Orgs</th><th>Buying decision</th><th>Budget holder</th></tr></thead><tbody>'+
+   '<tr class="hi"><td>Mid-size distributors</td><td class="num">34</td><td>Single approver</td><td>Operations director</td></tr>'+
+   '<tr><td>Large distributors</td><td class="num">6</td><td>Committee, 9\u201318 mo</td><td>Procurement</td></tr>'+
+   '<tr><td>Hospital pharmacies</td><td class="num">41</td><td>Public tender</td><td>Ministry</td></tr>'+
+   '<tr><td>Third-party logistics</td><td class="num">21</td><td>Pass-through</td><td>Their client</td></tr>'+
+   '</tbody></table></div>',
+  ask:'Proceed to sizing on the mid-size segment?',
+  changes:'Sizing, pricing and the go-to-market motion are all scoped to the segment chosen here.',
+  sg:['Yes, size it','Size all four','Reconsider hospitals'],
+  ack:'<p>Segmentation recorded. Sizing will be counted per monitored vehicle, not estimated as a share of a published total.</p>'},
+ {n:'Market size',fw:'F_04A.3',
+  body:'<p>Step three, and the one your deck got wrong by 31\u00d7.</p>'+
+   '<div class="hero" style="margin:10px 0">'+
+   '<div><div class="lbl">TAM</div><div class="v">17.0<s>M</s></div><div class="c">102 orgs \u00b7 2,178 vehicles</div></div>'+
+   '<div><div class="lbl">SAM</div><div class="v">7.43<s>M</s></div><div class="c">34 orgs \u00b7 952 vehicles</div></div>'+
+   '<div><div class="lbl">SOM 3yr</div><div class="v">2.50<s>M</s></div><div class="c">12 orgs at full fleet</div></div>'+
+   '<div><div class="lbl">Method</div><div class="v" style="font-size:13px">Counted</div><div class="c">EDA register</div></div></div>'+
+   '<div class="find c"><b>Your deck says EGP 340M</b><p>That is the entire Egyptian pharmaceutical logistics market. Counted from the EDA licence register at EGP 650 per monitored vehicle, the addressable figure is EGP 17.0M. An investor who checks this in the meeting stops reading.</p></div>',
+  ask:'Replace the 340M figure everywhere it appears?',
+  changes:'Corrects the figure in the deck, the teaser and the assessment. Keeping both leaves a disputed claim on the file.',
+  sg:['Replace everywhere \u2014 recommended','Show me the count','Keep both figures'],
+  ack:'<p>Replaced in every downstream framework and flagged in the assessment as a corrected claim.</p>'},
+ {n:'Market behaviour',fw:'F_04A.4',
+  body:'<p>Step four. Macro and micro trends, each with its effect on this venture stated \u2014 a trend with no stated effect is decoration.</p>'+
+   '<div class="tw"><table><thead><tr><th>Trend</th><th>Effect on Sanad</th><th>Direction</th></tr></thead><tbody>'+
+   '<tr><td>EDA tightening GDP guidance</td><td>Converts records from good practice to obligation</td><td><span class="chip up"><span class="d"></span>Tailwind</span></td></tr>'+
+   '<tr><td>FX pressure on imported hardware</td><td>Sensor cost exposed, single supplier</td><td><span class="chip dn"><span class="d"></span>Headwind</span></td></tr>'+
+   '<tr><td>Consolidation among distributors</td><td>Fewer, larger buyers over time</td><td><span class="chip hd"><span class="d"></span>Both</span></td></tr>'+
+   '</tbody></table></div>',
+  ask:'Continue to the competitive landscape?',
+  changes:'Nothing downstream. This is a confirmation, not a decision.',
+  sg:['Continue','Add a trend','Quantify the FX exposure'],
+  ack:'<p>Behaviour recorded with effects, not just observations.</p>'},
+ {n:'Landscape',fw:'F_04A.5',
+  body:'<p>Step five. Fourteen players across local, regional and global, compared on the same six capabilities.</p>'+
+   '<div class="find"><b>Nobody in this market attributes a loss to a node</b>'+
+   '<p>Eight local and regional players offer continuous logging and alerting. None offers handover attribution. Two global players do \u2014 neither operates here, and one prices for shipments worth over a million dollars.</p></div>'+
+   '<div class="find w"><b>And the durability question</b>'+
+   '<p>A competitor can copy the mechanism. What they cannot copy is eighteen months of a customer\u2019s accumulated inspection record. That is the moat, and it does not exist for eighteen months.</p></div>',
+  ask:'Close market context and write it to the venture file?',
+  changes:'Releases market context to strategy, commercial and the financial model.',
+  sg:['Close it','Add a competitor','Revisit the moat claim'],
+  ack:'<p><strong>Market context complete.</strong> Five sections, sizing counted rather than estimated, and one 31\u00d7 error corrected at source.</p>',
+  done:1,art:['Market Context \u2014 Sanad','F_04A \u00b7 5 SECTIONS']}
+]},
+
+'Strategy':{fw:'F_04B',steps:[
+ {n:'Who and what',fw:'F_04B1.1\u20132',
+  body:'<p>Step one of four. The business model on the St. Gallen Magic Triangle: who, what, how, why. I start downstream because the model is decided by the customer, not by you.</p>'+
+   '<div class="grid g2" style="margin:10px 0">'+
+   '<div class="card"><div class="lbl">Who \u00b7 primary</div><h4>Operations director</h4><p class="sub" style="margin-top:5px">Owns the write-off number. Signs alone below EGP 8,000/month. Judges on whether a loss stops recurring.</p></div>'+
+   '<div class="card"><div class="lbl">Who \u00b7 secondary</div><h4>QA manager</h4><p class="sub" style="margin-top:5px">Owns the inspection file. Does not hold budget. Blocks anything that adds manual work.</p></div></div>'+
+   '<p><strong>What:</strong> three offerings \u2014 the Record (recurring), the Lane Review (engagement), the Compliance File (free, and the retention mechanism).</p>'+
+   '<div class="find w"><b>The value priority inverts between them</b><p>The operations director buys attribution. The QA manager buys the file. Sell the wrong one to the wrong person and the deal stalls without anyone saying why.</p></div>',
+  ask:'Confirm the two segments and three offerings?',
+  changes:'Every offering, price and growth tactic downstream is scoped to the segments confirmed here.',
+  sg:['Confirmed','Drop the free tier','Add a third segment'],
+  ack:'<p>Downstream recorded. Now the upstream half.</p>'},
+ {n:'How and why',fw:'F_04B1.3\u20134',
+  body:'<p>Step two. How it is delivered, and why it makes money.</p>'+
+   '<div class="tw"><table><thead><tr><th>Line</th><th class="r">Price</th><th class="r">Direct cost</th><th class="r">Contribution</th></tr></thead><tbody>'+
+   '<tr class="hi"><td>Record, first 19 vehicles</td><td class="num">EGP 650</td><td class="num">160</td><td class="num">490 \u00b7 75.4%</td></tr>'+
+   '<tr><td>Record, 20 and above</td><td class="num">EGP 560</td><td class="num">160</td><td class="num">400 \u00b7 71.4%</td></tr>'+
+   '<tr><td>Lane Review, quarterly</td><td class="num">EGP 9,000</td><td class="num">2,400</td><td class="num">6,600 \u00b7 73.3%</td></tr>'+
+   '</tbody></table></div>'+
+   '<p>Cost is built from the operations task list rather than estimated. Expansion happens inside the account: pilot to full fleet needs no second sale.</p>',
+  gate:'pricing',
+  ask:'Any pricing decision is a human gate, because it cascades wider than any other single field. Lock these?',
+  changes:'Price is read by commercial, growth, the financial model, the valuation and the cap table. Changing it later re-opens all five.',
+  sg:['Lock them \u2014 recommended','Test a lower price','Recheck the cost build'],
+  ack:'<p>Model complete on all four corners.</p>'},
+ {n:'Direction and roadmap logic',fw:'F_04B2.1\u20132',
+  body:'<p>Step three. Positioning, then how phases are bounded.</p>'+
+   '<div class="find"><b>Phases end on conditions, not dates</b>'+
+   '<p>A date-bounded phase ends whether or not the thing was learned. A condition-bounded phase ends when you know something you did not know before. Every gate below is a state, not a month.</p></div>'+
+   '<p><strong>Mission:</strong> make cold-chain loss attributable, so it can be fixed rather than absorbed.</p>',
+  ask:'Proceed to define the four phases?',
+  changes:'The mission wording is used verbatim in the teaser and the deck.',
+  sg:['Define them','Rewrite the mission','Use dates instead'],
+  ack:'<p>Direction recorded. Governance: eight conditions that force a strategy revisit.</p>'},
+ {n:'Phase definition',fw:'F_04B2.3',
+  body:'<p>Step four. Four phases, each with an exit condition.</p>'+
+   '<div class="rail" style="margin-top:10px">'+
+   '<div class="ph"><div><div class="pn">Phase 1</div><div class="pd">M1\u20135</div></div><div><h4>Prove attribution changes behaviour</h4><p class="sub">Ends when: 3 paying customers, each has acted on an attributed finding, one agrees to be named</p></div></div>'+
+   '<div class="ph"><div><div class="pn">Phase 2</div><div class="pd">M6\u201314</div></div><div><h4>Prove it sells without the founder</h4><p class="sub">Ends when: 8 customers, 3 closed by a non-founder, 1 expanded to full fleet</p></div></div>'+
+   '<div class="ph"><div><div class="pn">Phase 3</div><div class="pd">M15\u201326</div></div><div><h4>Prove it holds and expands</h4><p class="sub">Ends when: 18 customers, 85% retention, non-pharma pilot reported</p></div></div>'+
+   '<div class="ph"><div><div class="pn">Phase 4</div><div class="pd">M27\u201336</div></div><div><h4>Decide which business this is</h4><p class="sub">Own the category, or fund a second vertical on phase 3 evidence</p></div></div>'+
+   '</div>'+
+   '<div class="find w"><b>Phase 1 is five months because of a constraint, not an estimate</b><p>It is bounded by Karim\u2019s six-month commitment, recorded at onboarding. If that changes, this phase changes.</p></div>',
+  ask:'Close strategy and write it to the venture file?',
+  changes:'Phase gates become the milestones in the pitch deck and the use of funds.',
+  sg:['Close it','Extend phase 1','Revisit phase 4'],
+  ack:'<p><strong>Strategy complete.</strong> Model on four corners, four phases with state triggers, eight revisit conditions.</p>',
+  done:1,art:['Strategy \u2014 Sanad','F_04B1\u20132 \u00b7 9 SECTIONS']}
+]},
+
+'Tactical context':{fw:'F_04C',steps:[
+ {n:'Brand and product',fw:'F_04C1\u20132',
+  body:'<p>Eight tactical frameworks, run in dependency order. Brand and product first, because everything commercial depends on what the thing is.</p>'+
+   '<div class="tw"><table><thead><tr><th>Framework</th><th>Produced</th><th>Status</th></tr></thead><tbody>'+
+   '<tr><td>C1 Brand infrastructure</td><td>Persona, tone, factors for logo, colour and type</td><td><span class="chip up"><span class="d"></span>Complete</span></td></tr>'+
+   '<tr><td>C2 Product design</td><td>24 features, build/buy/integrate per feature, AI leverage</td><td><span class="chip up"><span class="d"></span>Complete</span></td></tr>'+
+   '</tbody></table></div>'+
+   '<p>Brand deliberately stops before hex values and letterforms \u2014 those belong to the Brand Development agent.</p>',
+  ask:'Continue to commercial and growth?',
+  changes:'Nothing downstream. Confirmation only.',
+  sg:['Continue','Review the feature list','Question the AI leverage'],
+  ack:'<p>Two of eight complete.</p>'},
+ {n:'Commercial and growth',fw:'F_04C3\u20134',
+  body:'<p>Pricing architecture with a floor and a ceiling, then the acquisition motion.</p>'+
+   '<div class="find"><b>The pricing floor and ceiling are both derived, not chosen</b>'+
+   '<p>Floor: direct cost plus the margin the financial model needs. Ceiling: the operations director\u2019s single-signature approval limit, EGP 8,000 per month. The entry offer sits deliberately below it at EGP 6,500 so one person can say yes.</p></div>'+
+   '<div class="find w"><b>The pilot fails its own payback rule</b><p>12.4 months against a 9-month tolerance. Kept deliberately, because the pilot is sold on substitution of an existing cost, not on return.</p></div>',
+  gate:'pricing',
+  ask:'This is a pricing decision, so it is a human gate. Accept the architecture?',
+  changes:'Price is read by the business model, growth, the financial model, the valuation and the cap table. Changing it later re-opens all five.',
+  sg:['Accept \u2014 recommended','Raise the entry price','Fix the payback'],
+  ack:'<p>Four of eight complete.</p>'},
+ {n:'Operations, legal, org and BI',fw:'F_04C5\u20138',
+  body:'<p>The last four. Operations produces the task list that everything downstream costs from.</p>'+
+   '<div class="tw"><table><thead><tr><th>Framework</th><th>Produced</th><th>Status</th></tr></thead><tbody>'+
+   '<tr><td>C5 Operations</td><td>23 tasks with load, owner and automation level</td><td><span class="chip up"><span class="d"></span>Complete</span></td></tr>'+
+   '<tr class="bad"><td>C6 Legal</td><td>Structure, IP, contracts \u2014 and the blocking chain</td><td><span class="chip dn"><span class="d"></span>15%</span></td></tr>'+
+   '<tr><td>C7 Org and HR</td><td>Positions derived from task load, AI agents as positions</td><td><span class="chip up"><span class="d"></span>Complete</span></td></tr>'+
+   '<tr><td>C8 Business intelligence</td><td>23 KPIs, 5 without a data source, declared</td><td><span class="chip hd"><span class="d"></span>88%</span></td></tr>'+
+   '</tbody></table></div>'+
+   '<div class="find c"><b>Legal is at 15% and it is blocking the other seven from mattering</b>'+
+   '<p>No entity, no IP assignment, no founders agreement. I have left the section open rather than marking it complete with gaps, because a tactical plan that assumes a company exists is a plan for a different venture.</p></div>',
+  ask:'Close tactical context with legal open, or work on legal now?',
+  changes:'Legal blocks the raise, the IP position and every customer contract. Leaving it open keeps it visible in the Command Center.',
+  sg:['Work on legal now \u2014 recommended','Close with legal open','Show the blocking chain'],
+  ack:'<p><strong>Tactical context complete at 88%.</strong> Seven of eight closed. Legal stays open and visible rather than quietly marked done.</p>',
+  done:1,art:['Tactical Context \u2014 Sanad','F_04C1\u20138 \u00b7 8 SECTIONS']}
+]},
+
+'Financial model':{fw:'F_04D',steps:[
+ {n:'Assumptions',fw:'F_04D.2',
+  body:'<p>Step one of four. Every number in the model traces to one of 56 editable assumptions. Change one and the whole thing recalculates.</p>'+
+   '<div class="tw"><table><thead><tr><th>Assumption</th><th class="r">Value</th><th>Basis</th></tr></thead><tbody>'+
+   '<tr class="hi"><td>Walkthroughs per month</td><td class="num">4</td><td><span class="chip hd"><span class="d"></span>Assumed</span></td></tr>'+
+   '<tr class="hi"><td>Walkthrough to pilot</td><td class="num">33%</td><td><span class="chip hd"><span class="d"></span>Assumed</span></td></tr>'+
+   '<tr><td>Pilot to annual</td><td class="num">70%</td><td><span class="chip nt">1 of 2 historic</span></td></tr>'+
+   '<tr><td>Price per vehicle</td><td class="num">EGP 650</td><td><span class="chip up"><span class="d"></span>Derived</span></td></tr>'+
+   '<tr><td>Direct cost per vehicle</td><td class="num">EGP 160</td><td><span class="chip up"><span class="d"></span>Quoted</span></td></tr>'+
+   '</tbody></table></div>'+
+   '<div class="find w"><b>The two most sensitive inputs have no baseline</b><p>Walkthroughs per month and walkthrough-to-pilot are both assumed. Every revenue figure downstream inherits that uncertainty, and I will keep saying so rather than letting the model look more solid than it is.</p></div>',
+  ask:'Build the revenue model on these assumptions?',
+  changes:'Every revenue figure in the model, the valuation and the pitch deck inherits these two inputs.',
+  sg:['Build it','Lower the conversion','Show the sensitivity'],
+  ack:'<p>Assumptions locked and marked with their basis.</p>'},
+ {n:'Revenue and expenses',fw:'F_04D.3\u20135',
+  body:'<p>Step two. Revenue built customer by customer, expenses from the operations task list and the hiring plan.</p>'+
+   '<div class="tw"><table><thead><tr><th>EGP</th><th class="r">Year 1</th><th class="r">Year 2</th><th class="r">Year 3</th></tr></thead><tbody>'+
+   '<tr><td>Customers at year end</td><td class="num">6</td><td class="num">16</td><td class="num">24</td></tr>'+
+   '<tr class="hi"><td>Revenue</td><td class="num">493,709</td><td class="num">2,034,342</td><td class="num">3,946,867</td></tr>'+
+   '<tr><td>Gross margin</td><td class="num">79.5%</td><td class="num">51.8%</td><td class="num">59.0%</td></tr>'+
+   '<tr class="bad"><td>HR as % of revenue</td><td class="num">312%</td><td class="num">142%</td><td class="num">92%</td></tr>'+
+   '</tbody></table></div>',
+  ask:'Continue to the statements?',
+  changes:'Nothing downstream. Confirmation only.',
+  sg:['Continue','Cut the hiring plan','Question year 3'],
+  ack:'<p>Revenue and expenses built. HR at 92% of year-three revenue is the number to watch.</p>'},
+ {n:'Statements and KPIs',fw:'F_04D.6\u20139',
+  body:'<p>Step three. All three statements, monthly across 36 months, plus six KPI groups.</p>'+
+   '<div class="hero" style="margin:10px 0">'+
+   '<div><div class="lbl">Peak funding</div><div class="v">7.44<s>M</s></div><div class="c">EGP</div></div>'+
+   '<div><div class="lbl">Cash trough</div><div class="v" style="color:var(--down)">\u22122.08<s>M</s></div><div class="c">month 36</div></div>'+
+   '<div><div class="lbl">Breakeven</div><div class="v" style="font-size:14px">Not reached</div><div class="c">within 36 months</div></div>'+
+   '<div><div class="lbl">Formulas</div><div class="v">4,278</div><div class="c">live</div></div></div>'+
+   '<div class="find c"><b>Two contradictions I will not resolve for you</b>'+
+   '<p>Your strategy document says the raise is EGP 4.55M. The model says 7.44M. And year-three revenue is <strong>158% of your own three-year obtainable market</strong>. One figure in each pair is wrong, and which one changes different things downstream.</p></div>',
+  ask:'Both contradictions need a decision from you. Take them now or record and continue?',
+  changes:'I will not resolve either one myself. Which figure is wrong changes different things downstream.',
+  sg:['Record and continue \u2014 recommended','Fix the raise figure','Recheck the SOM'],
+  ack:'<p>Both recorded as open contradictions, visible in the Command Center and on the venture file.</p>'},
+ {n:'Scenarios',fw:'F_04D.9',
+  body:'<p>Step four. Eight scenarios against the base case.</p>'+
+   '<div class="tw"><table><thead><tr><th>Scenario</th><th class="r">Peak funding</th><th>Breakeven</th></tr></thead><tbody>'+
+   '<tr><td>Base</td><td class="num">7.44M</td><td>Not in 36 mo</td></tr>'+
+   '<tr class="hi"><td>6 walkthroughs/month</td><td class="num">5.50M</td><td>Not in 36 mo</td></tr>'+
+   '<tr><td>Conversion at 20%</td><td class="num">9.10M</td><td>Not in 36 mo</td></tr>'+
+   '<tr><td>Hiring delayed 6 months</td><td class="num">6.10M</td><td>Month 34</td></tr>'+
+   '</tbody></table></div>'+
+   '<div class="find w"><b>The best case still does not reach sustained breakeven</b><p>Even at six walkthroughs a month it needs EGP 5.5M and does not break even inside 36 months. That is a structural finding about the size of the market, not an execution problem.</p></div>',
+  gate:'funding_requirement',
+  ask:'Accepting the funding requirement is a human gate. Which case are you raising against?',
+  changes:'The valuation and cap table frameworks both read this figure. It sets your dilution.',
+  sg:['Staged, EGP 3.2M \u2014 recommended','Base case, EGP 7.44M','Downside, EGP 9.1M'],
+  ack:'<p><strong>Financial model complete.</strong> 56 assumptions, 4,278 formulas, three statements, eight scenarios, two open contradictions preserved rather than smoothed over.</p>',
+  done:1,art:['Financial Model \u2014 Sanad','F_04D \u00b7 36 MONTHS']}
+]}
+};
+
+/* ---------- guided flow engine ---------- */
+var FL=null;      // active flow
+var FLI=0;        // current step index
+var FLK='';       // sub-agent name
+
+function flowRail(){
+  if(!FL)return '';
+  return '<div class="rail-w"><div class="rail-t">'+FL.fw+' \u00b7 step '+(FLI+1)+' of '+FL.steps.length+'</div>'+
+   '<div class="rail-s">'+FL.steps.map(function(s,i){
+     var cls=i<FLI?'dn':(i===FLI?'on':'');
+     return '<div class="rs '+cls+'"><span class="rd"></span><span class="rn">'+s.n+'</span></div>'}).join('')+
+   '</div></div>';}
+
+function startFlow(sub){
+  FL=FLOWS[sub];FLI=0;FLK=sub;
+  var a=AGENTS['build'];
+  var h='<div class="msgs" id="cmsgs">';
+  h+='<div class="flow-head" id="flow-rail">'+flowRail()+'</div>';
+  h+=bubble(a.n+' agent \u00b7 '+sub,a.ic,
+    '<p>I do not wait to be asked. '+sub+' runs in '+FL.steps.length+
+    ' steps and I have started step one.</p>'+
+    '<p style="color:var(--graphite);font-size:12.5px">I will produce each step, then stop and ask you the one thing the framework needs from you. '+
+    'I will not advance past a decision that is yours.</p>');
+  h+=stepBubble(FL.steps[0]);
+  return h+'</div>';}
+
+function stepBubble(st){
+  var a=AGENTS['build'];
+  return bubble(a.n+' agent \u00b7 '+FLK,a.ic,
+    '<div class="lbl" style="margin-bottom:7px;color:var(--pale)">'+st.fw+' \u00b7 '+st.n+'</div>'+
+    st.body+
+    (st.gate?'<div class="gate-b"><span class="gd"></span>Human gate \u00b7 '+st.gate+
+      '<span class="gx">the platform waits here</span></div>':'')+
+    '<div class="ask'+(st.gate?' gate':'')+'">'+st.ask+
+      (st.changes?'<span class="chg">'+st.changes+'</span>':'')+'</div>'+
+    '<div class="sugg">'+st.sg.map(function(s,i){
+      return '<button class="sg'+(i===0?' go':'')+'" onclick="flowAnswer(this.textContent)">'+s+'</button>'}).join('')+'</div>');}
+
+function flowAnswer(txt){
+  var st=FL.steps[FLI];
+  document.querySelectorAll('#cmsgs .sugg').forEach(function(s){s.remove()});
+  push('cmsgs',bubble('Nour Halim','NH','<p>'+esc(txt)+'</p>','u'));
+  var first=st.sg[0];
+  var proceeding=(txt===first);
+  CURIC=AGENTS['build'].ic;
+  think('cmsgs',1000,function(){
+    if(!proceeding){
+      if(st.gate){
+        push('cmsgs',bubble('Build agent \u00b7 '+FLK,AGENTS['build'].ic,
+          '<p><strong>Recorded as your decision on the '+st.gate+' gate.</strong></p>'+
+          '<p>'+gateOutcome(st.gate,txt)+'</p>'+
+          '<p style="color:var(--graphite);font-size:12.5px">Written to state with your name and the time. '+
+          'Every agent that reads this file will see it was chosen, not defaulted.</p>'));
+        return;}
+      push('cmsgs',bubble('Build agent \u00b7 '+FLK,AGENTS['build'].ic,
+        '<p>Recorded, and I am not going to talk you out of it.</p>'+
+        '<p>That is a founder decision and the framework treats it as one. I have logged it against this step with your reasoning, so the next agent that reads this state knows it was chosen rather than defaulted.</p>'+
+        '<div class="sugg"><button class="sg go" onclick="flowAnswer(\''+first.replace(/'/g,"\\'")+'\')">'+
+        first+'</button></div>'));
+      return;}
+    push('cmsgs',bubble('Build agent \u00b7 '+FLK,AGENTS['build'].ic,st.ack));
+    if(st.done){
+      FL.steps[FLI].complete=true;
+      setTimeout(function(){
+        push('cmsgs',bubble('Build agent \u00b7 '+FLK,AGENTS['build'].ic,
+          '<div class="art-open" onclick="openArt(\''+st.art[0]+'\',\''+st.art[1]+'\',flowArt())">'+
+          '<span class="ai" data-ic="doc"></span><span class="at"><b>'+st.art[0]+'</b>'+
+          '<span>'+st.art[1]+'</span></span></div>'+
+          '<p style="margin-top:11px">Written to the venture file. '+nextUp()+'</p>'));
+        FLI=FL.steps.length;
+        var r=document.getElementById('flow-rail');if(r)r.innerHTML=flowRailDone();
+      },900);
+      return;}
+    FLI++;
+    var r=document.getElementById('flow-rail');if(r)r.innerHTML=flowRail();
+    setTimeout(function(){push('cmsgs',stepBubble(FL.steps[FLI]));},700);});}
+
+function flowRailDone(){
+  return '<div class="rail-w done"><div class="rail-t">'+FL.fw+' \u00b7 complete</div>'+
+   '<div class="rail-s">'+FL.steps.map(function(s){
+     return '<div class="rs dn"><span class="rd"></span><span class="rn">'+s.n+'</span></div>'}).join('')+
+   '</div></div>';}
+
+function nextUp(){
+  var order=['Ideation','Market context','Strategy','Tactical context','Financial model'];
+  var i=order.indexOf(FLK);
+  if(i<0||i===order.length-1)return 'That is the last Build framework in sequence.';
+  return 'Next in sequence is <strong>'+order[i+1]+'</strong>.';}
+
+function flowArt(){
+  return '<div class="sec"><div class="sec-t"><span class="n">'+FL.fw+'</span><h2>'+FLK+'</h2>'+
+   '<span class="s">'+FL.steps.length+' sections</span></div>'+
+   FL.steps.map(function(s,i){
+     return '<div class="sec"><div class="sec-t"><span class="n">'+(i+1)+'</span><h2>'+s.n+'</h2>'+
+      '<span class="s">'+s.fw+'</span></div>'+s.body+'</div>'}).join('')+
+   '</div>';}
+
+function gateOutcome(gate,ans){
+  if(gate==='validation_verdict'){
+    if(/pivot/i.test(ans))return 'Pivot recorded. Ideation reopens at step three and the concept is marked superseded rather than deleted, '+
+      'so the reasoning survives. Nothing downstream of validation runs until a new concept clears this gate.';
+    return 'Kill recorded. I am not going to argue with it. The venture file stays intact and the evidence that led here stays readable, '+
+      'which matters if you come back to this problem with a different concept.';}
+  if(gate==='pricing')return 'Price is not locked, so commercial, growth, the financial model, the valuation and the cap table all stay open. '+
+    'I will not build the roadmap on a price you have not accepted.';
+  if(gate==='funding_requirement')return 'Recorded. The valuation and cap table frameworks will read this figure. '+
+    'At this raise against the current midpoint, your dilution changes materially, and I will show you that before you send anything.';
+  return 'Recorded against the gate.';}
+
+
+/* ---------- framework-grounded openers, per each framework's Elicitation sheet ---------- */
 const OPENERS={
- 'Ideation':{p:1,body:
-  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_03 \u00b7 step 1 of 4, market targeting</div>'+
-  '<p>I do not wait to be asked. Ideation runs in four steps and I have started step one.</p>'+
-  '<p><strong>Market targeting.</strong> Before a problem can be defined it needs an owner, so I segment first and pick a beachhead. From the market context I have four candidate segments:</p>'+
-  '<div class="tw"><table><thead><tr><th>Segment</th><th class="r">Orgs</th><th class="r">Vehicles</th><th>Reachable</th></tr></thead><tbody>'+
-  '<tr class="hi"><td>Mid-size distributors, 20\u2013150 vehicles</td><td class="num">34</td><td class="num">952</td><td>Directly, by name</td></tr>'+
-  '<tr><td>Large distributors, 150+</td><td class="num">6</td><td class="num">890</td><td>Procurement cycle, 9\u201318 months</td></tr>'+
-  '<tr><td>Hospital pharmacies</td><td class="num">41</td><td class="num">210</td><td>Tender only</td></tr>'+
-  '<tr><td>Third-party logistics</td><td class="num">21</td><td class="num">126</td><td>Sub-contracted, no budget</td></tr>'+
-  '</tbody></table></div>'+
-  '<p>I have selected the first as the beachhead, on three grounds: every buyer can be named, the decision sits with one operations director, and it is the only segment where all eleven validation interviews came from.</p>'+
-  '<p><strong>Before I move to step two,</strong> I need one thing from you. The framework will not let me define a problem from a segment I cannot reach. Do you agree the beachhead is right?</p>',
-  sg:['Yes, proceed to problem definition','Challenge the beachhead','Show me the excluded segments']},
- 'Market context':{p:1,body:
-  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_04A \u00b7 market assessment, complete</div>'+
-  '<p>Already run. Sizing was counted from the EDA licence register and the distributor directory, per monitored vehicle, not taken as a share of a published total.</p>'+
-  '<div class="hero" style="margin:10px 0"><div><div class="lbl">TAM</div><div class="v">17.0<s>M</s></div></div>'+
-  '<div><div class="lbl">SAM</div><div class="v">7.43<s>M</s></div></div>'+
-  '<div><div class="lbl">SOM 3yr</div><div class="v">2.50<s>M</s></div></div>'+
-  '<div><div class="lbl">Method</div><div class="v" style="font-size:13px">Bottom-up</div></div></div>'+
-  '<p>One thing is unresolved and I will not close it myself: <strong>your financial model reaches 3.95M in year three, which is 158% of the SOM above.</strong> One of the two is wrong.</p>',
-  sg:['Which one is wrong?','Show the sizing method','Recheck the SOM assumption']},
- 'Financial model':{p:1,body:
-  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_04D \u00b7 financial plan, live</div>'+
-  '<p>The model is built and running: 56 assumptions, 4,278 formulas, 36 months. Change any assumption and I will tell you what it does to the trough.</p>'+
-  '<div class="tw"><table><thead><tr><th>Output</th><th class="r">Value</th><th>Status</th></tr></thead><tbody>'+
-  '<tr><td>Peak funding need</td><td class="num">EGP 7.44M</td><td><span class="chip hd"><span class="d"></span>Strategy says 4.55M</span></td></tr>'+
-  '<tr><td>Cash trough</td><td class="num">\u2212EGP 2.08M</td><td><span class="chip nt">month 36</span></td></tr>'+
-  '<tr class="bad"><td>Sustained breakeven</td><td class="num">Not reached</td><td><span class="chip dn"><span class="d"></span>Within 36 months</span></td></tr>'+
-  '</tbody></table></div>'+
-  '<p>The strategy document still carries the old figure. I have not overwritten it, because which number is right is your call, not mine.</p>',
-  sg:['Correct the strategy to 7.44M','What if I raise less?','Show the assumptions']},
- 'Brand development':{p:1,body:
-  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_05A \u00b7 stage 3 of 3, brand manual</div>'+
-  '<p>Logo and palette are both selected, so I have produced the manual across its three sections: logo guidelines, graphic ingredients, applications.</p>'+
-  '<p>One item is carried forward rather than closed: <strong>the trademark search on "Sanad" has not been run.</strong> The manual states it rather than hiding it. Every asset in it is usable today and none of it is protected.</p>',
-  sg:['Open the manual','Run the trademark search','Revisit the palette']},
- 'Strategy':{p:1,body:
-  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_04B \u00b7 business model and strategy, complete</div>'+
-  '<p>Business model is on the St. Gallen Magic Triangle and the roadmap runs in four phases with <strong>state triggers rather than dates</strong>, so a phase ends when a condition is met, not when a quarter closes.</p>'+
-  '<p>Phase 1 is bounded at five months because that is your shortest founder commitment, not because the work takes five months. That is a constraint from onboarding doing its job.</p>',
-  sg:['Show the phase gates','What breaks if Karim leaves?','Revisit the model']},
- 'Tactical context':{p:1,body:
-  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_04C \u00b7 8 frameworks, 7 complete</div>'+
-  '<p>Brand, product, commercial, growth, operations, legal, organisation and business intelligence. Seven are done.</p>'+
-  '<p><strong>Legal is at 15% and it is blocking the other seven from mattering.</strong> No entity, no IP assignment, no founders agreement. I have kept the section open rather than marking it complete with gaps.</p>',
-  sg:['Work on legal','Show the org plan','Why is phase 1 over capacity?']},
- 'Initial assessment':{p:0,body:
+ 'Initial assessment':{body:
   '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_02 \u00b7 initial assessment, archived</div>'+
-  '<p>This was the first independent read, before anything was built: <strong>48 / 100 at confidence 0.38</strong>, nine measures excluded.</p>'+
-  '<p>It is kept unchanged. The final assessment is scored from scratch rather than updated, so this one stays as the baseline it was.</p>',
+  '<p>The first independent read, before anything was built: <strong>48 / 100 at confidence 0.38</strong>, nine measures excluded.</p>'+
+  '<p>It is kept unchanged. The final assessment is scored from scratch rather than updated, so this stays as the baseline it was.</p>'+
+  '<p style="color:var(--graphite);font-size:12.5px">This framework asks the fewest questions of any in the system, deliberately. '+
+  'Its credibility depends on being produced from evidence rather than negotiated with you.</p>',
   sg:['Open the report','What did it get wrong?','Compare with the final']},
- 'Final assessment':{p:0,body:
+
+ 'Final assessment':{body:
   '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_06E \u00b7 final assessment</div>'+
-  '<p><strong>60 / 100 at confidence 0.71.</strong> Scored from scratch. I did not look at the initial score until after I had finished, because anchoring on it would make every judgement an argument with an earlier one.</p>'+
-  '<p>The useful part is what did not move: structural readiness is still 1 of 5, founder alignment is still open, and three measures are still excluded. All three need a paying customer.</p>',
-  sg:['What moved the score?','What is still excluded?','Open the report']},
- 'Valuation':{p:0,body:
+  '<p><strong>60 / 100 at confidence 0.71.</strong> Scored from scratch. I did not look at the initial score until I had finished, '+
+  'because anchoring on it would make every judgement an argument with an earlier one.</p>'+
+  '<div class="ask">Anything produced since the last assessment that I have not seen?'+
+  '<span class="chg">New evidence is read before scoring, never after. After scoring it waits for the next run.</span></div>'+
+  '<p style="margin-top:11px;color:var(--graphite);font-size:12.5px">I will not ask whether you feel you have progressed. '+
+  'Feeling is not evidence, and it contaminates a from-scratch assessment.</p>',
+  sg:['Nothing new, score it','Here is more','What is still excluded?']},
+
+ 'Valuation':{body:
   '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_06B \u00b7 valuation</div>'+
-  '<p>Three methods used, four rejected. Scorecard and Berkus set the range; risk factor summation adjusts it. I rejected DCF, revenue multiple, VC method and asset-based, and the manual requires me to say why.</p>'+
-  '<p>Range is <strong>EGP 6.5M to 12.4M, midpoint 9.0M</strong>. And the sharpest finding in the section: your model needs 7.44M, which at that midpoint is 45.3% of the company.</p>',
-  sg:['Why reject DCF?','Show the risk factors','How do I fix the 45%?']},
- 'Pipeline':{p:0,body:
-  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_06 \u00b7 pipeline</div>'+
+  '<p>Three methods used, four rejected. Scorecard and Berkus set the range; risk factor summation adjusts it. '+
+  'I rejected DCF, revenue multiple, the VC method and asset-based, and the framework requires me to say why for each.</p>'+
+  '<p>Range is <strong>EGP 6.5M to 12.4M, midpoint 9.0M</strong>.</p>'+
+  '<div class="ask">Where do you open, and what is your floor?'+
+  '<span class="chg">Your position is stored separately from the computed range and never reported as the valuation. '+
+  'Conflating them lets a hoped-for number become a reported one.</span></div>'+
+  '<p style="margin-top:11px;color:var(--graphite);font-size:12.5px">I will not ask what you think the company is worth. '+
+  'That anchors the analysis on the answer.</p>',
+  sg:['Open at the midpoint','Open high, floor at 7M','Why reject DCF?']},
+
+ 'Investor materials':{body:
+  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_06A \u00b7 teaser and pitch deck</div>'+
+  '<p>The gate is computed, not negotiated: <strong>60 at confidence 0.71, evidence tier 2</strong>. Teaser and deck both clear it.</p>'+
+  '<p><strong>No number originates here.</strong> Every figure traces to a framework that owns it. If something is wrong on a slide, '+
+  'I correct it at source, never on the slide alone \u2014 two versions of one number circulating in a small market is unrecoverable.</p>'+
+  '<div class="ask">Here is the deck. Anything wrong?'+
+  '<span class="chg">Nothing is released until you approve it. It carries your name, not mine.</span></div>',
+  sg:['Looks right, draft it','Correct a figure','Show the blocking items']},
+
+ 'Data room':{body:
+  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_06C \u00b7 data room</div>'+
+  '<p>Navigation into the underlying work, with honest completeness per section. Two sections are thin: legal at 15%, and the founder record, '+
+  'where one holder of 15% was captured by proxy.</p>'+
+  '<div class="ask">Include the thin sections with completeness stated, or hold them back?'+
+  '<span class="chg">Nothing is ever presented as more complete than it is. An investor finding it themselves is worse than being told.</span></div>',
+  sg:['Include with completeness','Hold them back','Show me what is thin']},
+
+ 'Cap table':{body:
+  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_06C \u00b7 cap table</div>'+
+  '<p>Read from <span class="mono">legal.cap_table</span>. I present it and never write it \u2014 that field is owned by the Build agent, '+
+  'and two agents writing one field is how a cap table becomes untrustworthy.</p>'+
+  '<p>50 / 35 / 15, verbal, no vesting, no entity.</p>'+
+  '<div class="ask">I will show this as undocumented. Confirm?'+
+  '<span class="chg">It is the first thing an investor checks. A claim of documentation without the document is recorded as asserted.</span></div>',
+  sg:['Confirm, show as undocumented','It is documented','What does this cost me?']},
+
+ 'Investment terms':{body:
+  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_06C \u00b7 investment terms</div>'+
+  '<p>What each standard term means at your stage, so you can read a term sheet and know which points are normal.</p>'+
+  '<div class="find c"><b>Not legal advice</b><p>This appears on every rendering without exception. A qualified lawyer in Egypt negotiates '+
+  'the actual document. I will not confirm that a term is fair \u2014 you would be asking because you do not know, and that is what the lawyer is for.</p></div>',
+  sg:['Review the Levant term sheet','What should I push back on?','Explain the option pool']},
+
+ 'Pipeline':{body:
+  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_06D \u00b7 pipeline</div>'+
   '<p>Eleven names across nine stages. One is overdue: <strong>Delta Seed asked for the cap table and diligence has been open five days.</strong></p>'+
-  '<p>I can move a name, log what was said, or tell you who to approach next. I will not send anything on your behalf.</p>',
-  sg:['Who should I approach next?','What is overdue?','Log a call']}};
+  '<p>I can move a name, log what was said, or tell you who to approach next.</p>'+
+  '<div class="find w"><b>I draft, you send</b><p>The agent never contacts an investor. An outbound message under your name that you did not '+
+  'write is a relationship you cannot repair.</p></div>',
+  sg:['Who should I approach next?','What is overdue?','Log a call']},
+
+ 'Founder profile':{body:
+  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_01 \u00b7 sections 2 and 3</div>'+
+  '<p>Two of three founders captured directly. <strong>Yasmine Fouad holds 15% and was captured by proxy</strong>, so her skills are marked '+
+  'unverified and no character reading was taken at all \u2014 a second-hand answer to an indirect question measures the describer, not the subject.</p>'+
+  '<div class="ask">Can I speak to her directly, or does the proxy record stand?'+
+  '<span class="chg">A proxy record is permanently marked and cannot be upgraded by more proxy input. Investors ask about it.</span></div>',
+  sg:['Send her a link','The proxy record stands','What does this cost me?']},
+
+ 'Character & mindset':{body:
+  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_01 \u00b7 section 5</div>'+
+  '<p>Ten dimensions, read through indirect questions. This is the only section in the entire system where I deliberately withhold the '+
+  'purpose of a question, because a founder who knows the dimension answers the dimension rather than the question.</p>'+
+  '<p>The reading is on your file and you can read it. I just would not have told you beforehand.</p>',
+  sg:['Show me the reading','Why indirect?','Re-run it for Karim']},
+
+ 'Constraint set':{body:
+  '<div class="lbl" style="margin-bottom:6px;color:var(--pale)">F_01 \u00b7 section 9</div>'+
+  '<p>Three hard constraints recorded: Karim part-time to month six, no founder capital available, Cairo only.</p>'+
+  '<p>These <strong>block</strong> downstream plans rather than informing them. Phase 1 is five months because of the first one, '+
+  'not because five is a round number.</p>'+
+  '<div class="ask">This set governs every framework after it. Confirm, or amend?'+
+  '<span class="chg">A framework that assumes full-time engineering past month six will be flagged, not quietly built.</span></div>',
+  sg:['Confirm the set','Karim is now full-time','Add a constraint']}
+};
 
 function V_SUBCHAT(k,sub,ctxArg){
   var a=AGENTS[k];var h='<div class="msgs" id="cmsgs">';
@@ -2190,6 +2636,8 @@ function V_SUBCHAT(k,sub,ctxArg){
     var inv=INVESTORS.filter(function(x){return x.n===ctxArg})[0];
     h+=bubble('Nour Halim','NH','<p>Where are we with '+ctxArg+'?</p>','u');
     h+=bubble(a.n+' agent \u00b7 '+sub,a.ic,invReply(inv));}
+  else if(k==='build'&&FLOWS[sub]){
+    return startFlow(sub);}
   else{
     var o=OPENERS[sub];
     if(o){h+=bubble(a.n+' agent \u00b7 '+sub,a.ic,o.body+
